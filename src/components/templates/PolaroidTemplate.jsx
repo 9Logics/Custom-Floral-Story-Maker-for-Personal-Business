@@ -30,10 +30,12 @@ export default function PolaroidTemplate({ products, brandName, ctaText, brandLo
       {/* Header */}
       <div className="text-center mb-4 pt-2 relative z-10">
         
-        {brandLogo && (<img src={brandLogo} alt="Logo" className="w-8 h-8 object-contain mx-auto mb-1" />)}
-        <h1 className="text-[44px] text-[#2c2c2c] font-medium capitalize leading-tight" style={{ fontFamily: 'Nothing You Could Do, cursive' }}>
+        <div className="flex items-center justify-center gap-3">
+          {brandLogo && (<img src={brandLogo} alt="Logo" className="w-9 h-9 object-contain shrink-0" />)}
+          <h1 className="text-[44px] text-[#2c2c2c] font-medium capitalize leading-tight" style={{ fontFamily: 'Nothing You Could Do, cursive' }}>
           {brandName}
         </h1>
+        </div>
         <p className="text-[10px] text-[#8b7e6b] tracking-[0.1em] uppercase font-bold mt-1" style={{ fontFamily: 'Montserrat, sans-serif' }}>
           today's pricing
         </p>

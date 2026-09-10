@@ -30,10 +30,12 @@ export default function EditorialTemplate({ products, brandName, ctaText, brandL
       {/* Header */}
       <div className="mb-2 pt-1 flex flex-col items-center relative z-10">
         
-        {brandLogo && (<img src={brandLogo} alt="Logo" className="w-8 h-8 object-contain mx-auto mb-1" />)}
-        <h1 className="font-serif text-[24px] text-[#fafafa] font-normal capitalize tracking-wide leading-tight" style={{ fontFamily: 'Cinzel, serif' }}>
+        <div className="flex items-center justify-center gap-3">
+          {brandLogo && (<img src={brandLogo} alt="Logo" className="w-9 h-9 object-contain shrink-0" />)}
+          <h1 className="font-serif text-[24px] text-[#fafafa] font-normal capitalize tracking-wide leading-tight" style={{ fontFamily: 'Cinzel, serif' }}>
           {brandName}
         </h1>
+        </div>
         <p className="text-[9px] font-medium uppercase tracking-[0.25em] text-[#d4af37] mt-1.5" style={{ fontFamily: 'Outfit, sans-serif' }}>
           Today's Pricing
         </p>

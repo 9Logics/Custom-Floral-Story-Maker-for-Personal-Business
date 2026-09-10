@@ -30,10 +30,12 @@ export default function ModernTemplate({ products, brandName, ctaText, brandLogo
       {/* Header */}
       <div className="mb-4 pt-2 z-10 flex flex-col items-center">
         
-        {brandLogo && (<img src={brandLogo} alt="Logo" className="w-8 h-8 object-contain mx-auto mb-1" />)}
-        <h1 className="text-[22px] text-white font-light tracking-[0.1em] uppercase leading-tight text-center" style={{ fontFamily: 'Outfit, sans-serif' }}>
+        <div className="flex items-center justify-center gap-3">
+          {brandLogo && (<img src={brandLogo} alt="Logo" className="w-9 h-9 object-contain shrink-0" />)}
+          <h1 className="text-[22px] text-white font-light tracking-[0.1em] uppercase leading-tight text-center" style={{ fontFamily: 'Outfit, sans-serif' }}>
           {brandName}
         </h1>
+        </div>
         <div className="w-16 h-[2px] bg-white/20 mt-2 rounded-full"></div>
       </div>
 

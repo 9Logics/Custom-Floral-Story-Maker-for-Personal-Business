@@ -31,10 +31,12 @@ export default function ClassicTemplate({ products, brandName, ctaText, brandLog
       {/* Header */}
       <div className="text-center mb-3 pt-2 relative z-10">
         
-        {brandLogo && (<img src={brandLogo} alt="Logo" className="w-8 h-8 object-contain mx-auto mb-1" />)}
-        <h1 className=" text-[24px] font-serif text-[#1b3312] font-medium capitalize leading-tight tracking-tight" style={{ fontFamily: 'Prata, serif' }}>
+        <div className="flex items-center justify-center gap-3">
+          {brandLogo && (<img src={brandLogo} alt="Logo" className="w-9 h-9 object-contain shrink-0" />)}
+          <h1 className=" text-[24px] font-serif text-[#1b3312] font-medium capitalize leading-tight tracking-tight" style={{ fontFamily: 'Prata, serif' }}>
           {brandName}
         </h1>
+        </div>
         <div className="flex items-center justify-center gap-3 mt-2">
           <div className="w-8 h-px bg-[#d4af37]/40"></div>
           <svg className="w-3 h-3 text-[#d4af37]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">

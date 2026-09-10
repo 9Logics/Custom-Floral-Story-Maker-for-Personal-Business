@@ -32,10 +32,12 @@ export default function MinimalTemplate({ products, brandName, ctaText, brandLog
       {/* Header */}
       <div className="mb-2 pt-1 flex flex-col items-center relative z-10">
         
-        {brandLogo && (<img src={brandLogo} alt="Logo" className="w-8 h-8 object-contain mx-auto mb-1" />)}
-        <h1 className="text-[22px] text-[#1a1a1a] font-medium tracking-[0.05em] uppercase leading-tight" style={{ fontFamily: 'Tenor Sans, sans-serif' }}>
+        <div className="flex items-center justify-center gap-3">
+          {brandLogo && (<img src={brandLogo} alt="Logo" className="w-9 h-9 object-contain shrink-0" />)}
+          <h1 className="text-[22px] text-[#1a1a1a] font-medium tracking-[0.05em] uppercase leading-tight" style={{ fontFamily: 'Tenor Sans, sans-serif' }}>
           {brandName}
         </h1>
+        </div>
         <p className="text-[10px] text-[#7a7a7a] tracking-[0.2em] uppercase mt-2">Pure & Simple</p>
       </div>
 

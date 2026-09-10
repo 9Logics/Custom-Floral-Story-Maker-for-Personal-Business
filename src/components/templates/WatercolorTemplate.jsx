@@ -26,10 +26,12 @@ export default function WatercolorTemplate({ products, brandName, ctaText, brand
       {/* Header */}
       <div className="text-center mb-4 pt-2 relative z-10">
         
-        {brandLogo && (<img src={brandLogo} alt="Logo" className="w-8 h-8 object-contain mx-auto mb-1" />)}
-        <h1 className="text-[30px] text-[#4a3b32] font-medium capitalize italic leading-tight" style={{ fontFamily: 'Pinyon Script, cursive' }}>
+        <div className="flex items-center justify-center gap-3">
+          {brandLogo && (<img src={brandLogo} alt="Logo" className="w-9 h-9 object-contain shrink-0" />)}
+          <h1 className="text-[30px] text-[#4a3b32] font-medium capitalize italic leading-tight" style={{ fontFamily: 'Pinyon Script, cursive' }}>
           {brandName}
         </h1>
+        </div>
         <p className="text-[10px] text-[#8a7266] tracking-[0.15em] uppercase mt-2" style={{ fontFamily: 'Tenor Sans, sans-serif' }}>today's pricing</p>
       </div>
 

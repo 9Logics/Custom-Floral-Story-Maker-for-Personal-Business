@@ -31,10 +31,12 @@ export default function BotanicalTemplate({ products, brandName, ctaText, brandL
       {/* Header */}
       <div className="text-center mb-6 pt-2 z-10 relative">
         
-        {brandLogo && (<img src={brandLogo} alt="Logo" className="w-8 h-8 object-contain mx-auto mb-1" />)}
-        <h1 className="font-serif text-[44px] text-[#f2f5eb] font-normal capitalize tracking-tight" style={{ fontFamily: 'Italiana, serif',  textShadow: '0 4px 20px rgba(0,0,0,0.3)'  }}>
+        <div className="flex items-center justify-center gap-3">
+          {brandLogo && (<img src={brandLogo} alt="Logo" className="w-9 h-9 object-contain shrink-0" />)}
+          <h1 className="font-serif text-[44px] text-[#f2f5eb] font-normal capitalize tracking-tight" style={{ fontFamily: 'Italiana, serif',  textShadow: '0 4px 20px rgba(0,0,0,0.3)'  }}>
           {brandName}
         </h1>
+        </div>
         <p className="text-[10px] text-[#b4d49a] tracking-[0.2em] uppercase mt-2 font-medium" style={{ fontFamily: 'Outfit, sans-serif' }}>
           Wild & Organic
         </p>
