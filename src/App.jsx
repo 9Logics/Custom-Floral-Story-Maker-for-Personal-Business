@@ -118,7 +118,7 @@ function App() {
   const productPages = chunkProducts(products, productsPerCard);
 
   return (
-    <div className="h-screen flex flex-col md:flex-row relative z-0 bg-[#fdfdfc] text-[#2c2c2c] overflow-hidden">
+    <div className="flex flex-col md:flex-row min-h-screen md:h-screen relative z-0 bg-[#fdfdfc] text-[#2c2c2c] md:overflow-hidden">
       <Background />
       <CardForm 
         products={products} 
@@ -144,7 +144,7 @@ function App() {
       />
 
       {/* Right Side - Previews */}
-      <div id="preview-pane" className="flex-1 overflow-y-auto p-8 md:p-12 relative flex flex-col items-center custom-scrollbar scroll-smooth">
+      <div id="preview-pane" className="flex-1 md:overflow-y-auto p-4 py-12 md:p-12 relative flex flex-col items-center custom-scrollbar scroll-smooth">
         
         {/* Floating Export Button */}
         <div className="sticky top-6 z-50 mb-10 self-end">
