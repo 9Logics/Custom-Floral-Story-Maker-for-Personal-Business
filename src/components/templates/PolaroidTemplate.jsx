@@ -5,57 +5,54 @@ export default function PolaroidTemplate({ products, brandName, ctaText }) {
   
   if (count === 0) {
     return (
-      <div className="w-full h-full flex items-center justify-center bg-[#e8e4de] text-[#3d3630] p-6 text-center relative overflow-hidden">
-        {/* Noise Texture */}
-        <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")` }}></div>
-        <p style={{ fontFamily: 'Cormorant, serif' }} className="italic text-xl opacity-40">Add products to see preview</p>
+      <div className="w-full h-full flex items-center justify-center bg-[#e8e4de] text-[#4a4a4a] p-6 text-center">
+        <p style={{ fontFamily: 'Montserrat, sans-serif' }} className="text-xl opacity-20 font-light">Add products</p>
       </div>
     );
   }
 
   const gridClass = count === 1 ? 'grid-cols-1' : 
-                    count === 2 ? 'grid-cols-1' : 
-                    'grid-cols-2';
+                    count === 2 ? 'grid-cols-1 gap-8' : 
+                    'grid-cols-2 gap-4';
 
-  // Rotation angles for a scattered look
-  const rotations = ['-rotate-2', 'rotate-1', '-rotate-1', 'rotate-2'];
+  const rotations = ['-rotate-2', 'rotate-3', 'rotate-1', '-rotate-3', 'rotate-2', '-rotate-1'];
 
   return (
-    <div className="w-full h-full bg-[#e8e4de] flex flex-col p-5 font-sans text-[#3d3630] relative overflow-hidden">
-      {/* Noise Texture */}
-      <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")` }}></div>
+    <div className="w-full h-full bg-[#dfdcd5] flex flex-col p-6 font-sans text-[#2c2c2c] relative overflow-hidden" style={{ backgroundImage: 'url("data:image/svg+xml,%3Csvg width=\'100\' height=\'100\' viewBox=\'0 0 100 100\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cfilter id=\'noise\'%3E%3CfeTurbulence type=\'fractalNoise\' baseFrequency=\'1.5\' numOctaves=\'3\' stitchTiles=\'stitch\'/%3E%3C/filter%3E%3Crect width=\'100\' height=\'100\' filter=\'url(%23noise)\' opacity=\'0.08\'/%3E%3C/svg%3E")' }}>
+      
+      {/* Scattered Pressed Flowers & Tape Accents */}
+      <div className="absolute top-20 right-8 w-12 h-16 opacity-30 rotate-12 bg-[#a3907c] shadow-sm flex items-center justify-center rounded-full mix-blend-multiply blur-[1px]"></div>
+      <div className="absolute bottom-32 left-4 w-10 h-10 opacity-20 -rotate-12 bg-[#9c7a6e] shadow-sm flex items-center justify-center rounded-full mix-blend-multiply blur-[1px]"></div>
+      <div className="absolute top-40 left-12 w-16 h-4 bg-white/40 -rotate-6 backdrop-blur-sm shadow-sm z-20"></div>
 
       {/* Header */}
-      <div className="text-center mb-6 pt-3 relative z-10">
-        <h1 className="text-[30px] text-[#3d3630] font-medium italic capitalize leading-tight" style={{ fontFamily: 'Cormorant, serif' }}>
+      <div className="text-center mb-8 pt-4 relative z-10">
+        <h1 className="text-[44px] text-[#2c2c2c] font-medium capitalize leading-tight" style={{ fontFamily: 'Nothing You Could Do, cursive' }}>
           {brandName}
         </h1>
-        <p className="text-[9px] text-[#8b7e6b] tracking-[0.08em] lowercase mt-1" style={{ fontFamily: 'Montserrat, sans-serif' }}>
+        <p className="text-[10px] text-[#8b7e6b] tracking-[0.1em] uppercase font-bold mt-1" style={{ fontFamily: 'Montserrat, sans-serif' }}>
           today's pricing
         </p>
       </div>
 
       {/* Grid */}
-      <div className={`flex-1 grid ${gridClass} gap-4 ${count >= 2 ? 'grid-rows-2' : ''} relative z-10 p-2`}>
+      <div className={`flex-1 grid ${gridClass} ${count >= 2 ? 'grid-rows-2' : ''} relative z-10 p-2`}>
         {products.map((product, i) => (
-          <div key={product.id || i} className={`flex flex-col bg-white p-2 pb-6 rounded-sm shadow-[0_2px_8px_rgba(0,0,0,0.10),0_1px_2px_rgba(0,0,0,0.06)] relative ${rotations[i % rotations.length]}`}>
-            {/* Tape Accent */}
-            <div className="absolute -top-1.5 left-1/2 -translate-x-1/2 w-10 h-3 bg-[#c9a87c]/25 -rotate-3 rounded-sm z-20"></div>
-
-            <div className={`w-full ${count === 1 ? 'flex-1' : count === 2 ? 'h-[140px]' : count <= 4 ? 'h-[100px]' : 'h-[60px]'} rounded-none overflow-hidden bg-gray-100`}>
-              <img src={product.image || '/placeholder.jpg'} alt={product.name || 'Product'} className={`w-full h-full object-cover ${!product.image ? 'opacity-80' : ''}`} />
+          <div key={product.id || i} className={`flex flex-col h-full bg-[#faf9f6] p-3 pb-8 shadow-[0_20px_40px_rgba(0,0,0,0.15)] ${rotations[i % rotations.length]}`}>
+            <div className={`w-full ${count === 1 ? 'flex-1' : count === 2 ? 'h-[160px]' : count <= 4 ? 'h-[110px]' : 'h-[70px]'} bg-[#e8e4de] flex items-center justify-center relative mb-4 shadow-inner`}>
+              <img src={product.image || '/placeholder.jpg'} alt={product.name || 'Flower'} className={`w-full h-full object-cover grayscale-[0.2] sepia-[0.1] contrast-[1.1] ${!product.image ? 'opacity-50' : ''}`} />
             </div>
-            <div className="flex flex-col text-center px-1 mt-2">
-              <h3 className="text-[14px] font-semibold text-[#3d3630] capitalize truncate" style={{ fontFamily: 'Cormorant, serif' }}>{product.name || 'Product Name'}</h3>
-              <p className="text-[10px] text-[#8b7e6b] font-medium mt-0.5" style={{ fontFamily: 'Montserrat, sans-serif' }}>{product.price || 'Price'}</p>
+            <div className="flex flex-col text-center px-2">
+              <h3 className="text-[18px] font-medium text-[#2c2c2c] capitalize" style={{ fontFamily: 'Nothing You Could Do, cursive' }}>{product.name || 'Flower Name'}</h3>
+              <p className="text-[12px] text-[#6b5c49] font-semibold mt-1" style={{ fontFamily: 'Montserrat, sans-serif' }}>{product.price || 'Price'}</p>
             </div>
           </div>
         ))}
       </div>
 
       {/* Footer */}
-      <div className="mt-6 text-center pb-2 relative z-10">
-        <div className="inline-block bg-[#3d3630] text-[#f5f0e8] text-[12px] font-medium px-8 py-2.5 rounded-full capitalize shadow-md" style={{ fontFamily: 'Montserrat, sans-serif' }}>
+      <div className="mt-8 text-center pb-2 relative z-10">
+        <div className="inline-block text-[#2c2c2c] border-b-2 border-[#2c2c2c] text-[13px] font-bold tracking-[0.15em] uppercase px-4 py-1" style={{ fontFamily: 'Montserrat, sans-serif' }}>
           {ctaText || 'Order Now'}
         </div>
       </div>

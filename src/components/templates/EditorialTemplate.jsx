@@ -5,82 +5,58 @@ export default function EditorialTemplate({ products, brandName, ctaText }) {
   
   if (count === 0) {
     return (
-      <div className="w-full h-full flex items-center justify-center bg-[#1a1a1a] text-[#f5f0e8] p-6 text-center">
-        <p style={{ fontFamily: 'Playfair Display, serif' }} className="italic text-xl opacity-40">Add products to see preview</p>
+      <div className="w-full h-full flex items-center justify-center bg-[#1a1a1a] text-white p-6 text-center">
+        <p style={{ fontFamily: 'Montserrat, sans-serif' }} className="text-xl opacity-20 font-light">Add products</p>
       </div>
     );
   }
 
-  const hero = products[0];
-  const rest = products.slice(1);
+  const gridClass = count === 1 ? 'grid-cols-1' : 
+                    count === 2 ? 'grid-cols-1' : 
+                    'grid-cols-2';
+
+  // Get first letter for watermark
+  const watermarkLetter = brandName ? brandName.charAt(0).toUpperCase() : 'F';
 
   return (
-    <div className="w-full h-full bg-[#1a1a1a] flex flex-col p-5 font-sans text-[#f5f0e8] relative">
-      {/* Gold Accent Stripe */}
-      <div className="absolute top-0 left-0 right-0 h-[2px] bg-[#c9a87c]"></div>
+    <div className="w-full h-full bg-[#121212] flex flex-col p-6 font-sans text-[#fafafa] relative overflow-hidden">
+      {/* Editorial Watermark Background */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-[400px] font-serif text-[#d4af37] opacity-[0.03] select-none pointer-events-none leading-none z-0" style={{ fontFamily: 'Playfair Display, serif' }}>
+        {watermarkLetter}
+      </div>
 
       {/* Header */}
-      <div className="mt-4 mb-4">
-        <h1 className="text-[14px] font-medium uppercase tracking-[0.2em] text-[#f5f0e8]" style={{ fontFamily: 'Playfair Display, serif' }}>
+      <div className="mb-8 pt-4 flex flex-col items-center relative z-10">
+        <h1 className="font-serif text-[42px] text-[#fafafa] font-normal capitalize tracking-wide leading-tight" style={{ fontFamily: 'Playfair Display, serif' }}>
           {brandName}
         </h1>
-        <p className="text-[9px] font-normal uppercase tracking-[0.15em] text-[#c9a87c]/60 mt-1" style={{ fontFamily: 'Montserrat, sans-serif' }}>
+        <p className="text-[9px] font-medium uppercase tracking-[0.25em] text-[#d4af37] mt-3" style={{ fontFamily: 'Montserrat, sans-serif' }}>
           Today's Pricing
         </p>
       </div>
 
-      {/* Hero Product */}
-      <div className="mb-3">
-        <div className={`w-full ${count === 1 ? 'h-[320px]' : count === 2 ? 'h-[240px]' : count <= 4 ? 'h-[200px]' : 'h-[140px]'} rounded-lg overflow-hidden bg-[#2a2a2a]`}>
-          <img src={hero.image || '/placeholder.jpg'} alt={hero.name || 'Product'} className={`w-full h-full object-cover ${!hero.image ? 'opacity-60' : ''}`} />
-        </div>
-        <div className="flex justify-between items-baseline mt-3">
-          <h3 className="text-[26px] font-medium capitalize italic text-[#f5f0e8] leading-tight" style={{ fontFamily: 'Playfair Display, serif' }}>{hero.name || 'Product Name'}</h3>
-          <p className="text-[10px] text-[#c9a87c] font-medium ml-3 shrink-0" style={{ fontFamily: 'Montserrat, sans-serif' }}>{hero.price || 'Price'}</p>
-        </div>
-        {hero.description && count <= 2 && (
-          <p className="text-[10px] text-[#f5f0e8]/60 mt-1.5 line-clamp-2 leading-relaxed" style={{ fontFamily: 'Montserrat, sans-serif' }}>{hero.description}</p>
-        )}
+      {/* Grid */}
+      <div className={`flex-1 grid ${gridClass} gap-6 ${count >= 2 ? 'grid-rows-2' : ''} relative z-10`}>
+        {products.map((product, i) => (
+          <div key={product.id || i} className="flex flex-col h-full group">
+            <div className={`w-full ${count === 1 ? 'flex-1' : count === 2 ? 'h-[140px]' : count <= 4 ? 'h-[100px]' : 'h-[60px]'} bg-[#1a1a1a] overflow-hidden flex items-center justify-center relative mb-3 shadow-[0_15px_40px_rgba(0,0,0,0.6)] ring-1 ring-white/10`}>
+              <img src={product.image || '/placeholder.jpg'} alt={product.name || 'Flower'} className={`w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105 ${!product.image ? 'opacity-40' : ''}`} />
+            </div>
+            <div className="flex flex-col items-center text-center">
+              <h3 className="font-serif text-[15px] font-normal text-white capitalize tracking-wide" style={{ fontFamily: 'Playfair Display, serif' }}>{product.name || 'Flower Name'}</h3>
+              <div className="flex items-center gap-2 mt-1.5">
+                <div className="w-4 h-[1px] bg-[#d4af37]/50"></div>
+                <p className="text-[11px] text-[#d4af37] font-semibold tracking-wider" style={{ fontFamily: 'Montserrat, sans-serif' }}>{product.price || 'Price'}</p>
+                <div className="w-4 h-[1px] bg-[#d4af37]/50"></div>
+              </div>
+            </div>
+          </div>
+        ))}
       </div>
 
-      {/* Remaining Products */}
-      {rest.length > 0 && (
-        <>
-          <div className="border-b border-[#c9a87c]/15 my-3"></div>
-          {rest.length === 1 ? (
-            /* Single remaining product: thumbnail + text side-by-side */
-            <div className="flex items-center gap-3">
-              <div className="w-[80px] h-[80px] rounded-md overflow-hidden bg-[#2a2a2a] shrink-0">
-                <img src={rest[0].image || '/placeholder.jpg'} alt={rest[0].name || 'Product'} className={`w-full h-full object-cover ${!rest[0].image ? 'opacity-60' : ''}`} />
-              </div>
-              <div className="flex-1">
-                <h3 className="text-[11px] font-medium capitalize text-[#f5f0e8]" style={{ fontFamily: 'Montserrat, sans-serif' }}>{rest[0].name || 'Product Name'}</h3>
-                <p className="text-[10px] text-[#c9a87c] font-medium mt-0.5" style={{ fontFamily: 'Montserrat, sans-serif' }}>{rest[0].price || 'Price'}</p>
-              </div>
-            </div>
-          ) : (
-            /* Multiple remaining: horizontal strip of small thumbnails */
-            <div className={`grid gap-3 ${rest.length === 2 ? 'grid-cols-2' : 'grid-cols-3'}`}>
-              {rest.map((product, i) => (
-                <div key={product.id || i} className="flex flex-col items-center">
-                  <div className="w-[80px] h-[80px] rounded-md overflow-hidden bg-[#2a2a2a]">
-                    <img src={product.image || '/placeholder.jpg'} alt={product.name || 'Product'} className={`w-full h-full object-cover ${!product.image ? 'opacity-60' : ''}`} />
-                  </div>
-                  <h3 className="text-[11px] font-medium capitalize text-[#f5f0e8] mt-2 text-center truncate w-full" style={{ fontFamily: 'Montserrat, sans-serif' }}>{product.name || 'Product'}</h3>
-                  <p className="text-[10px] text-[#c9a87c] font-medium mt-0.5" style={{ fontFamily: 'Montserrat, sans-serif' }}>{product.price || 'Price'}</p>
-                </div>
-              ))}
-            </div>
-          )}
-        </>
-      )}
-
-      {/* Spacer */}
-      <div className="flex-1"></div>
-
       {/* Footer */}
-      <div className="mt-4 text-center pb-2">
-        <div className="w-full bg-[#c9a87c] text-[#1a1a1a] text-[11px] font-semibold py-3 capitalize rounded-md" style={{ fontFamily: 'Montserrat, sans-serif' }}>
+      <div className="mt-8 text-center pb-2 relative z-10">
+        <div className="inline-block bg-transparent text-[#d4af37] border border-[#d4af37] text-[10px] font-bold tracking-[0.2em] uppercase px-12 py-3 hover:bg-[#d4af37] hover:text-[#121212] transition-colors duration-500" style={{ fontFamily: 'Montserrat, sans-serif' }}>
           {ctaText || 'Order Now'}
         </div>
       </div>
