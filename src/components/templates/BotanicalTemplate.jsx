@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default function BotanicalTemplate({ products, brandName, ctaText }) {
+export default function BotanicalTemplate({ products, brandName, ctaText, brandLogo }) {
   const count = products.length;
   
   if (count === 0) {
@@ -28,6 +28,8 @@ export default function BotanicalTemplate({ products, brandName, ctaText }) {
 
       {/* Header */}
       <div className="text-center mb-6 pt-2 z-10 relative">
+        
+        {brandLogo && (<img src={brandLogo} alt="Logo" className="w-12 h-12 object-contain mx-auto mb-2" />)}
         <h1 className="font-serif text-[44px] text-[#f2f5eb] font-normal capitalize tracking-tight" style={{ textShadow: '0 4px 20px rgba(0,0,0,0.3)' }}>
           {brandName}
         </h1>
@@ -61,3 +63,4 @@ export default function BotanicalTemplate({ products, brandName, ctaText }) {
     </div>
   );
 }
+

@@ -178,6 +178,7 @@ function App() {
                   products={pageProducts} 
                   brandName={brandName} 
                   ctaText={ctaText} 
+                  brandLogo={brandLogo}
                   template={template} 
                 />
               </div>

@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default function WatercolorTemplate({ products, brandName, ctaText }) {
+export default function WatercolorTemplate({ products, brandName, ctaText, brandLogo }) {
   const count = products.length;
   
   if (count === 0) {
@@ -23,6 +23,8 @@ export default function WatercolorTemplate({ products, brandName, ctaText }) {
 
       {/* Header */}
       <div className="text-center mb-8 pt-4 relative z-10">
+        
+        {brandLogo && (<img src={brandLogo} alt="Logo" className="w-12 h-12 object-contain mx-auto mb-2" />)}
         <h1 className="text-[40px] text-[#4a3b32] font-medium capitalize italic leading-tight" style={{ fontFamily: 'Lora, serif' }}>
           {brandName}
         </h1>
@@ -53,3 +55,4 @@ export default function WatercolorTemplate({ products, brandName, ctaText }) {
     </div>
   );
 }
+

@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default function EditorialTemplate({ products, brandName, ctaText }) {
+export default function EditorialTemplate({ products, brandName, ctaText, brandLogo }) {
   const count = products.length;
   
   if (count === 0) {
@@ -27,6 +27,8 @@ export default function EditorialTemplate({ products, brandName, ctaText }) {
 
       {/* Header */}
       <div className="mb-8 pt-4 flex flex-col items-center relative z-10">
+        
+        {brandLogo && (<img src={brandLogo} alt="Logo" className="w-12 h-12 object-contain mx-auto mb-2" />)}
         <h1 className="font-serif text-[42px] text-[#fafafa] font-normal capitalize tracking-wide leading-tight" style={{ fontFamily: 'Playfair Display, serif' }}>
           {brandName}
         </h1>
@@ -63,3 +65,4 @@ export default function EditorialTemplate({ products, brandName, ctaText }) {
     </div>
   );
 }
+

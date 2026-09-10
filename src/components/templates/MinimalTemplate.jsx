@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default function MinimalTemplate({ products, brandName, ctaText }) {
+export default function MinimalTemplate({ products, brandName, ctaText, brandLogo }) {
   const count = products.length;
   
   if (count === 0) {
@@ -29,6 +29,8 @@ export default function MinimalTemplate({ products, brandName, ctaText }) {
 
       {/* Header */}
       <div className="mb-8 pt-4 flex flex-col items-center relative z-10">
+        
+        {brandLogo && (<img src={brandLogo} alt="Logo" className="w-12 h-12 object-contain mx-auto mb-2" />)}
         <h1 className="text-[28px] text-[#1a1a1a] font-medium tracking-[0.05em] uppercase leading-tight" style={{ fontFamily: 'Montserrat, sans-serif' }}>
           {brandName}
         </h1>
@@ -64,3 +66,4 @@ export default function MinimalTemplate({ products, brandName, ctaText }) {
     </div>
   );
 }
+

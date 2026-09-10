@@ -42,7 +42,7 @@ export default function CardPreview({ products, brandName, ctaText, template }) 
           transform: 'scale(0.75)',
         }}
       >
-        <TemplateComponent products={formattedProducts} brandName={brandName} ctaText={ctaText} />
+        <TemplateComponent products={formattedProducts} brandName={brandName} ctaText={ctaText} brandLogo={brandLogo} />
       </div>
     </div>
   );

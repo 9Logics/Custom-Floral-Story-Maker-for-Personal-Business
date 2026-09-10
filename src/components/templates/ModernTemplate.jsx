@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default function ModernTemplate({ products, brandName, ctaText }) {
+export default function ModernTemplate({ products, brandName, ctaText, brandLogo }) {
   const count = products.length;
   
   if (count === 0) {
@@ -27,6 +27,8 @@ export default function ModernTemplate({ products, brandName, ctaText }) {
 
       {/* Header */}
       <div className="mb-8 pt-4 z-10 flex flex-col items-center">
+        
+        {brandLogo && (<img src={brandLogo} alt="Logo" className="w-12 h-12 object-contain mx-auto mb-2" />)}
         <h1 className="text-[36px] text-white font-light tracking-[0.1em] uppercase leading-tight text-center" style={{ fontFamily: 'Montserrat, sans-serif' }}>
           {brandName}
         </h1>
@@ -61,3 +63,4 @@ export default function ModernTemplate({ products, brandName, ctaText }) {
     </div>
   );
 }
+
