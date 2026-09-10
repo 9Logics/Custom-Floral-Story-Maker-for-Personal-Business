@@ -43,7 +43,7 @@ export default function WatercolorTemplate({ products, brandName, ctaText }) {
         <h1 className="text-[36px] text-[#5c4033] font-medium capitalize italic leading-tight" style={{ fontFamily: 'Lora, serif' }}>
           {brandName}
         </h1>
-        <p className="text-[10px] text-[#9e8578] tracking-[0.1em] lowercase mt-1" style={{ fontFamily: 'Montserrat, sans-serif' }}>fresh flowers delivered</p>
+        <p className="text-[10px] text-[#9e8578] tracking-[0.1em] lowercase mt-1" style={{ fontFamily: 'Montserrat, sans-serif' }}>today's pricing</p>
         {/* Decorative Divider */}
         <div className="flex items-center justify-center gap-2 mt-3">
           <div className="w-8 h-px bg-[#c8a89b]/40"></div>

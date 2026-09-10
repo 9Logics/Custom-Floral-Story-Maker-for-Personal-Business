@@ -25,7 +25,7 @@ export default function EditorialTemplate({ products, brandName, ctaText }) {
           {brandName}
         </h1>
         <p className="text-[9px] font-normal uppercase tracking-[0.15em] text-[#c9a87c]/60 mt-1" style={{ fontFamily: 'Montserrat, sans-serif' }}>
-          Curated Collection
+          Today's Pricing
         </p>
       </div>
 

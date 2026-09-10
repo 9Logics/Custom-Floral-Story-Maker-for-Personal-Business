@@ -33,7 +33,7 @@ export default function LuxeTemplate({ products, brandName, ctaText }) {
           {brandName}
         </h1>
         <p className="text-[9px] text-[#8b7355] tracking-[0.15em] uppercase mt-2" style={{ fontFamily: 'Montserrat, sans-serif' }}>
-          Fine Botanical Selection
+          Today's Pricing
         </p>
       </div>
 

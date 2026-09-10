@@ -31,7 +31,7 @@ export default function PolaroidTemplate({ products, brandName, ctaText }) {
           {brandName}
         </h1>
         <p className="text-[9px] text-[#8b7e6b] tracking-[0.08em] lowercase mt-1" style={{ fontFamily: 'Montserrat, sans-serif' }}>
-          curated with care
+          today's pricing
         </p>
       </div>
 
