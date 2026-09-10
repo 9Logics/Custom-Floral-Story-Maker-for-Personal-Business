@@ -32,7 +32,7 @@ export default function BotanicalTemplate({ products, brandName, ctaText }) {
       <div className={`flex-1 grid ${gridClass} gap-3 ${count >= 2 ? 'grid-rows-2' : ''} z-10`}>
         {products.map((product, i) => (
           <div key={product.id || i} className="flex flex-col h-full bg-white/[0.08] backdrop-blur-lg p-2.5 rounded-2xl border border-white/[0.12] shadow-lg">
-            <div className={`w-full ${count === 1 ? 'flex-1' : count === 2 ? 'h-[130px]' : 'h-[95px]'} bg-white/10 rounded-xl overflow-hidden flex items-center justify-center relative mb-2`}>
+            <div className={`w-full ${count === 1 ? 'flex-1' : count === 2 ? 'h-[130px]' : count <= 4 ? 'h-[95px]' : 'h-[50px]'} bg-white/10 rounded-xl overflow-hidden flex items-center justify-center relative mb-2`}>
               <img src={product.image || '/placeholder.jpg'} alt={product.name || 'Product'} className={`w-full h-full object-cover brightness-90 ${!product.image ? 'opacity-70' : ''}`} />
             </div>
             <div className="flex flex-col text-center px-1 pb-1">

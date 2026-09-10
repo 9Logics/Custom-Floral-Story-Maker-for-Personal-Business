@@ -31,7 +31,7 @@ export default function EditorialTemplate({ products, brandName, ctaText }) {
 
       {/* Hero Product */}
       <div className="mb-3">
-        <div className={`w-full ${count === 1 ? 'h-[320px]' : count === 2 ? 'h-[240px]' : 'h-[200px]'} rounded-lg overflow-hidden bg-[#2a2a2a]`}>
+        <div className={`w-full ${count === 1 ? 'h-[320px]' : count === 2 ? 'h-[240px]' : count <= 4 ? 'h-[200px]' : 'h-[140px]'} rounded-lg overflow-hidden bg-[#2a2a2a]`}>
           <img src={hero.image || '/placeholder.jpg'} alt={hero.name || 'Product'} className={`w-full h-full object-cover ${!hero.image ? 'opacity-60' : ''}`} />
         </div>
         <div className="flex justify-between items-baseline mt-3">

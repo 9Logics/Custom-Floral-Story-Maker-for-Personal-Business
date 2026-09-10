@@ -11,7 +11,7 @@ export default function MinimalTemplate({ products, brandName, ctaText }) {
     );
   }
 
-  const imageHeight = count === 1 ? 'h-[220px]' : count === 2 ? 'h-[130px]' : 'h-[90px]';
+  const imageHeight = count === 1 ? 'h-[220px]' : count === 2 ? 'h-[130px]' : count <= 4 ? 'h-[90px]' : 'h-[50px]';
 
   // For 3-4 products, use a 2-column grid
   if (count > 2) {

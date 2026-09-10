@@ -2,7 +2,7 @@ import React from 'react';
 import { Plus, Trash2, Image as ImageIcon, ArrowUp, ArrowDown, Upload } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
-function CardForm({ products, setProducts, updateProduct, removeProduct, addProduct, moveProduct, brandName, setBrandName, ctaText, setCtaText, template, setTemplate, brandLogo, setBrandLogo }) {
+function CardForm({ products, setProducts, updateProduct, removeProduct, addProduct, moveProduct, brandName, setBrandName, ctaText, setCtaText, template, setTemplate, brandLogo, setBrandLogo, productsPerCard, setProductsPerCard }) {
   const handleImageUpload = (id, e) => {
     const file = e.target.files[0];
     if (file) {
@@ -42,23 +42,43 @@ function CardForm({ products, setProducts, updateProduct, removeProduct, addProd
         
         {/* Settings */}
         <div className="space-y-4">
-          <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">Brand Name</label>
-            <input 
-              type="text" 
-              value={brandName}
-              onChange={(e) => setBrandName(e.target.value)}
-              className="w-full p-2.5 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-primary/50 focus:border-brand-primary transition-shadow"
-            />
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div>
+              <label className="block text-sm font-medium text-gray-700 mb-1">Brand Name</label>
+              <input 
+                type="text" 
+                value={brandName}
+                onChange={(e) => setBrandName(e.target.value)}
+                className="w-full p-2.5 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-primary/50 focus:border-brand-primary transition-shadow"
+              />
+            </div>
+            <div>
+              <label className="block text-sm font-medium text-gray-700 mb-1">Call to Action (CTA)</label>
+              <input 
+                type="text" 
+                value={ctaText}
+                onChange={(e) => setCtaText(e.target.value)}
+                className="w-full p-2.5 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-primary/50 focus:border-brand-primary transition-shadow"
+              />
+            </div>
           </div>
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">Call to Action (CTA)</label>
-            <input 
-              type="text" 
-              value={ctaText}
-              onChange={(e) => setCtaText(e.target.value)}
-              className="w-full p-2.5 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-primary/50 focus:border-brand-primary transition-shadow"
-            />
+            <label className="block text-sm font-medium text-gray-700 mb-1">Products per Story Card</label>
+            <div className="flex gap-2">
+              {[2, 4, 6].map((num) => (
+                <button
+                  key={num}
+                  onClick={() => setProductsPerCard(num)}
+                  className={`flex-1 py-2 px-3 text-sm font-medium rounded-lg interactive transition-all ${
+                    productsPerCard === num 
+                      ? 'bg-brand-primary text-white shadow-md' 
+                      : 'bg-gray-50 text-gray-600 hover:bg-gray-100 border border-gray-200'
+                  }`}
+                >
+                  Up to {num}
+                </button>
+              ))}
+            </div>
           </div>
           <div>
             <label className="block text-sm font-medium text-gray-700 mb-1">Template Style</label>

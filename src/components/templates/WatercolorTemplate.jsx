@@ -56,7 +56,7 @@ export default function WatercolorTemplate({ products, brandName, ctaText }) {
       <div className={`flex-1 grid ${gridClass} gap-3 ${count >= 2 ? 'grid-rows-2' : ''} z-10`}>
         {products.map((product, i) => (
           <div key={product.id || i} className="flex flex-col h-full p-2.5 rounded-2xl border shadow-sm" style={{ backgroundColor: 'rgba(255, 255, 255, 0.60)', borderColor: 'rgba(200, 168, 155, 0.20)', backdropFilter: 'blur(4px)' }}>
-            <div className={`w-full ${count === 1 ? 'flex-1' : count === 2 ? 'h-[125px]' : 'h-[90px]'} rounded-xl overflow-hidden bg-[#f5ebe7]`}>
+            <div className={`w-full ${count === 1 ? 'flex-1' : count === 2 ? 'h-[125px]' : count <= 4 ? 'h-[90px]' : 'h-[50px]'} rounded-xl overflow-hidden bg-[#f5ebe7]`}>
               <img src={product.image || '/placeholder.jpg'} alt={product.name || 'Product'} className={`w-full h-full object-cover ${!product.image ? 'opacity-70' : ''}`} />
             </div>
             <div className="flex flex-col text-center px-1 pb-1 mt-2">

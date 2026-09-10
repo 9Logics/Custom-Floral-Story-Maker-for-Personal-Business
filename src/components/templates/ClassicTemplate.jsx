@@ -29,7 +29,7 @@ export default function ClassicTemplate({ products, brandName, ctaText }) {
       <div className={`flex-1 grid ${gridClass} gap-4 ${count >= 2 ? 'grid-rows-2' : ''}`}>
         {products.map((product, i) => (
           <div key={product.id || i} className="flex flex-col h-full bg-white p-3 shadow-[0_1px_3px_rgba(0,0,0,0.04)] rounded-xl border border-[#f0ede8]">
-            <div className={`w-full ${count === 1 ? 'flex-1' : count === 2 ? 'h-[140px]' : 'h-[100px]'} bg-gray-50 rounded-lg overflow-hidden flex items-center justify-center relative mb-3`}>
+            <div className={`w-full ${count === 1 ? 'flex-1' : count === 2 ? 'h-[140px]' : count <= 4 ? 'h-[100px]' : 'h-[60px]'} bg-gray-50 rounded-lg overflow-hidden flex items-center justify-center relative mb-3`}>
               <img src={product.image || '/placeholder.jpg'} alt={product.name || 'Product'} className={`w-full h-full object-cover ${!product.image ? 'opacity-80' : ''}`} />
             </div>
             <div className="flex flex-col text-center px-1">

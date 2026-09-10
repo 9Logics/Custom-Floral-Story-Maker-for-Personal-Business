@@ -25,6 +25,7 @@ function App() {
   const [ctaText, setCtaText] = useState(() => getStorage('fb_ctaText', 'Order Now'));
   const [template, setTemplate] = useState(() => getStorage('fb_template', 'classic'));
   const [brandLogo, setBrandLogo] = useState(() => getStorage('fb_brandLogo', '/logo.jpg'));
+  const [productsPerCard, setProductsPerCard] = useState(() => getStorage('fb_productsPerCard', 4));
 
   // Save to localStorage whenever state changes
   useEffect(() => {
@@ -33,7 +34,8 @@ function App() {
     localStorage.setItem('fb_ctaText', JSON.stringify(ctaText));
     localStorage.setItem('fb_template', JSON.stringify(template));
     localStorage.setItem('fb_brandLogo', JSON.stringify(brandLogo));
-  }, [products, brandName, ctaText, template, brandLogo]);
+    localStorage.setItem('fb_productsPerCard', JSON.stringify(productsPerCard));
+  }, [products, brandName, ctaText, template, brandLogo, productsPerCard]);
 
   const addProduct = () => {
     setProducts([...products, { id: uuidv4(), name: '', price: '', description: '', image: '' }]);
@@ -102,7 +104,7 @@ function App() {
     }
   };
 
-  // Chunk products into groups of max 4
+  // Chunk products into groups of max size
   const chunkProducts = (arr, size) => {
     const res = [];
     for (let i = 0; i < arr.length; i += size) {
@@ -111,7 +113,7 @@ function App() {
     return res;
   };
 
-  const productPages = chunkProducts(products, 4);
+  const productPages = chunkProducts(products, productsPerCard);
 
   return (
     <div className="min-h-screen flex flex-col md:flex-row relative z-0">
@@ -131,6 +133,8 @@ function App() {
         setTemplate={setTemplate}
         brandLogo={brandLogo}
         setBrandLogo={setBrandLogo}
+        productsPerCard={productsPerCard}
+        setProductsPerCard={setProductsPerCard}
       />
 
       {/* Right Side - Previews */}

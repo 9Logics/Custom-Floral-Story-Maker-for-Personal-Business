@@ -29,7 +29,7 @@ export default function ModernTemplate({ products, brandName, ctaText }) {
       <div className={`flex-1 grid ${gridClass} gap-3 ${count >= 2 ? 'grid-rows-2' : ''}`}>
         {products.map((product, i) => (
           <div key={product.id || i} className="flex flex-col h-full bg-white/[0.04] p-2 rounded-lg relative overflow-hidden border border-white/[0.06]">
-            <div className={`w-full ${count === 1 ? 'flex-1' : count === 2 ? 'h-[140px]' : 'h-[95px]'} bg-[#1a1a1a] rounded overflow-hidden flex items-center justify-center relative`}>
+            <div className={`w-full ${count === 1 ? 'flex-1' : count === 2 ? 'h-[140px]' : count <= 4 ? 'h-[95px]' : 'h-[60px]'} bg-[#1a1a1a] rounded overflow-hidden flex items-center justify-center relative`}>
               <img src={product.image || '/placeholder.jpg'} alt={product.name || 'Product'} className={`w-full h-full object-cover grayscale brightness-[0.85] contrast-[1.1] ${!product.image ? 'opacity-50' : ''}`} />
               {/* Gradient overlay */}
               <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-[#0f0f0f] via-[#0f0f0f]/85 to-transparent p-3 pt-8">

@@ -42,7 +42,7 @@ export default function PolaroidTemplate({ products, brandName, ctaText }) {
             {/* Tape Accent */}
             <div className="absolute -top-1.5 left-1/2 -translate-x-1/2 w-10 h-3 bg-[#c9a87c]/25 -rotate-3 rounded-sm z-20"></div>
 
-            <div className={`w-full ${count === 1 ? 'flex-1' : count === 2 ? 'h-[140px]' : 'h-[100px]'} rounded-none overflow-hidden bg-gray-100`}>
+            <div className={`w-full ${count === 1 ? 'flex-1' : count === 2 ? 'h-[140px]' : count <= 4 ? 'h-[100px]' : 'h-[60px]'} rounded-none overflow-hidden bg-gray-100`}>
               <img src={product.image || '/placeholder.jpg'} alt={product.name || 'Product'} className={`w-full h-full object-cover ${!product.image ? 'opacity-80' : ''}`} />
             </div>
             <div className="flex flex-col text-center px-1 mt-2">
