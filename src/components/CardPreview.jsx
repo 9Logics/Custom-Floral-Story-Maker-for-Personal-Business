@@ -1,3 +1,4 @@
+import React from 'react';
 import ClassicTemplate from './templates/ClassicTemplate';
 import BotanicalTemplate from './templates/BotanicalTemplate';
 import ModernTemplate from './templates/ModernTemplate';
@@ -7,11 +8,7 @@ import EditorialTemplate from './templates/EditorialTemplate';
 import LuxeTemplate from './templates/LuxeTemplate';
 import PolaroidTemplate from './templates/PolaroidTemplate';
 
-export default function CardPreview({ products, brandName, ctaText, template }) {
-  // A wrapper that maintains the exact 9:16 aspect ratio (1080x1920 scaled down)
-  // 1080/1920 = 9/16 = 0.5625
-  // We'll set a fixed width for preview, e.g., 360px by 640px
-  
+export default function CardPreview({ products, brandName, ctaText, template, brandLogo, vintageTexture, vintageOverlay }) {
   const TemplateComponent = {
     'classic': ClassicTemplate,
     'botanical': BotanicalTemplate,
@@ -25,7 +22,6 @@ export default function CardPreview({ products, brandName, ctaText, template }) 
 
   const formattedProducts = products.map(p => {
     let price = p.price || '';
-    // Format price if it doesn't already start with ₹ or Rs
     if (price && !price.startsWith('₹') && !price.toLowerCase().includes('rs')) {
       price = '₹' + price.trim();
     }
@@ -33,7 +29,7 @@ export default function CardPreview({ products, brandName, ctaText, template }) 
   });
 
   return (
-    <div className="relative" style={{ width: '270px', height: '480px' }}>
+    <div className="relative overflow-hidden shadow-2xl rounded-2xl bg-white isolate" style={{ width: '270px', height: '480px' }}>
       <div 
         className="story-card-export bg-white flex flex-col absolute top-0 left-0 origin-top-left"
         style={{
@@ -42,7 +38,14 @@ export default function CardPreview({ products, brandName, ctaText, template }) 
           transform: 'scale(0.75)',
         }}
       >
-        <TemplateComponent products={formattedProducts} brandName={brandName} ctaText={ctaText} brandLogo={brandLogo} />
+        <TemplateComponent 
+          products={formattedProducts} 
+          brandName={brandName} 
+          ctaText={ctaText} 
+          brandLogo={brandLogo} 
+          vintageTexture={vintageTexture}
+          vintageOverlay={vintageOverlay}
+        />
       </div>
     </div>
   );

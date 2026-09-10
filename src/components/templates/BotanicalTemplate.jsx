@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default function BotanicalTemplate({ products, brandName, ctaText, brandLogo }) {
+export default function BotanicalTemplate({ products, brandName, ctaText, brandLogo, vintageTexture, vintageOverlay }) {
   const count = products.length;
   
   if (count === 0) {
@@ -17,6 +17,8 @@ export default function BotanicalTemplate({ products, brandName, ctaText, brandL
 
   return (
     <div className="w-full h-full bg-[#1e3016] flex flex-col p-6 font-sans text-white relative overflow-hidden">
+      {vintageTexture && (<img src={vintageTexture} alt="Texture" className="absolute inset-0 w-full h-full object-cover opacity-60 mix-blend-multiply z-0 pointer-events-none" />)}
+      {vintageOverlay && (<img src={vintageOverlay} alt="Overlay" className="absolute inset-0 w-full h-full object-cover opacity-90 z-0 pointer-events-none" />)}
       {/* Texture and Petals Background */}
       <div className="absolute inset-0 opacity-20" style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")` }}></div>
       <svg className="absolute top-[10%] -left-12 w-48 h-48 text-[#4a6b38] opacity-30 -rotate-12" viewBox="0 0 100 100" fill="currentColor">
@@ -63,4 +65,6 @@ export default function BotanicalTemplate({ products, brandName, ctaText, brandL
     </div>
   );
 }
+
+
 

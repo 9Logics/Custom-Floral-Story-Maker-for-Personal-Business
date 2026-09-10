@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default function WatercolorTemplate({ products, brandName, ctaText, brandLogo }) {
+export default function WatercolorTemplate({ products, brandName, ctaText, brandLogo, vintageTexture, vintageOverlay }) {
   const count = products.length;
   
   if (count === 0) {
@@ -17,6 +17,8 @@ export default function WatercolorTemplate({ products, brandName, ctaText, brand
 
   return (
     <div className="w-full h-full bg-[#fdfaf8] flex flex-col p-6 font-sans relative overflow-hidden">
+      {vintageTexture && (<img src={vintageTexture} alt="Texture" className="absolute inset-0 w-full h-full object-cover opacity-60 mix-blend-multiply z-0 pointer-events-none" />)}
+      {vintageOverlay && (<img src={vintageOverlay} alt="Overlay" className="absolute inset-0 w-full h-full object-cover opacity-90 z-0 pointer-events-none" />)}
       {/* Rich Watercolor Blobs Background */}
       <div className="absolute top-[-10%] right-[-10%] w-[80%] h-[50%] bg-gradient-to-br from-[#ffd1b3]/40 to-[#ffb6c1]/40 rounded-[40%_60%_70%_30%/40%_50%_60%_50%] blur-3xl pointer-events-none mix-blend-multiply"></div>
       <div className="absolute bottom-[-10%] left-[-10%] w-[70%] h-[60%] bg-gradient-to-tr from-[#e6ccff]/40 to-[#b3d9ff]/40 rounded-[60%_40%_30%_70%/50%_40%_50%_60%] blur-3xl pointer-events-none mix-blend-multiply"></div>
@@ -55,4 +57,6 @@ export default function WatercolorTemplate({ products, brandName, ctaText, brand
     </div>
   );
 }
+
+
 

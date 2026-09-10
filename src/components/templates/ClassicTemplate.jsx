@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default function ClassicTemplate({ products, brandName, ctaText, brandLogo }) {
+export default function ClassicTemplate({ products, brandName, ctaText, brandLogo, vintageTexture, vintageOverlay }) {
   const count = products.length;
   
   if (count === 0) {
@@ -17,6 +17,8 @@ export default function ClassicTemplate({ products, brandName, ctaText, brandLog
 
   return (
     <div className="w-full h-full bg-[#fcfbf9] flex flex-col p-6 font-sans text-[#1f2937] relative overflow-hidden">
+      {vintageTexture && (<img src={vintageTexture} alt="Texture" className="absolute inset-0 w-full h-full object-cover opacity-60 mix-blend-multiply z-0 pointer-events-none" />)}
+      {vintageOverlay && (<img src={vintageOverlay} alt="Overlay" className="absolute inset-0 w-full h-full object-cover opacity-90 z-0 pointer-events-none" />)}
       {/* Background Floral Accents */}
       <svg className="absolute top-0 left-0 w-32 h-32 text-[#2d4a22] opacity-[0.04] -translate-x-8 -translate-y-8" viewBox="0 0 100 100" fill="currentColor">
         <path d="M50 0 C60 30 90 40 100 50 C90 60 60 70 50 100 C40 70 10 60 0 50 C10 40 40 30 50 0 Z" />
@@ -69,4 +71,6 @@ export default function ClassicTemplate({ products, brandName, ctaText, brandLog
     </div>
   );
 }
+
+
 

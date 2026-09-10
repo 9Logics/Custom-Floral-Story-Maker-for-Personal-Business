@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default function LuxeTemplate({ products, brandName, ctaText, brandLogo }) {
+export default function LuxeTemplate({ products, brandName, ctaText, brandLogo, vintageTexture, vintageOverlay }) {
   const count = products.length;
   
   if (count === 0) {
@@ -17,6 +17,8 @@ export default function LuxeTemplate({ products, brandName, ctaText, brandLogo }
 
   return (
     <div className="w-full h-full bg-[#f8f5f0] flex flex-col p-6 font-sans text-[#2c2c2c] border-[6px] border-[#e8dcc4] relative overflow-hidden">
+      {vintageTexture && (<img src={vintageTexture} alt="Texture" className="absolute inset-0 w-full h-full object-cover opacity-60 mix-blend-multiply z-0 pointer-events-none" />)}
+      {vintageOverlay && (<img src={vintageOverlay} alt="Overlay" className="absolute inset-0 w-full h-full object-cover opacity-90 z-0 pointer-events-none" />)}
       {/* Victorian Flourish Accents */}
       <svg className="absolute top-2 left-2 w-16 h-16 text-[#cfa86e] opacity-40" viewBox="0 0 100 100" fill="currentColor">
         <path d="M 10 10 Q 30 10 30 30 Q 30 50 50 50 Q 30 50 30 70 Q 30 90 10 90 Q 30 90 50 90 Q 70 90 70 70 Q 70 50 90 50 Q 70 50 70 30 Q 70 10 90 10 Q 70 10 50 10 Q 30 10 10 10 Z" />
@@ -62,4 +64,6 @@ export default function LuxeTemplate({ products, brandName, ctaText, brandLogo }
     </div>
   );
 }
+
+
 

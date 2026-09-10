@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default function EditorialTemplate({ products, brandName, ctaText, brandLogo }) {
+export default function EditorialTemplate({ products, brandName, ctaText, brandLogo, vintageTexture, vintageOverlay }) {
   const count = products.length;
   
   if (count === 0) {
@@ -20,6 +20,8 @@ export default function EditorialTemplate({ products, brandName, ctaText, brandL
 
   return (
     <div className="w-full h-full bg-[#121212] flex flex-col p-6 font-sans text-[#fafafa] relative overflow-hidden">
+      {vintageTexture && (<img src={vintageTexture} alt="Texture" className="absolute inset-0 w-full h-full object-cover opacity-60 mix-blend-multiply z-0 pointer-events-none" />)}
+      {vintageOverlay && (<img src={vintageOverlay} alt="Overlay" className="absolute inset-0 w-full h-full object-cover opacity-90 z-0 pointer-events-none" />)}
       {/* Editorial Watermark Background */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-[400px] font-serif text-[#d4af37] opacity-[0.03] select-none pointer-events-none leading-none z-0" style={{ fontFamily: 'Playfair Display, serif' }}>
         {watermarkLetter}
@@ -65,4 +67,6 @@ export default function EditorialTemplate({ products, brandName, ctaText, brandL
     </div>
   );
 }
+
+
 

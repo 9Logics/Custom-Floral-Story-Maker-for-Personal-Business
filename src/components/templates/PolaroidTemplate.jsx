@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default function PolaroidTemplate({ products, brandName, ctaText, brandLogo }) {
+export default function PolaroidTemplate({ products, brandName, ctaText, brandLogo, vintageTexture, vintageOverlay }) {
   const count = products.length;
   
   if (count === 0) {
@@ -19,6 +19,8 @@ export default function PolaroidTemplate({ products, brandName, ctaText, brandLo
 
   return (
     <div className="w-full h-full bg-[#dfdcd5] flex flex-col p-6 font-sans text-[#2c2c2c] relative overflow-hidden" style={{ backgroundImage: 'url("data:image/svg+xml,%3Csvg width=\'100\' height=\'100\' viewBox=\'0 0 100 100\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cfilter id=\'noise\'%3E%3CfeTurbulence type=\'fractalNoise\' baseFrequency=\'1.5\' numOctaves=\'3\' stitchTiles=\'stitch\'/%3E%3C/filter%3E%3Crect width=\'100\' height=\'100\' filter=\'url(%23noise)\' opacity=\'0.08\'/%3E%3C/svg%3E")' }}>
+      {vintageTexture && (<img src={vintageTexture} alt="Texture" className="absolute inset-0 w-full h-full object-cover opacity-60 mix-blend-multiply z-0 pointer-events-none" />)}
+      {vintageOverlay && (<img src={vintageOverlay} alt="Overlay" className="absolute inset-0 w-full h-full object-cover opacity-90 z-0 pointer-events-none" />)}
       
       {/* Scattered Pressed Flowers & Tape Accents */}
       <div className="absolute top-20 right-8 w-12 h-16 opacity-30 rotate-12 bg-[#a3907c] shadow-sm flex items-center justify-center rounded-full mix-blend-multiply blur-[1px]"></div>
@@ -61,4 +63,6 @@ export default function PolaroidTemplate({ products, brandName, ctaText, brandLo
     </div>
   );
 }
+
+
 

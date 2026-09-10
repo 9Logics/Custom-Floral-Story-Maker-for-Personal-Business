@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default function MinimalTemplate({ products, brandName, ctaText, brandLogo }) {
+export default function MinimalTemplate({ products, brandName, ctaText, brandLogo, vintageTexture, vintageOverlay }) {
   const count = products.length;
   
   if (count === 0) {
@@ -15,6 +15,8 @@ export default function MinimalTemplate({ products, brandName, ctaText, brandLog
 
   return (
     <div className="w-full h-full bg-[#fdfdfc] flex flex-col p-6 font-sans text-[#1a1a1a] relative overflow-hidden">
+      {vintageTexture && (<img src={vintageTexture} alt="Texture" className="absolute inset-0 w-full h-full object-cover opacity-60 mix-blend-multiply z-0 pointer-events-none" />)}
+      {vintageOverlay && (<img src={vintageOverlay} alt="Overlay" className="absolute inset-0 w-full h-full object-cover opacity-90 z-0 pointer-events-none" />)}
       {/* Delicate Line-Art Stem Background */}
       <svg className="absolute top-0 right-0 w-64 h-64 text-[#a3b19b] opacity-[0.15] -translate-y-8 translate-x-12 pointer-events-none" viewBox="0 0 100 100" fill="none" stroke="currentColor" strokeWidth="0.5">
         <path d="M 50 100 Q 40 70 60 40 T 80 0" fill="none" />
@@ -66,4 +68,6 @@ export default function MinimalTemplate({ products, brandName, ctaText, brandLog
     </div>
   );
 }
+
+
 

@@ -2,7 +2,13 @@ import React from 'react';
 import { Plus, Trash2, Image as ImageIcon, ArrowUp, ArrowDown, Upload } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
-function CardForm({ products, setProducts, updateProduct, removeProduct, addProduct, moveProduct, brandName, setBrandName, ctaText, setCtaText, template, setTemplate, brandLogo, setBrandLogo, productsPerCard, setProductsPerCard }) {
+function CardForm({ products, setProducts, updateProduct, removeProduct, addProduct, moveProduct, brandName, setBrandName, ctaText, setCtaText, template, setTemplate, brandLogo, setBrandLogo,  productsPerCard,
+  setProductsPerCard,
+  vintageTexture,
+  setVintageTexture,
+  vintageOverlay,
+  setVintageOverlay
+}) {
   const handleImageUpload = (id, e) => {
     const file = e.target.files[0];
     if (file) {
@@ -80,6 +86,61 @@ function CardForm({ products, setProducts, updateProduct, removeProduct, addProd
                   Up to {num}
                 </button>
               ))}
+            </div>
+          </div>
+          
+          <div className="bg-amber-50 p-4 rounded-xl border border-amber-100/50">
+            <h3 className="text-sm font-semibold text-amber-900 mb-2">Vintage & Custom Assets</h3>
+            <p className="text-[11px] text-amber-700 mb-3">Download assets from <a href="https://www.heritagetype.com/" target="_blank" className="underline font-medium">Heritage Type</a> or <a href="https://www.oldbookillustrations.com/" target="_blank" className="underline font-medium">Old Book Illustrations</a> and upload them here to use as custom backgrounds.</p>
+            <div className="grid grid-cols-2 gap-4">
+              <div>
+                <label className="block text-[11px] font-medium text-amber-800 mb-1">Background Texture (Paper)</label>
+                <div className="relative h-10 border border-dashed border-amber-300 bg-amber-100/50 rounded-lg flex items-center justify-center hover:bg-amber-200/50 transition-colors cursor-pointer overflow-hidden">
+                  <span className="text-[10px] text-amber-700 font-medium">
+                    {vintageTexture ? 'Texture Uploaded (Click to Change)' : 'Upload Texture'}
+                  </span>
+                  <input 
+                    type="file" 
+                    accept="image/*"
+                    onChange={(e) => {
+                      const file = e.target.files[0];
+                      if (file) {
+                        const reader = new FileReader();
+                        reader.onloadend = () => setVintageTexture(reader.result);
+                        reader.readAsDataURL(file);
+                      }
+                    }}
+                    className="absolute inset-0 opacity-0 cursor-pointer w-full h-full"
+                  />
+                </div>
+                {vintageTexture && (
+                  <button onClick={() => setVintageTexture('')} className="text-[9px] text-red-500 hover:underline mt-1">Remove Texture</button>
+                )}
+              </div>
+              <div>
+                <label className="block text-[11px] font-medium text-amber-800 mb-1">Floral Overlay (Illustration)</label>
+                <div className="relative h-10 border border-dashed border-amber-300 bg-amber-100/50 rounded-lg flex items-center justify-center hover:bg-amber-200/50 transition-colors cursor-pointer overflow-hidden">
+                  <span className="text-[10px] text-amber-700 font-medium">
+                    {vintageOverlay ? 'Overlay Uploaded (Click to Change)' : 'Upload Floral Overlay'}
+                  </span>
+                  <input 
+                    type="file" 
+                    accept="image/*"
+                    onChange={(e) => {
+                      const file = e.target.files[0];
+                      if (file) {
+                        const reader = new FileReader();
+                        reader.onloadend = () => setVintageOverlay(reader.result);
+                        reader.readAsDataURL(file);
+                      }
+                    }}
+                    className="absolute inset-0 opacity-0 cursor-pointer w-full h-full"
+                  />
+                </div>
+                {vintageOverlay && (
+                  <button onClick={() => setVintageOverlay('')} className="text-[9px] text-red-500 hover:underline mt-1">Remove Overlay</button>
+                )}
+              </div>
             </div>
           </div>
           <div>
