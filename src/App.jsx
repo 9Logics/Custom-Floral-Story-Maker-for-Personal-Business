@@ -24,7 +24,7 @@ function App() {
   const [brandName, setBrandName] = useState(() => getStorage('fb_brandName_v2', ''));
   const [ctaText, setCtaText] = useState(() => getStorage('fb_ctaText_v2', 'Order Now'));
   const [template, setTemplate] = useState(() => getStorage('fb_template_v2', 'classic'));
-  const [brandLogo, setBrandLogo] = useState(() => getStorage('fb_brandLogo_v2', '/logo.jpg'));
+  const [brandLogo, setBrandLogo] = useState(() => getStorage('fb_brandLogo_v2', '/logo.png'));
   const [productsPerCard, setProductsPerCard] = useState(() => getStorage('fb_productsPerCard_v2', 4));
 
   // Save to localStorage whenever state changes
