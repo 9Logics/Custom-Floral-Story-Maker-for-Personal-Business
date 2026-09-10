@@ -18,23 +18,23 @@ const getStorage = (key, defaultValue) => {
 };
 
 function App() {
-  const [products, setProducts] = useState(() => getStorage('fb_products', [
-    { id: '1', name: 'Spring Bouquet', price: '1,499', description: 'Fresh seasonal flowers', image: '' }
+  const [products, setProducts] = useState(() => getStorage('fb_products_v2', [
+    { id: '1', name: '', price: '', description: '', image: '' }
   ]));
-  const [brandName, setBrandName] = useState(() => getStorage('fb_brandName', 'Fresh Bloom'));
-  const [ctaText, setCtaText] = useState(() => getStorage('fb_ctaText', 'Order Now'));
-  const [template, setTemplate] = useState(() => getStorage('fb_template', 'classic'));
-  const [brandLogo, setBrandLogo] = useState(() => getStorage('fb_brandLogo', '/logo.jpg'));
-  const [productsPerCard, setProductsPerCard] = useState(() => getStorage('fb_productsPerCard', 4));
+  const [brandName, setBrandName] = useState(() => getStorage('fb_brandName_v2', ''));
+  const [ctaText, setCtaText] = useState(() => getStorage('fb_ctaText_v2', 'Order Now'));
+  const [template, setTemplate] = useState(() => getStorage('fb_template_v2', 'classic'));
+  const [brandLogo, setBrandLogo] = useState(() => getStorage('fb_brandLogo_v2', '/logo.jpg'));
+  const [productsPerCard, setProductsPerCard] = useState(() => getStorage('fb_productsPerCard_v2', 4));
 
   // Save to localStorage whenever state changes
   useEffect(() => {
-    localStorage.setItem('fb_products', JSON.stringify(products));
-    localStorage.setItem('fb_brandName', JSON.stringify(brandName));
-    localStorage.setItem('fb_ctaText', JSON.stringify(ctaText));
-    localStorage.setItem('fb_template', JSON.stringify(template));
-    localStorage.setItem('fb_brandLogo', JSON.stringify(brandLogo));
-    localStorage.setItem('fb_productsPerCard', JSON.stringify(productsPerCard));
+    localStorage.setItem('fb_products_v2', JSON.stringify(products));
+    localStorage.setItem('fb_brandName_v2', JSON.stringify(brandName));
+    localStorage.setItem('fb_ctaText_v2', JSON.stringify(ctaText));
+    localStorage.setItem('fb_template_v2', JSON.stringify(template));
+    localStorage.setItem('fb_brandLogo_v2', JSON.stringify(brandLogo));
+    localStorage.setItem('fb_productsPerCard_v2', JSON.stringify(productsPerCard));
   }, [products, brandName, ctaText, template, brandLogo, productsPerCard]);
 
   const addProduct = () => {

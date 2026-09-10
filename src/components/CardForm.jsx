@@ -47,6 +47,7 @@ function CardForm({ products, setProducts, updateProduct, removeProduct, addProd
               <label className="block text-sm font-medium text-gray-700 mb-1">Brand Name</label>
               <input 
                 type="text" 
+                placeholder="e.g. Flora Wholesale"
                 value={brandName}
                 onChange={(e) => setBrandName(e.target.value)}
                 className="w-full p-2.5 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-primary/50 focus:border-brand-primary transition-shadow"
@@ -56,6 +57,7 @@ function CardForm({ products, setProducts, updateProduct, removeProduct, addProd
               <label className="block text-sm font-medium text-gray-700 mb-1">Call to Action (CTA)</label>
               <input 
                 type="text" 
+                placeholder="e.g. Order Now / Check Rates"
                 value={ctaText}
                 onChange={(e) => setCtaText(e.target.value)}
                 className="w-full p-2.5 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-primary/50 focus:border-brand-primary transition-shadow"
@@ -203,7 +205,7 @@ function CardForm({ products, setProducts, updateProduct, removeProduct, addProd
                     <div className="flex-1 space-y-2">
                       <input 
                         type="text" 
-                        placeholder="Product Name" 
+                        placeholder="Flower Name (e.g., Marigold)" 
                         value={product.name}
                         onChange={(e) => updateProduct(product.id, 'name', e.target.value)}
                         className="w-full p-2 border border-gray-200 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-brand-primary/30 transition-shadow"
@@ -212,7 +214,7 @@ function CardForm({ products, setProducts, updateProduct, removeProduct, addProd
                         <span className="absolute left-2.5 top-1/2 -translate-y-1/2 text-gray-400 text-sm">₹</span>
                         <input 
                           type="text" 
-                          placeholder="999" 
+                          placeholder="Price" 
                           value={product.price ? product.price.replace(/^₹\s*/, '') : ''}
                           onChange={(e) => updateProduct(product.id, 'price', e.target.value.replace(/^₹\s*/, ''))}
                           className="w-full pl-6 p-2 border border-gray-200 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-brand-primary/30 transition-shadow"
@@ -222,7 +224,7 @@ function CardForm({ products, setProducts, updateProduct, removeProduct, addProd
                   </div>
                   <div className="mt-2">
                     <textarea 
-                      placeholder="Short description (optional)" 
+                      placeholder="Quantity/Weight (e.g., per kg or string length)" 
                       value={product.description}
                       onChange={(e) => updateProduct(product.id, 'description', e.target.value)}
                       className="w-full p-2 border border-gray-200 rounded-md text-sm resize-none h-16 focus:outline-none focus:ring-2 focus:ring-brand-primary/30 transition-shadow"
