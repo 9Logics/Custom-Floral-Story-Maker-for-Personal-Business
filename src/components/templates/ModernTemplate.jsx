@@ -49,10 +49,10 @@ export default function ModernTemplate({ products, brandName, ctaText, brandLogo
               <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-[#141414] to-transparent"></div>
             </div>
             <div className="absolute bottom-4 left-3 right-3 flex justify-between items-end">
-              <div className="flex flex-col w-[60%]">
-                <h3 className="text-[13px] font-medium text-white capitalize tracking-wide truncate" style={{ fontFamily: 'Outfit, sans-serif' }}>{product.name || 'Flower Name'}</h3>
+              <div className="flex flex-col w-[55%]">
+                <h3 className="text-[17px] font-bold truncate text-white capitalize tracking-tight" style={{ fontFamily: 'Outfit, sans-serif' }}>{product.name || 'Flower Name'}</h3>
               </div>
-              <p className="text-[11px] text-white/70 font-semibold font-mono bg-white/10 px-2 py-0.5 rounded backdrop-blur-md">{product.price || 'Price'}</p>
+              <p className="text-[14px] font-bold font-mono bg-[#e8c85c] text-[#141414] px-2.5 py-0.5 rounded shadow-sm">{product.price || 'Price'}</p>
             </div>
           </div>
         ))}

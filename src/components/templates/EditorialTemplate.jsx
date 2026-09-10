@@ -50,7 +50,7 @@ export default function EditorialTemplate({ products, brandName, ctaText, brandL
               <h3 className="font-serif text-[15px] font-normal text-white capitalize tracking-wide" style={{ fontFamily: 'Cinzel, serif' }}>{product.name || 'Flower Name'}</h3>
               <div className="flex items-center gap-2 mt-1.5">
                 <div className="w-4 h-[1px] bg-[#d4af37]/50"></div>
-                <p className="text-[11px] text-[#d4af37] font-semibold tracking-wider" style={{ fontFamily: 'Outfit, sans-serif' }}>{product.price || 'Price'}</p>
+                <p className="text-[14px] text-[#e8c85c] font-bold tracking-wider" style={{ fontFamily: 'Outfit, sans-serif' }}>{product.price || 'Price'}</p>
                 <div className="w-4 h-[1px] bg-[#d4af37]/50"></div>
               </div>
             </div>

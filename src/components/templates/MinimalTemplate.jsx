@@ -48,8 +48,8 @@ export default function MinimalTemplate({ products, brandName, ctaText, brandLog
             </div>
             <div className="flex flex-col">
               <div className="flex justify-between items-baseline border-b border-[#e5e5e5] pb-1.5 mb-1.5">
-                <h3 className="text-[13px] font-medium text-[#1a1a1a] capitalize tracking-wide truncate pr-2" style={{ fontFamily: 'Tenor Sans, sans-serif' }}>{product.name || 'Flower Name'}</h3>
-                <p className="text-[12px] text-[#1a1a1a] font-medium" style={{ fontFamily: 'Tenor Sans, sans-serif' }}>{product.price || 'Price'}</p>
+                <h3 className="text-[15px] font-bold text-[#1a1a1a] capitalize tracking-wide truncate pr-2" style={{ fontFamily: 'Tenor Sans, sans-serif' }}>{product.name || 'Flower Name'}</h3>
+                <p className="text-[14px] text-[#1a1a1a] font-black" style={{ fontFamily: 'Tenor Sans, sans-serif' }}>{product.price || 'Price'}</p>
               </div>
               {product.description && count <= 2 && (
                 <p className="text-[10px] text-[#7a7a7a] font-light leading-relaxed">{product.description}</p>

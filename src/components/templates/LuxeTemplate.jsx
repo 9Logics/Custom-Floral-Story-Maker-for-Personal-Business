@@ -48,8 +48,8 @@ export default function LuxeTemplate({ products, brandName, ctaText, brandLogo, 
               <img src={product.image || './placeholder.jpg'} alt={product.name || 'Flower'} className={`absolute inset-0 w-full h-full object-cover ${!product.image ? 'opacity-50' : ''}`} />
             </div>
             <div className="flex flex-col text-center px-1">
-              <h3 className="font-serif text-[15px] font-normal text-[#2c2c2c] capitalize" style={{ fontFamily: 'Cinzel, serif' }}>{product.name || 'Flower Name'}</h3>
-              <p className="text-[12px] text-[#cfa86e] font-semibold mt-1" style={{ fontFamily: 'Tenor Sans, sans-serif' }}>{product.price || 'Price'}</p>
+              <h3 className="text-[17px] font-medium truncate text-[#3d3326] capitalize" style={{ fontFamily: 'Cinzel, serif' }}>{product.name || 'Flower Name'}</h3>
+              <p className="text-[14px] text-[#b0874c] font-bold mt-1" style={{ fontFamily: 'Tenor Sans, sans-serif' }}>{product.price || 'Price'}</p>
             </div>
           </div>
         ))}

@@ -51,9 +51,9 @@ export default function ClassicTemplate({ products, brandName, ctaText, brandLog
             <div className={`w-full flex-1 min-h-0 relative bg-[#f9f8f6] rounded-xl overflow-hidden flex items-center justify-center relative mb-3 ring-1 ring-black/5`}>
               <img src={product.image || './placeholder.jpg'} alt={product.name || 'Flower'} className={`absolute inset-0 w-full h-full object-cover transition-transform duration-700 hover:scale-105 ${!product.image ? 'opacity-80' : ''}`} />
             </div>
-            <div className="flex flex-col text-center px-1">
-              <h3 className=" text-[16px] font-semibold truncate text-[#1b3312] capitalize">{product.name || 'Flower Name'}</h3>
-              <p className="text-[13px] text-[#b38b59] font-medium mt-1 tracking-wide">{product.price || 'Price'}</p>
+            <div className="flex flex-col text-center px-1 mt-1">
+              <h3 className=" text-[17px] font-bold truncate text-[#1b3312] capitalize">{product.name || 'Flower Name'}</h3>
+              <p className="text-[15px] text-[#967140] font-bold mt-1 tracking-wide">{product.price || 'Price'}</p>
               {product.description && count <= 2 && (
                 <p className="text-[11px] text-[#8c857b] mt-2.5 line-clamp-2 leading-relaxed">{product.description}</p>
               )}

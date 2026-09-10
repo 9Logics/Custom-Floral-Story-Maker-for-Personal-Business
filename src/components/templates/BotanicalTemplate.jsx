@@ -50,7 +50,7 @@ export default function BotanicalTemplate({ products, brandName, ctaText, brandL
             </div>
             <div className="flex flex-col text-center px-1 pb-1">
               <h3 className="font-serif text-[17px] font-medium truncate text-[#f2f5eb] capitalize" style={{ textShadow: '0 2px 8px rgba(0,0,0,0.5)' }}>{product.name || 'Flower Name'}</h3>
-              <p className="text-[12px] text-[#b4d49a] font-semibold mt-1 tracking-wide">{product.price || 'Price'}</p>
+              <p className="text-[15px] text-[#cbf5a9] font-bold mt-1.5 tracking-wider bg-white/10 inline-block self-center px-3 py-0.5 rounded-full shadow-sm">{product.price || 'Price'}</p>
             </div>
           </div>
         ))}

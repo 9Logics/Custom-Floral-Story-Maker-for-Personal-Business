@@ -41,8 +41,8 @@ export default function WatercolorTemplate({ products, brandName, ctaText, brand
               <img src={product.image || './placeholder.jpg'} alt={product.name || 'Flower'} className={`absolute inset-0 w-full h-full object-cover transition-transform duration-700 hover:scale-105 ${!product.image ? 'opacity-40' : ''}`} />
             </div>
             <div className="flex flex-col text-center px-1">
-              <h3 className="text-[15px] font-medium text-[#4a3b32] capitalize" style={{ fontFamily: 'Pinyon Script, cursive' }}>{product.name || 'Flower Name'}</h3>
-              <p className="text-[12px] text-[#b08d7a] font-semibold mt-1 tracking-wide" style={{ fontFamily: 'Tenor Sans, sans-serif' }}>{product.price || 'Price'}</p>
+              <h3 className="text-[17px] font-semibold text-[#4a3b32] capitalize leading-snug" style={{ fontFamily: 'Cormorant, serif' }}>{product.name || 'Flower Name'}</h3>
+              <p className="text-[14px] text-[#8a6b57] font-bold mt-1 tracking-wide bg-white/50 inline-block self-center px-3 py-0.5 rounded-full mt-1.5 shadow-sm" style={{ fontFamily: 'Tenor Sans, sans-serif' }}>{product.price || 'Price'}</p>
             </div>
           </div>
         ))}

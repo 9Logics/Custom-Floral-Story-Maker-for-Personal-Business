@@ -47,8 +47,8 @@ export default function PolaroidTemplate({ products, brandName, ctaText, brandLo
               <img src={product.image || './placeholder.jpg'} alt={product.name || 'Flower'} className={`absolute inset-0 w-full h-full object-cover grayscale-[0.2] sepia-[0.1] contrast-[1.1] ${!product.image ? 'opacity-50' : ''}`} />
             </div>
             <div className="flex flex-col text-center px-2">
-              <h3 className="text-[18px] font-medium text-[#2c2c2c] capitalize" style={{ fontFamily: 'Nothing You Could Do, cursive' }}>{product.name || 'Flower Name'}</h3>
-              <p className="text-[12px] text-[#6b5c49] font-semibold mt-1" style={{ fontFamily: 'Montserrat, sans-serif' }}>{product.price || 'Price'}</p>
+              <h3 className="text-[20px] font-bold truncate text-[#2c2a27] capitalize" style={{ fontFamily: 'Nothing You Could Do, cursive' }}>{product.name || 'Flower Name'}</h3>
+              <p className="text-[14px] text-[#524433] font-bold tracking-wide" style={{ fontFamily: 'Montserrat, sans-serif' }}>{product.price || 'Price'}</p>
             </div>
           </div>
         ))}
