@@ -28,23 +28,23 @@ export default function LuxeTemplate({ products, brandName, ctaText, brandLogo, 
       </svg>
 
       {/* Header */}
-      <div className="text-center mb-6 pt-4 relative z-10">
+      <div className="text-center mb-3 pt-2 relative z-10">
         
-        {brandLogo && (<img src={brandLogo} alt="Logo" className="w-12 h-12 object-contain mx-auto mb-2" />)}
-        <h1 className="font-serif text-[42px] text-[#2c2c2c] font-medium capitalize" style={{ fontFamily: 'Cinzel, serif' }}>
+        {brandLogo && (<img src={brandLogo} alt="Logo" className="w-8 h-8 object-contain mx-auto mb-1" />)}
+        <h1 className="font-serif text-[24px] text-[#2c2c2c] font-medium capitalize" style={{ fontFamily: 'Cinzel, serif' }}>
           {brandName}
         </h1>
         <p className="text-[9px] text-[#9b8566] tracking-[0.2em] uppercase mt-2 font-bold" style={{ fontFamily: 'Tenor Sans, sans-serif' }}>
           Today's Pricing
         </p>
-        <div className="w-16 h-[1px] bg-[#cfa86e] mx-auto mt-4"></div>
+        <div className="w-16 h-[1px] bg-[#cfa86e] mx-auto mt-2"></div>
       </div>
 
       {/* Grid */}
-      <div className={`flex-1 grid ${gridClass} gap-4 ${count >= 2 ? 'grid-rows-2' : ''} relative z-10`}>
+      <div className={`flex-1 grid ${gridClass} ${count > 4 ? 'gap-2 grid-rows-3' : count >= 2 ? 'gap-4 grid-rows-2' : 'gap-4'} relative z-10`}>
         {products.map((product, i) => (
           <div key={product.id || i} className="flex flex-col h-full bg-white p-2.5 shadow-[0_12px_30px_rgba(0,0,0,0.06)] border border-[#e8dcc4]">
-            <div className={`w-full flex-1 min-h-0 relative bg-[#f5f0e8] overflow-hidden flex items-center justify-center relative mb-3 ring-1 ring-[#cfa86e]/30`}>
+            <div className={`w-full flex-1 min-h-0 relative bg-[#f5f0e8] overflow-hidden flex items-center justify-center relative mb-1.5 ring-1 ring-[#cfa86e]/30`}>
               <img src={product.image || './placeholder.jpg'} alt={product.name || 'Flower'} className={`absolute inset-0 w-full h-full object-cover ${!product.image ? 'opacity-50' : ''}`} />
             </div>
             <div className="flex flex-col text-center px-1">

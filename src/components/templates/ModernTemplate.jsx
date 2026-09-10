@@ -28,17 +28,17 @@ export default function ModernTemplate({ products, brandName, ctaText, brandLogo
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-white/[0.02] to-transparent pointer-events-none"></div>
 
       {/* Header */}
-      <div className="mb-8 pt-4 z-10 flex flex-col items-center">
+      <div className="mb-4 pt-2 z-10 flex flex-col items-center">
         
-        {brandLogo && (<img src={brandLogo} alt="Logo" className="w-12 h-12 object-contain mx-auto mb-2" />)}
-        <h1 className="text-[36px] text-white font-light tracking-[0.1em] uppercase leading-tight text-center" style={{ fontFamily: 'Outfit, sans-serif' }}>
+        {brandLogo && (<img src={brandLogo} alt="Logo" className="w-8 h-8 object-contain mx-auto mb-1" />)}
+        <h1 className="text-[22px] text-white font-light tracking-[0.1em] uppercase leading-tight text-center" style={{ fontFamily: 'Outfit, sans-serif' }}>
           {brandName}
         </h1>
-        <div className="w-16 h-[2px] bg-white/20 mt-4 rounded-full"></div>
+        <div className="w-16 h-[2px] bg-white/20 mt-2 rounded-full"></div>
       </div>
 
       {/* Grid */}
-      <div className={`flex-1 grid ${gridClass} gap-4 ${count >= 2 ? 'grid-rows-2' : ''} z-10`}>
+      <div className={`flex-1 grid ${gridClass} ${count > 4 ? 'gap-2 grid-rows-3' : count >= 2 ? 'gap-4 grid-rows-2' : 'gap-4'} z-10`}>
         {products.map((product, i) => (
           <div key={product.id || i} className="flex flex-col h-full bg-[#141414] p-2 rounded-xl relative overflow-hidden border border-white/[0.08] shadow-[0_0_20px_rgba(255,255,255,0.03)] group">
       {vintageTexture && (<img src={vintageTexture} alt="Texture" className="absolute inset-0 w-full h-full object-cover opacity-60 mix-blend-multiply z-0 pointer-events-none" />)}
@@ -59,7 +59,7 @@ export default function ModernTemplate({ products, brandName, ctaText, brandLogo
       </div>
 
       {/* Footer */}
-      <div className="mt-8 text-center pb-4 z-10">
+      <div className="mt-2 text-center pb-4 z-10">
         <div className="inline-block bg-white text-black text-[11px] font-bold tracking-[0.2em] uppercase px-12 py-3.5 rounded-full shadow-[0_0_20px_rgba(255,255,255,0.15)]">
           {ctaText || 'Order Now'}
         </div>

@@ -29,13 +29,13 @@ export default function ClassicTemplate({ products, brandName, ctaText, brandLog
       </svg>
 
       {/* Header */}
-      <div className="text-center mb-6 pt-4 relative z-10">
+      <div className="text-center mb-3 pt-2 relative z-10">
         
-        {brandLogo && (<img src={brandLogo} alt="Logo" className="w-12 h-12 object-contain mx-auto mb-2" />)}
-        <h1 className=" text-[42px] font-serif text-[#1b3312] font-medium capitalize leading-tight tracking-tight" style={{ fontFamily: 'Prata, serif' }}>
+        {brandLogo && (<img src={brandLogo} alt="Logo" className="w-8 h-8 object-contain mx-auto mb-1" />)}
+        <h1 className=" text-[24px] font-serif text-[#1b3312] font-medium capitalize leading-tight tracking-tight" style={{ fontFamily: 'Prata, serif' }}>
           {brandName}
         </h1>
-        <div className="flex items-center justify-center gap-3 mt-4">
+        <div className="flex items-center justify-center gap-3 mt-2">
           <div className="w-8 h-px bg-[#d4af37]/40"></div>
           <svg className="w-3 h-3 text-[#d4af37]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
             <path d="M12 2L15 9L22 9L16 14L18 21L12 17L6 21L8 14L2 9L9 9L12 2Z" fill="currentColor" opacity="0.3"/>
@@ -45,10 +45,10 @@ export default function ClassicTemplate({ products, brandName, ctaText, brandLog
       </div>
 
       {/* Grid */}
-      <div className={`flex-1 grid ${gridClass} gap-5 ${count >= 2 ? 'grid-rows-2' : ''} relative z-10`}>
+      <div className={`flex-1 grid ${gridClass} ${count > 4 ? 'gap-2 grid-rows-3' : count >= 2 ? 'gap-4 grid-rows-2' : 'gap-4'} relative z-10`}>
         {products.map((product, i) => (
           <div key={product.id || i} className="flex flex-col h-full bg-white p-3.5 shadow-[0_8px_30px_rgba(45,74,34,0.08)] rounded-2xl border border-[#f0ede8]/50 hover:shadow-[0_12px_40px_rgba(45,74,34,0.12)] transition-shadow duration-500">
-            <div className={`w-full flex-1 min-h-0 relative bg-[#f9f8f6] rounded-xl overflow-hidden flex items-center justify-center relative mb-3 ring-1 ring-black/5`}>
+            <div className={`w-full flex-1 min-h-0 relative bg-[#f9f8f6] rounded-xl overflow-hidden flex items-center justify-center relative mb-1.5 ring-1 ring-black/5`}>
               <img src={product.image || './placeholder.jpg'} alt={product.name || 'Flower'} className={`absolute inset-0 w-full h-full object-cover transition-transform duration-700 hover:scale-105 ${!product.image ? 'opacity-80' : ''}`} />
             </div>
             <div className="flex flex-col text-center px-1 mt-1">
@@ -63,7 +63,7 @@ export default function ClassicTemplate({ products, brandName, ctaText, brandLog
       </div>
 
       {/* Footer */}
-      <div className="mt-8 text-center pb-4 relative z-10">
+      <div className="mt-2 text-center pb-4 relative z-10">
         <div className="inline-block bg-[#1b3312] text-[#fcfbf9] text-[13px] font-semibold tracking-wider px-10 py-3.5 rounded-full shadow-[0_4px_14px_rgba(27,51,18,0.25)] capitalize" style={{ fontFamily: 'Tenor Sans, sans-serif' }}>
           {ctaText || 'Order Now'}
         </div>

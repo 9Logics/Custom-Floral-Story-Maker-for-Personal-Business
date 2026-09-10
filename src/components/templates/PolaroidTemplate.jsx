@@ -28,9 +28,9 @@ export default function PolaroidTemplate({ products, brandName, ctaText, brandLo
       <div className="absolute top-40 left-12 w-16 h-4 bg-white/40 -rotate-6 backdrop-blur-sm shadow-sm z-20"></div>
 
       {/* Header */}
-      <div className="text-center mb-8 pt-4 relative z-10">
+      <div className="text-center mb-4 pt-2 relative z-10">
         
-        {brandLogo && (<img src={brandLogo} alt="Logo" className="w-12 h-12 object-contain mx-auto mb-2" />)}
+        {brandLogo && (<img src={brandLogo} alt="Logo" className="w-8 h-8 object-contain mx-auto mb-1" />)}
         <h1 className="text-[44px] text-[#2c2c2c] font-medium capitalize leading-tight" style={{ fontFamily: 'Nothing You Could Do, cursive' }}>
           {brandName}
         </h1>
@@ -40,7 +40,7 @@ export default function PolaroidTemplate({ products, brandName, ctaText, brandLo
       </div>
 
       {/* Grid */}
-      <div className={`flex-1 grid ${gridClass} ${count >= 2 ? 'grid-rows-2' : ''} relative z-10 p-2`}>
+      <div className={`flex-1 grid ${gridClass} ${count > 4 ? 'gap-2 grid-rows-3' : count >= 2 ? 'gap-3 grid-rows-2' : 'gap-3'} relative z-10 p-2`}>
         {products.map((product, i) => (
           <div key={product.id || i} className={`flex flex-col h-full bg-[#faf9f6] p-3 pb-8 shadow-[0_20px_40px_rgba(0,0,0,0.15)] ${rotations[i % rotations.length]}`}>
             <div className={`w-full flex-1 min-h-0 relative bg-[#e8e4de] flex items-center justify-center relative mb-4 shadow-inner`}>
@@ -55,7 +55,7 @@ export default function PolaroidTemplate({ products, brandName, ctaText, brandLo
       </div>
 
       {/* Footer */}
-      <div className="mt-8 text-center pb-2 relative z-10">
+      <div className="mt-2 text-center pb-2 relative z-10">
         <div className="inline-block text-[#2c2c2c] border-b-2 border-[#2c2c2c] text-[13px] font-bold tracking-[0.15em] uppercase px-4 py-1" style={{ fontFamily: 'Montserrat, sans-serif' }}>
           {ctaText || 'Order Now'}
         </div>

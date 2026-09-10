@@ -28,22 +28,22 @@ export default function EditorialTemplate({ products, brandName, ctaText, brandL
       </div>
 
       {/* Header */}
-      <div className="mb-8 pt-4 flex flex-col items-center relative z-10">
+      <div className="mb-2 pt-1 flex flex-col items-center relative z-10">
         
-        {brandLogo && (<img src={brandLogo} alt="Logo" className="w-12 h-12 object-contain mx-auto mb-2" />)}
-        <h1 className="font-serif text-[42px] text-[#fafafa] font-normal capitalize tracking-wide leading-tight" style={{ fontFamily: 'Cinzel, serif' }}>
+        {brandLogo && (<img src={brandLogo} alt="Logo" className="w-8 h-8 object-contain mx-auto mb-1" />)}
+        <h1 className="font-serif text-[24px] text-[#fafafa] font-normal capitalize tracking-wide leading-tight" style={{ fontFamily: 'Cinzel, serif' }}>
           {brandName}
         </h1>
-        <p className="text-[9px] font-medium uppercase tracking-[0.25em] text-[#d4af37] mt-3" style={{ fontFamily: 'Outfit, sans-serif' }}>
+        <p className="text-[9px] font-medium uppercase tracking-[0.25em] text-[#d4af37] mt-1.5" style={{ fontFamily: 'Outfit, sans-serif' }}>
           Today's Pricing
         </p>
       </div>
 
       {/* Grid */}
-      <div className={`flex-1 grid ${gridClass} gap-6 ${count >= 2 ? 'grid-rows-2' : ''} relative z-10`}>
+      <div className={`flex-1 grid ${gridClass} ${count > 4 ? 'gap-3 grid-rows-3' : count >= 2 ? 'gap-6 grid-rows-2' : 'gap-6'} relative z-10`}>
         {products.map((product, i) => (
           <div key={product.id || i} className="flex flex-col h-full group">
-            <div className={`w-full flex-1 min-h-0 relative bg-[#1a1a1a] overflow-hidden flex items-center justify-center relative mb-3 shadow-[0_15px_40px_rgba(0,0,0,0.6)] ring-1 ring-white/10`}>
+            <div className={`w-full flex-1 min-h-0 relative bg-[#1a1a1a] overflow-hidden flex items-center justify-center relative mb-1.5 shadow-[0_15px_40px_rgba(0,0,0,0.6)] ring-1 ring-white/10`}>
               <img src={product.image || './placeholder.jpg'} alt={product.name || 'Flower'} className={`absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105 ${!product.image ? 'opacity-40' : ''}`} />
             </div>
             <div className="flex flex-col items-center text-center">
@@ -59,7 +59,7 @@ export default function EditorialTemplate({ products, brandName, ctaText, brandL
       </div>
 
       {/* Footer */}
-      <div className="mt-8 text-center pb-2 relative z-10">
+      <div className="mt-2 text-center pb-2 relative z-10">
         <div className="inline-block bg-transparent text-[#d4af37] border border-[#d4af37] text-[10px] font-bold tracking-[0.2em] uppercase px-12 py-3 hover:bg-[#d4af37] hover:text-[#121212] transition-colors duration-500" style={{ fontFamily: 'Outfit, sans-serif' }}>
           {ctaText || 'Order Now'}
         </div>

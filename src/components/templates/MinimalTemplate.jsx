@@ -30,20 +30,20 @@ export default function MinimalTemplate({ products, brandName, ctaText, brandLog
       </svg>
 
       {/* Header */}
-      <div className="mb-8 pt-4 flex flex-col items-center relative z-10">
+      <div className="mb-2 pt-1 flex flex-col items-center relative z-10">
         
-        {brandLogo && (<img src={brandLogo} alt="Logo" className="w-12 h-12 object-contain mx-auto mb-2" />)}
-        <h1 className="text-[28px] text-[#1a1a1a] font-medium tracking-[0.05em] uppercase leading-tight" style={{ fontFamily: 'Tenor Sans, sans-serif' }}>
+        {brandLogo && (<img src={brandLogo} alt="Logo" className="w-8 h-8 object-contain mx-auto mb-1" />)}
+        <h1 className="text-[22px] text-[#1a1a1a] font-medium tracking-[0.05em] uppercase leading-tight" style={{ fontFamily: 'Tenor Sans, sans-serif' }}>
           {brandName}
         </h1>
         <p className="text-[10px] text-[#7a7a7a] tracking-[0.2em] uppercase mt-2">Pure & Simple</p>
       </div>
 
       {/* Grid */}
-      <div className={`flex-1 flex flex-col gap-5 relative z-10 ${count > 2 ? 'grid grid-cols-2 grid-rows-2' : ''}`}>
+      <div className={`flex-1 flex flex-col relative z-10 ${count > 4 ? 'grid grid-cols-2 grid-rows-3 gap-2' : count >= 2 ? 'grid grid-cols-2 grid-rows-2 gap-4' : 'gap-4'}`}>
         {products.map((product, i) => (
           <div key={product.id || i} className="flex flex-col h-full group">
-            <div className={`w-full flex-1 min-h-0 relative bg-[#f5f5f5] overflow-hidden mb-3 shadow-[0_4px_15px_rgba(0,0,0,0.03)]`}>
+            <div className={`w-full flex-1 min-h-0 relative bg-[#f5f5f5] overflow-hidden mb-1.5 shadow-[0_4px_15px_rgba(0,0,0,0.03)]`}>
               <img src={product.image || './placeholder.jpg'} alt={product.name || 'Flower'} className={`absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105 ${!product.image ? 'opacity-50' : ''}`} />
             </div>
             <div className="flex flex-col">
@@ -60,7 +60,7 @@ export default function MinimalTemplate({ products, brandName, ctaText, brandLog
       </div>
 
       {/* Footer */}
-      <div className="mt-8 text-center pb-2 relative z-10">
+      <div className="mt-2 text-center pb-2 relative z-10">
         <div className="inline-block bg-transparent text-[#1a1a1a] border border-[#1a1a1a] text-[11px] font-medium tracking-[0.15em] uppercase px-8 py-3 hover:bg-[#1a1a1a] hover:text-white transition-colors duration-300">
           {ctaText || 'Order Now'}
         </div>

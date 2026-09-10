@@ -31,7 +31,7 @@ export default function BotanicalTemplate({ products, brandName, ctaText, brandL
       {/* Header */}
       <div className="text-center mb-6 pt-2 z-10 relative">
         
-        {brandLogo && (<img src={brandLogo} alt="Logo" className="w-12 h-12 object-contain mx-auto mb-2" />)}
+        {brandLogo && (<img src={brandLogo} alt="Logo" className="w-8 h-8 object-contain mx-auto mb-1" />)}
         <h1 className="font-serif text-[44px] text-[#f2f5eb] font-normal capitalize tracking-tight" style={{ fontFamily: 'Italiana, serif',  textShadow: '0 4px 20px rgba(0,0,0,0.3)'  }}>
           {brandName}
         </h1>
@@ -41,10 +41,10 @@ export default function BotanicalTemplate({ products, brandName, ctaText, brandL
       </div>
 
       {/* Grid */}
-      <div className={`flex-1 grid ${gridClass} gap-4 ${count >= 2 ? 'grid-rows-2' : ''} z-10 relative`}>
+      <div className={`flex-1 grid ${gridClass} ${count > 4 ? 'gap-2 grid-rows-3' : count >= 2 ? 'gap-4 grid-rows-2' : 'gap-4'} z-10 relative`}>
         {products.map((product, i) => (
           <div key={product.id || i} className="flex flex-col h-full bg-white/[0.06] backdrop-blur-xl p-3 rounded-[24px] border border-white/[0.15] shadow-[0_16px_40px_rgba(0,0,0,0.4)]">
-            <div className={`w-full flex-1 min-h-0 relative bg-black/20 rounded-[18px] overflow-hidden flex items-center justify-center relative mb-3 shadow-inner`}>
+            <div className={`w-full flex-1 min-h-0 relative bg-black/20 rounded-[18px] overflow-hidden flex items-center justify-center relative mb-1.5 shadow-inner`}>
               <img src={product.image || './placeholder.jpg'} alt={product.name || 'Flower'} className={`absolute inset-0 w-full h-full object-cover brightness-[0.85] contrast-[1.1] transition-all duration-700 hover:scale-110 hover:brightness-100 ${!product.image ? 'opacity-70' : ''}`} />
               <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
             </div>
@@ -57,7 +57,7 @@ export default function BotanicalTemplate({ products, brandName, ctaText, brandL
       </div>
 
       {/* Footer */}
-      <div className="mt-8 text-center pb-2 z-10 relative">
+      <div className="mt-2 text-center pb-2 z-10 relative">
         <div className="inline-block bg-[#f2f5eb] text-[#1e3016] text-[13px] font-bold tracking-widest px-10 py-3.5 rounded-full shadow-[0_8px_20px_rgba(242,245,235,0.2)] capitalize transition-transform hover:-translate-y-0.5" style={{ fontFamily: 'Outfit, sans-serif' }}>
           {ctaText || 'Order Now'}
         </div>
