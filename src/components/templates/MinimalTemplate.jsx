@@ -6,7 +6,7 @@ export default function MinimalTemplate({ products, brandName, ctaText, brandLog
   if (count === 0) {
     return (
       <div className="w-full h-full flex items-center justify-center bg-white text-[#2a2a2a] p-6 text-center">
-        <p style={{ fontFamily: 'Montserrat, sans-serif' }} className="text-xl opacity-20 font-light">Add products</p>
+        <p style={{ fontFamily: 'Tenor Sans, sans-serif' }} className="text-xl opacity-20 font-light">Add products</p>
       </div>
     );
   }
@@ -33,7 +33,7 @@ export default function MinimalTemplate({ products, brandName, ctaText, brandLog
       <div className="mb-8 pt-4 flex flex-col items-center relative z-10">
         
         {brandLogo && (<img src={brandLogo} alt="Logo" className="w-12 h-12 object-contain mx-auto mb-2" />)}
-        <h1 className="text-[28px] text-[#1a1a1a] font-medium tracking-[0.05em] uppercase leading-tight" style={{ fontFamily: 'Montserrat, sans-serif' }}>
+        <h1 className="text-[28px] text-[#1a1a1a] font-medium tracking-[0.05em] uppercase leading-tight" style={{ fontFamily: 'Tenor Sans, sans-serif' }}>
           {brandName}
         </h1>
         <p className="text-[10px] text-[#7a7a7a] tracking-[0.2em] uppercase mt-2">Pure & Simple</p>
@@ -48,8 +48,8 @@ export default function MinimalTemplate({ products, brandName, ctaText, brandLog
             </div>
             <div className="flex flex-col">
               <div className="flex justify-between items-baseline border-b border-[#e5e5e5] pb-1.5 mb-1.5">
-                <h3 className="text-[13px] font-medium text-[#1a1a1a] capitalize tracking-wide truncate pr-2" style={{ fontFamily: 'Montserrat, sans-serif' }}>{product.name || 'Flower Name'}</h3>
-                <p className="text-[12px] text-[#1a1a1a] font-medium" style={{ fontFamily: 'Montserrat, sans-serif' }}>{product.price || 'Price'}</p>
+                <h3 className="text-[13px] font-medium text-[#1a1a1a] capitalize tracking-wide truncate pr-2" style={{ fontFamily: 'Tenor Sans, sans-serif' }}>{product.name || 'Flower Name'}</h3>
+                <p className="text-[12px] text-[#1a1a1a] font-medium" style={{ fontFamily: 'Tenor Sans, sans-serif' }}>{product.price || 'Price'}</p>
               </div>
               {product.description && count <= 2 && (
                 <p className="text-[10px] text-[#7a7a7a] font-light leading-relaxed">{product.description}</p>
@@ -68,6 +68,7 @@ export default function MinimalTemplate({ products, brandName, ctaText, brandLog
     </div>
   );
 }
+
 
 
 

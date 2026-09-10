@@ -6,7 +6,7 @@ export default function WatercolorTemplate({ products, brandName, ctaText, brand
   if (count === 0) {
     return (
       <div className="w-full h-full flex items-center justify-center bg-[#fdfaf8] text-[#5c4033] p-6 text-center">
-        <p style={{ fontFamily: 'Montserrat, sans-serif' }} className="text-xl opacity-20 font-light">Add products</p>
+        <p style={{ fontFamily: 'Tenor Sans, sans-serif' }} className="text-xl opacity-20 font-light">Add products</p>
       </div>
     );
   }
@@ -27,10 +27,10 @@ export default function WatercolorTemplate({ products, brandName, ctaText, brand
       <div className="text-center mb-8 pt-4 relative z-10">
         
         {brandLogo && (<img src={brandLogo} alt="Logo" className="w-12 h-12 object-contain mx-auto mb-2" />)}
-        <h1 className="text-[40px] text-[#4a3b32] font-medium capitalize italic leading-tight" style={{ fontFamily: 'Lora, serif' }}>
+        <h1 className="text-[40px] text-[#4a3b32] font-medium capitalize italic leading-tight" style={{ fontFamily: 'Pinyon Script, cursive' }}>
           {brandName}
         </h1>
-        <p className="text-[10px] text-[#8a7266] tracking-[0.15em] uppercase mt-2" style={{ fontFamily: 'Montserrat, sans-serif' }}>today's pricing</p>
+        <p className="text-[10px] text-[#8a7266] tracking-[0.15em] uppercase mt-2" style={{ fontFamily: 'Tenor Sans, sans-serif' }}>today's pricing</p>
       </div>
 
       {/* Grid */}
@@ -41,8 +41,8 @@ export default function WatercolorTemplate({ products, brandName, ctaText, brand
               <img src={product.image || '/placeholder.jpg'} alt={product.name || 'Flower'} className={`w-full h-full object-cover transition-transform duration-700 hover:scale-105 ${!product.image ? 'opacity-40' : ''}`} />
             </div>
             <div className="flex flex-col text-center px-1">
-              <h3 className="text-[15px] font-medium text-[#4a3b32] capitalize" style={{ fontFamily: 'Lora, serif' }}>{product.name || 'Flower Name'}</h3>
-              <p className="text-[12px] text-[#b08d7a] font-semibold mt-1 tracking-wide" style={{ fontFamily: 'Montserrat, sans-serif' }}>{product.price || 'Price'}</p>
+              <h3 className="text-[15px] font-medium text-[#4a3b32] capitalize" style={{ fontFamily: 'Pinyon Script, cursive' }}>{product.name || 'Flower Name'}</h3>
+              <p className="text-[12px] text-[#b08d7a] font-semibold mt-1 tracking-wide" style={{ fontFamily: 'Tenor Sans, sans-serif' }}>{product.price || 'Price'}</p>
             </div>
           </div>
         ))}
@@ -50,13 +50,14 @@ export default function WatercolorTemplate({ products, brandName, ctaText, brand
 
       {/* Footer */}
       <div className="mt-8 text-center pb-2 relative z-10">
-        <div className="inline-block bg-[#4a3b32] text-[#fdfaf8] text-[12px] font-semibold tracking-wider px-10 py-3.5 rounded-full shadow-[0_8px_20px_rgba(74,59,50,0.2)] capitalize" style={{ fontFamily: 'Montserrat, sans-serif' }}>
+        <div className="inline-block bg-[#4a3b32] text-[#fdfaf8] text-[12px] font-semibold tracking-wider px-10 py-3.5 rounded-full shadow-[0_8px_20px_rgba(74,59,50,0.2)] capitalize" style={{ fontFamily: 'Tenor Sans, sans-serif' }}>
           {ctaText || 'Order Now'}
         </div>
       </div>
     </div>
   );
 }
+
 
 
 

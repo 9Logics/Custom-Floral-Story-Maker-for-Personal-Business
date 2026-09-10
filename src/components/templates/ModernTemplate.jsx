@@ -6,7 +6,7 @@ export default function ModernTemplate({ products, brandName, ctaText, brandLogo
   if (count === 0) {
     return (
       <div className="w-full h-full flex items-center justify-center bg-[#0a0a0a] text-white p-6 text-center">
-        <p style={{ fontFamily: 'Montserrat, sans-serif' }} className="text-xl opacity-20 font-light tracking-widest uppercase">Add products</p>
+        <p style={{ fontFamily: 'Outfit, sans-serif' }} className="text-xl opacity-20 font-light tracking-widest uppercase">Add products</p>
       </div>
     );
   }
@@ -31,7 +31,7 @@ export default function ModernTemplate({ products, brandName, ctaText, brandLogo
       <div className="mb-8 pt-4 z-10 flex flex-col items-center">
         
         {brandLogo && (<img src={brandLogo} alt="Logo" className="w-12 h-12 object-contain mx-auto mb-2" />)}
-        <h1 className="text-[36px] text-white font-light tracking-[0.1em] uppercase leading-tight text-center" style={{ fontFamily: 'Montserrat, sans-serif' }}>
+        <h1 className="text-[36px] text-white font-light tracking-[0.1em] uppercase leading-tight text-center" style={{ fontFamily: 'Outfit, sans-serif' }}>
           {brandName}
         </h1>
         <div className="w-16 h-[2px] bg-white/20 mt-4 rounded-full"></div>
@@ -50,7 +50,7 @@ export default function ModernTemplate({ products, brandName, ctaText, brandLogo
             </div>
             <div className="absolute bottom-4 left-3 right-3 flex justify-between items-end">
               <div className="flex flex-col w-[60%]">
-                <h3 className="text-[13px] font-medium text-white capitalize tracking-wide truncate" style={{ fontFamily: 'Montserrat, sans-serif' }}>{product.name || 'Flower Name'}</h3>
+                <h3 className="text-[13px] font-medium text-white capitalize tracking-wide truncate" style={{ fontFamily: 'Outfit, sans-serif' }}>{product.name || 'Flower Name'}</h3>
               </div>
               <p className="text-[11px] text-white/70 font-semibold font-mono bg-white/10 px-2 py-0.5 rounded backdrop-blur-md">{product.price || 'Price'}</p>
             </div>
@@ -67,6 +67,7 @@ export default function ModernTemplate({ products, brandName, ctaText, brandLogo
     </div>
   );
 }
+
 
 
 

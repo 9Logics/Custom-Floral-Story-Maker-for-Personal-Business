@@ -6,7 +6,7 @@ export default function ClassicTemplate({ products, brandName, ctaText, brandLog
   if (count === 0) {
     return (
       <div className="w-full h-full flex items-center justify-center bg-[#faf9f6] text-[#2d4a22] p-6 text-center">
-        <p className="font-serif italic text-xl opacity-40">Add products to see preview</p>
+        <p className=" italic text-xl opacity-40">Add products to see preview</p>
       </div>
     );
   }
@@ -32,7 +32,7 @@ export default function ClassicTemplate({ products, brandName, ctaText, brandLog
       <div className="text-center mb-6 pt-4 relative z-10">
         
         {brandLogo && (<img src={brandLogo} alt="Logo" className="w-12 h-12 object-contain mx-auto mb-2" />)}
-        <h1 className="font-serif text-[42px] text-[#1b3312] font-medium capitalize leading-tight tracking-tight">
+        <h1 className=" text-[42px] font-serif text-[#1b3312] font-medium capitalize leading-tight tracking-tight" style={{ fontFamily: 'Prata, serif' }}>
           {brandName}
         </h1>
         <div className="flex items-center justify-center gap-3 mt-4">
@@ -52,7 +52,7 @@ export default function ClassicTemplate({ products, brandName, ctaText, brandLog
               <img src={product.image || '/placeholder.jpg'} alt={product.name || 'Product'} className={`w-full h-full object-cover transition-transform duration-700 hover:scale-105 ${!product.image ? 'opacity-80' : ''}`} />
             </div>
             <div className="flex flex-col text-center px-1">
-              <h3 className="font-serif text-[16px] font-semibold truncate text-[#1b3312] capitalize">{product.name || 'Flower Name'}</h3>
+              <h3 className=" text-[16px] font-semibold truncate text-[#1b3312] capitalize">{product.name || 'Flower Name'}</h3>
               <p className="text-[13px] text-[#b38b59] font-medium mt-1 tracking-wide">{product.price || 'Price'}</p>
               {product.description && count <= 2 && (
                 <p className="text-[11px] text-[#8c857b] mt-2.5 line-clamp-2 leading-relaxed">{product.description}</p>
@@ -64,13 +64,14 @@ export default function ClassicTemplate({ products, brandName, ctaText, brandLog
 
       {/* Footer */}
       <div className="mt-8 text-center pb-4 relative z-10">
-        <div className="inline-block bg-[#1b3312] text-[#fcfbf9] text-[13px] font-semibold tracking-wider px-10 py-3.5 rounded-full shadow-[0_4px_14px_rgba(27,51,18,0.25)] capitalize" style={{ fontFamily: 'Montserrat, sans-serif' }}>
+        <div className="inline-block bg-[#1b3312] text-[#fcfbf9] text-[13px] font-semibold tracking-wider px-10 py-3.5 rounded-full shadow-[0_4px_14px_rgba(27,51,18,0.25)] capitalize" style={{ fontFamily: 'Tenor Sans, sans-serif' }}>
           {ctaText || 'Order Now'}
         </div>
       </div>
     </div>
   );
 }
+
 
 
 

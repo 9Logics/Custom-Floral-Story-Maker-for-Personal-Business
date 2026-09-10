@@ -6,7 +6,7 @@ export default function LuxeTemplate({ products, brandName, ctaText, brandLogo, 
   if (count === 0) {
     return (
       <div className="w-full h-full flex items-center justify-center bg-[#f5f0e8] text-[#2c2c2c] p-6 text-center">
-        <p style={{ fontFamily: 'Montserrat, sans-serif' }} className="text-xl opacity-20 font-light">Add products</p>
+        <p style={{ fontFamily: 'Tenor Sans, sans-serif' }} className="text-xl opacity-20 font-light">Add products</p>
       </div>
     );
   }
@@ -31,10 +31,10 @@ export default function LuxeTemplate({ products, brandName, ctaText, brandLogo, 
       <div className="text-center mb-6 pt-4 relative z-10">
         
         {brandLogo && (<img src={brandLogo} alt="Logo" className="w-12 h-12 object-contain mx-auto mb-2" />)}
-        <h1 className="font-serif text-[42px] text-[#2c2c2c] font-medium capitalize" style={{ fontFamily: 'DM Serif Display, serif' }}>
+        <h1 className="font-serif text-[42px] text-[#2c2c2c] font-medium capitalize" style={{ fontFamily: 'Cinzel, serif' }}>
           {brandName}
         </h1>
-        <p className="text-[9px] text-[#9b8566] tracking-[0.2em] uppercase mt-2 font-bold" style={{ fontFamily: 'Montserrat, sans-serif' }}>
+        <p className="text-[9px] text-[#9b8566] tracking-[0.2em] uppercase mt-2 font-bold" style={{ fontFamily: 'Tenor Sans, sans-serif' }}>
           Today's Pricing
         </p>
         <div className="w-16 h-[1px] bg-[#cfa86e] mx-auto mt-4"></div>
@@ -48,8 +48,8 @@ export default function LuxeTemplate({ products, brandName, ctaText, brandLogo, 
               <img src={product.image || '/placeholder.jpg'} alt={product.name || 'Flower'} className={`w-full h-full object-cover ${!product.image ? 'opacity-50' : ''}`} />
             </div>
             <div className="flex flex-col text-center px-1">
-              <h3 className="font-serif text-[15px] font-normal text-[#2c2c2c] capitalize" style={{ fontFamily: 'DM Serif Display, serif' }}>{product.name || 'Flower Name'}</h3>
-              <p className="text-[12px] text-[#cfa86e] font-semibold mt-1" style={{ fontFamily: 'Montserrat, sans-serif' }}>{product.price || 'Price'}</p>
+              <h3 className="font-serif text-[15px] font-normal text-[#2c2c2c] capitalize" style={{ fontFamily: 'Cinzel, serif' }}>{product.name || 'Flower Name'}</h3>
+              <p className="text-[12px] text-[#cfa86e] font-semibold mt-1" style={{ fontFamily: 'Tenor Sans, sans-serif' }}>{product.price || 'Price'}</p>
             </div>
           </div>
         ))}
@@ -57,13 +57,14 @@ export default function LuxeTemplate({ products, brandName, ctaText, brandLogo, 
 
       {/* Footer */}
       <div className="mt-6 text-center pb-2 relative z-10">
-        <div className="inline-block bg-[#2c2c2c] text-[#f8f5f0] text-[11px] font-bold tracking-[0.15em] uppercase px-10 py-3 shadow-[0_4px_15px_rgba(44,44,44,0.3)]" style={{ fontFamily: 'Montserrat, sans-serif' }}>
+        <div className="inline-block bg-[#2c2c2c] text-[#f8f5f0] text-[11px] font-bold tracking-[0.15em] uppercase px-10 py-3 shadow-[0_4px_15px_rgba(44,44,44,0.3)]" style={{ fontFamily: 'Tenor Sans, sans-serif' }}>
           {ctaText || 'Order Now'}
         </div>
       </div>
     </div>
   );
 }
+
 
 
 

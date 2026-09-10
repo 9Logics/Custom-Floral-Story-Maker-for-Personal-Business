@@ -5,10 +5,15 @@
   --color-brand-secondary: #f4eae1;
   --color-brand-accent: #e28743;
   --font-serif: "Cormorant", serif;
-  --font-sans: "Montserrat", sans-serif;
+  --font-sans: "Outfit", sans-serif;
   --font-playfair: "Playfair Display", serif;
   --font-dm-serif: "DM Serif Display", serif;
   --font-lora: "Lora", serif;
+  --font-cinzel: "Cinzel", serif;
+  --font-italiana: "Italiana", serif;
+  --font-prata: "Prata", serif;
+  --font-tenor: "Tenor Sans", sans-serif;
+  --font-pinyon: "Pinyon Script", cursive;
   
   --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
   --ease-in-out: cubic-bezier(0.77, 0, 0.175, 1);

@@ -32,10 +32,10 @@ export default function BotanicalTemplate({ products, brandName, ctaText, brandL
       <div className="text-center mb-6 pt-2 z-10 relative">
         
         {brandLogo && (<img src={brandLogo} alt="Logo" className="w-12 h-12 object-contain mx-auto mb-2" />)}
-        <h1 className="font-serif text-[44px] text-[#f2f5eb] font-normal capitalize tracking-tight" style={{ textShadow: '0 4px 20px rgba(0,0,0,0.3)' }}>
+        <h1 className="font-serif text-[44px] text-[#f2f5eb] font-normal capitalize tracking-tight" style={{ fontFamily: 'Italiana, serif',  textShadow: '0 4px 20px rgba(0,0,0,0.3)'  }}>
           {brandName}
         </h1>
-        <p className="text-[10px] text-[#b4d49a] tracking-[0.2em] uppercase mt-2 font-medium" style={{ fontFamily: 'Montserrat, sans-serif' }}>
+        <p className="text-[10px] text-[#b4d49a] tracking-[0.2em] uppercase mt-2 font-medium" style={{ fontFamily: 'Outfit, sans-serif' }}>
           Wild & Organic
         </p>
       </div>
@@ -58,13 +58,14 @@ export default function BotanicalTemplate({ products, brandName, ctaText, brandL
 
       {/* Footer */}
       <div className="mt-8 text-center pb-2 z-10 relative">
-        <div className="inline-block bg-[#f2f5eb] text-[#1e3016] text-[13px] font-bold tracking-widest px-10 py-3.5 rounded-full shadow-[0_8px_20px_rgba(242,245,235,0.2)] capitalize transition-transform hover:-translate-y-0.5" style={{ fontFamily: 'Montserrat, sans-serif' }}>
+        <div className="inline-block bg-[#f2f5eb] text-[#1e3016] text-[13px] font-bold tracking-widest px-10 py-3.5 rounded-full shadow-[0_8px_20px_rgba(242,245,235,0.2)] capitalize transition-transform hover:-translate-y-0.5" style={{ fontFamily: 'Outfit, sans-serif' }}>
           {ctaText || 'Order Now'}
         </div>
       </div>
     </div>
   );
 }
+
 
 
 
