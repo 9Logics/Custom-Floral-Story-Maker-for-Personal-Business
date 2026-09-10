@@ -147,7 +147,7 @@ function App() {
       <div id="preview-pane" className="flex-1 md:overflow-y-auto p-4 py-12 md:p-12 relative flex flex-col items-center custom-scrollbar scroll-smooth">
         
         {/* Floating Export Button */}
-        <div className="sticky top-6 z-50 mb-10 self-end">
+        <div className="fixed bottom-6 right-6 md:sticky md:top-6 md:mb-10 z-[100] md:self-end">
           <button 
             onClick={exportCards}
             disabled={isExporting}
