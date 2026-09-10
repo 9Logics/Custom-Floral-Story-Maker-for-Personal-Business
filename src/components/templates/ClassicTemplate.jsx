@@ -48,8 +48,8 @@ export default function ClassicTemplate({ products, brandName, ctaText, brandLog
       <div className={`flex-1 grid ${gridClass} gap-5 ${count >= 2 ? 'grid-rows-2' : ''} relative z-10`}>
         {products.map((product, i) => (
           <div key={product.id || i} className="flex flex-col h-full bg-white p-3.5 shadow-[0_8px_30px_rgba(45,74,34,0.08)] rounded-2xl border border-[#f0ede8]/50 hover:shadow-[0_12px_40px_rgba(45,74,34,0.12)] transition-shadow duration-500">
-            <div className={`w-full ${count === 1 ? 'flex-1' : count === 2 ? 'h-[140px]' : count <= 4 ? 'h-[100px]' : 'h-[60px]'} bg-[#f9f8f6] rounded-xl overflow-hidden flex items-center justify-center relative mb-3 ring-1 ring-black/5`}>
-              <img src={product.image || '/placeholder.jpg'} alt={product.name || 'Product'} className={`w-full h-full object-cover transition-transform duration-700 hover:scale-105 ${!product.image ? 'opacity-80' : ''}`} />
+            <div className={`w-full flex-1 min-h-0 relative bg-[#f9f8f6] rounded-xl overflow-hidden flex items-center justify-center relative mb-3 ring-1 ring-black/5`}>
+              <img src={product.image || './placeholder.jpg'} alt={product.name || 'Flower'} className={`absolute inset-0 w-full h-full object-cover transition-transform duration-700 hover:scale-105 ${!product.image ? 'opacity-80' : ''}`} />
             </div>
             <div className="flex flex-col text-center px-1">
               <h3 className=" text-[16px] font-semibold truncate text-[#1b3312] capitalize">{product.name || 'Flower Name'}</h3>
@@ -71,6 +71,7 @@ export default function ClassicTemplate({ products, brandName, ctaText, brandLog
     </div>
   );
 }
+
 
 
 

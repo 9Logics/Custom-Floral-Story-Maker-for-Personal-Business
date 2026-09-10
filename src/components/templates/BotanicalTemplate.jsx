@@ -44,8 +44,8 @@ export default function BotanicalTemplate({ products, brandName, ctaText, brandL
       <div className={`flex-1 grid ${gridClass} gap-4 ${count >= 2 ? 'grid-rows-2' : ''} z-10 relative`}>
         {products.map((product, i) => (
           <div key={product.id || i} className="flex flex-col h-full bg-white/[0.06] backdrop-blur-xl p-3 rounded-[24px] border border-white/[0.15] shadow-[0_16px_40px_rgba(0,0,0,0.4)]">
-            <div className={`w-full ${count === 1 ? 'flex-1' : count === 2 ? 'h-[130px]' : count <= 4 ? 'h-[95px]' : 'h-[50px]'} bg-black/20 rounded-[18px] overflow-hidden flex items-center justify-center relative mb-3 shadow-inner`}>
-              <img src={product.image || '/placeholder.jpg'} alt={product.name || 'Flower'} className={`w-full h-full object-cover brightness-[0.85] contrast-[1.1] transition-all duration-700 hover:scale-110 hover:brightness-100 ${!product.image ? 'opacity-70' : ''}`} />
+            <div className={`w-full flex-1 min-h-0 relative bg-black/20 rounded-[18px] overflow-hidden flex items-center justify-center relative mb-3 shadow-inner`}>
+              <img src={product.image || './placeholder.jpg'} alt={product.name || 'Flower'} className={`absolute inset-0 w-full h-full object-cover brightness-[0.85] contrast-[1.1] transition-all duration-700 hover:scale-110 hover:brightness-100 ${!product.image ? 'opacity-70' : ''}`} />
               <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
             </div>
             <div className="flex flex-col text-center px-1 pb-1">
@@ -65,6 +65,7 @@ export default function BotanicalTemplate({ products, brandName, ctaText, brandL
     </div>
   );
 }
+
 
 
 

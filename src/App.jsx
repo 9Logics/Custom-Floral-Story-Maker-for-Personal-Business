@@ -6,6 +6,7 @@ import * as htmlToImage from 'html-to-image';
 import { v4 as uuidv4 } from 'uuid';
 import { motion } from 'framer-motion';
 import Background from './components/Background';
+import defaultLogo from './assets/brand_logo.png';
 
 // Helper to safely parse local storage
 const getStorage = (key, defaultValue) => {
@@ -24,7 +25,7 @@ function App() {
   const [brandName, setBrandName] = useState(() => getStorage('fb_brandName_v3', 'Fresh Bloom'));
   const [ctaText, setCtaText] = useState(() => getStorage('fb_ctaText_v2', 'Order Now'));
   const [template, setTemplate] = useState(() => getStorage('fb_template_v2', 'classic'));
-  const [brandLogo, setBrandLogo] = useState(() => getStorage('fb_brandLogo_v4', './brand_logo.png'));
+  const [brandLogo, setBrandLogo] = useState(() => getStorage('fb_brandLogo_v5', defaultLogo));
   const [productsPerCard, setProductsPerCard] = useState(() => getStorage('fb_productsPerCard_v2', 4));
   const [vintageTexture, setVintageTexture] = useState('');
   const [vintageOverlay, setVintageOverlay] = useState('');
@@ -35,7 +36,7 @@ function App() {
     localStorage.setItem('fb_brandName_v3', JSON.stringify(brandName));
     localStorage.setItem('fb_ctaText_v2', JSON.stringify(ctaText));
     localStorage.setItem('fb_template_v2', JSON.stringify(template));
-    localStorage.setItem('fb_brandLogo_v4', JSON.stringify(brandLogo));
+    localStorage.setItem('fb_brandLogo_v5', JSON.stringify(brandLogo));
     localStorage.setItem('fb_productsPerCard_v2', JSON.stringify(productsPerCard));
   }, [products, brandName, ctaText, template, brandLogo, productsPerCard]);
 

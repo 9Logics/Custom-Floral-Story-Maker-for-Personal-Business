@@ -43,8 +43,8 @@ export default function PolaroidTemplate({ products, brandName, ctaText, brandLo
       <div className={`flex-1 grid ${gridClass} ${count >= 2 ? 'grid-rows-2' : ''} relative z-10 p-2`}>
         {products.map((product, i) => (
           <div key={product.id || i} className={`flex flex-col h-full bg-[#faf9f6] p-3 pb-8 shadow-[0_20px_40px_rgba(0,0,0,0.15)] ${rotations[i % rotations.length]}`}>
-            <div className={`w-full ${count === 1 ? 'flex-1' : count === 2 ? 'h-[160px]' : count <= 4 ? 'h-[110px]' : 'h-[70px]'} bg-[#e8e4de] flex items-center justify-center relative mb-4 shadow-inner`}>
-              <img src={product.image || '/placeholder.jpg'} alt={product.name || 'Flower'} className={`w-full h-full object-cover grayscale-[0.2] sepia-[0.1] contrast-[1.1] ${!product.image ? 'opacity-50' : ''}`} />
+            <div className={`w-full flex-1 min-h-0 relative bg-[#e8e4de] flex items-center justify-center relative mb-4 shadow-inner`}>
+              <img src={product.image || './placeholder.jpg'} alt={product.name || 'Flower'} className={`absolute inset-0 w-full h-full object-cover grayscale-[0.2] sepia-[0.1] contrast-[1.1] ${!product.image ? 'opacity-50' : ''}`} />
             </div>
             <div className="flex flex-col text-center px-2">
               <h3 className="text-[18px] font-medium text-[#2c2c2c] capitalize" style={{ fontFamily: 'Nothing You Could Do, cursive' }}>{product.name || 'Flower Name'}</h3>
@@ -63,6 +63,7 @@ export default function PolaroidTemplate({ products, brandName, ctaText, brandLo
     </div>
   );
 }
+
 
 
 

@@ -43,8 +43,8 @@ export default function EditorialTemplate({ products, brandName, ctaText, brandL
       <div className={`flex-1 grid ${gridClass} gap-6 ${count >= 2 ? 'grid-rows-2' : ''} relative z-10`}>
         {products.map((product, i) => (
           <div key={product.id || i} className="flex flex-col h-full group">
-            <div className={`w-full ${count === 1 ? 'flex-1' : count === 2 ? 'h-[140px]' : count <= 4 ? 'h-[100px]' : 'h-[60px]'} bg-[#1a1a1a] overflow-hidden flex items-center justify-center relative mb-3 shadow-[0_15px_40px_rgba(0,0,0,0.6)] ring-1 ring-white/10`}>
-              <img src={product.image || '/placeholder.jpg'} alt={product.name || 'Flower'} className={`w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105 ${!product.image ? 'opacity-40' : ''}`} />
+            <div className={`w-full flex-1 min-h-0 relative bg-[#1a1a1a] overflow-hidden flex items-center justify-center relative mb-3 shadow-[0_15px_40px_rgba(0,0,0,0.6)] ring-1 ring-white/10`}>
+              <img src={product.image || './placeholder.jpg'} alt={product.name || 'Flower'} className={`absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105 ${!product.image ? 'opacity-40' : ''}`} />
             </div>
             <div className="flex flex-col items-center text-center">
               <h3 className="font-serif text-[15px] font-normal text-white capitalize tracking-wide" style={{ fontFamily: 'Cinzel, serif' }}>{product.name || 'Flower Name'}</h3>
@@ -67,6 +67,7 @@ export default function EditorialTemplate({ products, brandName, ctaText, brandL
     </div>
   );
 }
+
 
 
 

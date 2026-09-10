@@ -42,9 +42,9 @@ export default function MinimalTemplate({ products, brandName, ctaText, brandLog
       {/* Grid */}
       <div className={`flex-1 flex flex-col gap-5 relative z-10 ${count > 2 ? 'grid grid-cols-2 grid-rows-2' : ''}`}>
         {products.map((product, i) => (
-          <div key={product.id || i} className="flex flex-col group">
-            <div className={`w-full ${imageHeight} bg-[#f5f5f5] overflow-hidden mb-3 shadow-[0_4px_15px_rgba(0,0,0,0.03)]`}>
-              <img src={product.image || '/placeholder.jpg'} alt={product.name || 'Flower'} className={`w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105 ${!product.image ? 'opacity-50' : ''}`} />
+          <div key={product.id || i} className="flex flex-col h-full group">
+            <div className={`w-full flex-1 min-h-0 relative bg-[#f5f5f5] overflow-hidden mb-3 shadow-[0_4px_15px_rgba(0,0,0,0.03)]`}>
+              <img src={product.image || './placeholder.jpg'} alt={product.name || 'Flower'} className={`absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105 ${!product.image ? 'opacity-50' : ''}`} />
             </div>
             <div className="flex flex-col">
               <div className="flex justify-between items-baseline border-b border-[#e5e5e5] pb-1.5 mb-1.5">
@@ -68,6 +68,7 @@ export default function MinimalTemplate({ products, brandName, ctaText, brandLog
     </div>
   );
 }
+
 
 
 

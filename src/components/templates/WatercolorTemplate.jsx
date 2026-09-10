@@ -37,8 +37,8 @@ export default function WatercolorTemplate({ products, brandName, ctaText, brand
       <div className={`flex-1 grid ${gridClass} gap-5 ${count >= 2 ? 'grid-rows-2' : ''} relative z-10`}>
         {products.map((product, i) => (
           <div key={product.id || i} className="flex flex-col h-full bg-white/70 backdrop-blur-md p-3 rounded-[20px] shadow-[0_10px_30px_rgba(92,64,51,0.08)] border border-white">
-            <div className={`w-full ${count === 1 ? 'flex-1' : count === 2 ? 'h-[140px]' : count <= 4 ? 'h-[95px]' : 'h-[60px]'} bg-[#f5ede9] rounded-[14px] overflow-hidden flex items-center justify-center relative mb-3 ring-4 ring-white/50`}>
-              <img src={product.image || '/placeholder.jpg'} alt={product.name || 'Flower'} className={`w-full h-full object-cover transition-transform duration-700 hover:scale-105 ${!product.image ? 'opacity-40' : ''}`} />
+            <div className={`w-full flex-1 min-h-0 relative bg-[#f5ede9] rounded-[14px] overflow-hidden flex items-center justify-center relative mb-3 ring-4 ring-white/50`}>
+              <img src={product.image || './placeholder.jpg'} alt={product.name || 'Flower'} className={`absolute inset-0 w-full h-full object-cover transition-transform duration-700 hover:scale-105 ${!product.image ? 'opacity-40' : ''}`} />
             </div>
             <div className="flex flex-col text-center px-1">
               <h3 className="text-[15px] font-medium text-[#4a3b32] capitalize" style={{ fontFamily: 'Pinyon Script, cursive' }}>{product.name || 'Flower Name'}</h3>
@@ -57,6 +57,7 @@ export default function WatercolorTemplate({ products, brandName, ctaText, brand
     </div>
   );
 }
+
 
 
 
