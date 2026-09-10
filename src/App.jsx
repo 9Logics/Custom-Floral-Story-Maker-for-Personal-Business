@@ -26,8 +26,8 @@ function App() {
   const [template, setTemplate] = useState(() => getStorage('fb_template_v2', 'classic'));
   const [brandLogo, setBrandLogo] = useState(() => getStorage('fb_brandLogo_v2', '/logo.png'));
   const [productsPerCard, setProductsPerCard] = useState(() => getStorage('fb_productsPerCard_v2', 4));
-  const [vintageTexture, setVintageTexture] = useState(() => getStorage('fb_vintageTexture', ''));
-  const [vintageOverlay, setVintageOverlay] = useState(() => getStorage('fb_vintageOverlay', ''));
+  const [vintageTexture, setVintageTexture] = useState('');
+  const [vintageOverlay, setVintageOverlay] = useState('');
 
   // Save to localStorage whenever state changes
   useEffect(() => {
@@ -37,9 +37,7 @@ function App() {
     localStorage.setItem('fb_template_v2', JSON.stringify(template));
     localStorage.setItem('fb_brandLogo_v2', JSON.stringify(brandLogo));
     localStorage.setItem('fb_productsPerCard_v2', JSON.stringify(productsPerCard));
-    localStorage.setItem('fb_vintageTexture', JSON.stringify(vintageTexture));
-    localStorage.setItem('fb_vintageOverlay', JSON.stringify(vintageOverlay));
-  }, [products, brandName, ctaText, template, brandLogo, productsPerCard, vintageTexture, vintageOverlay]);
+  }, [products, brandName, ctaText, template, brandLogo, productsPerCard]);
 
   const addProduct = () => {
     setProducts([...products, { id: uuidv4(), name: '', price: '', description: '', image: '' }]);

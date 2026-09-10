@@ -93,60 +93,6 @@ function CardForm({ products, setProducts, updateProduct, removeProduct, addProd
             </div>
           </div>
           
-          <div className="bg-[#fcfaf7] p-5 rounded-2xl border border-[#f0ebe1]">
-            <h3 className="text-sm font-semibold text-[#5c5446] mb-1.5">Vintage & Custom Assets</h3>
-            <p className="text-[12px] text-[#8c887d] mb-4 leading-relaxed">Download assets from <a href="https://www.heritagetype.com/" target="_blank" className="text-[#a3794f] hover:text-[#8a6541] underline underline-offset-2 font-medium transition-colors">Heritage Type</a> or <a href="https://www.oldbookillustrations.com/" target="_blank" className="text-[#a3794f] hover:text-[#8a6541] underline underline-offset-2 font-medium transition-colors">Old Book Illustrations</a>.</p>
-            <div className="grid grid-cols-2 gap-4">
-              <div>
-                <label className="block text-[11px] font-medium text-[#7a7465] mb-1.5 uppercase tracking-wide">Background Texture</label>
-                <div className="relative h-12 border border-dashed border-[#dcd7cd] bg-white rounded-xl flex items-center justify-center hover:border-[#a3794f] hover:bg-[#fcfaf7] transition-all duration-200 ease-out cursor-pointer overflow-hidden group">
-                  <span className="text-[11px] text-[#8c887d] group-hover:text-[#5c5446] font-medium transition-colors text-center leading-tight px-2">
-                    {vintageTexture ? 'Click to Change' : 'Upload Texture'}
-                  </span>
-                  <input 
-                    type="file" 
-                    accept="image/*"
-                    onChange={(e) => {
-                      const file = e.target.files[0];
-                      if (file) {
-                        const reader = new FileReader();
-                        reader.onloadend = () => setVintageTexture(reader.result);
-                        reader.readAsDataURL(file);
-                      }
-                    }}
-                    className="absolute inset-0 opacity-0 cursor-pointer w-full h-full"
-                  />
-                </div>
-                {vintageTexture && (
-                  <button onClick={() => setVintageTexture('')} className="text-[10px] text-red-400 hover:text-red-600 font-medium mt-1.5 transition-colors">Remove Texture</button>
-                )}
-              </div>
-              <div>
-                <label className="block text-[11px] font-medium text-[#7a7465] mb-1.5 uppercase tracking-wide">Floral Overlay</label>
-                <div className="relative h-12 border border-dashed border-[#dcd7cd] bg-white rounded-xl flex items-center justify-center hover:border-[#a3794f] hover:bg-[#fcfaf7] transition-all duration-200 ease-out cursor-pointer overflow-hidden group">
-                  <span className="text-[11px] text-[#8c887d] group-hover:text-[#5c5446] font-medium transition-colors text-center leading-tight px-2">
-                    {vintageOverlay ? 'Click to Change' : 'Upload Overlay'}
-                  </span>
-                  <input 
-                    type="file" 
-                    accept="image/*"
-                    onChange={(e) => {
-                      const file = e.target.files[0];
-                      if (file) {
-                        const reader = new FileReader();
-                        reader.onloadend = () => setVintageOverlay(reader.result);
-                        reader.readAsDataURL(file);
-                      }
-                    }}
-                    className="absolute inset-0 opacity-0 cursor-pointer w-full h-full"
-                  />
-                </div>
-                {vintageOverlay && (
-                  <button onClick={() => setVintageOverlay('')} className="text-[10px] text-red-400 hover:text-red-600 font-medium mt-1.5 transition-colors">Remove Overlay</button>
-                )}
-              </div>
-            </div>
-          </div>
 
           <div>
             <label className="block text-[13px] font-medium text-[#4a4842] mb-3">Template Style</label>
