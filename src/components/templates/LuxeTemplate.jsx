@@ -30,7 +30,7 @@ export default function LuxeTemplate({ products, brandName, ctaText, brandLogo, 
       {/* Header */}
       <div className="text-center mb-3 pt-2 relative z-10">
         
-        <div className="flex items-center justify-center gap-3">
+        <div className={`flex items-center justify-center ga${count > 4 ? 'p-1' : 'p-3'}`}>
           {brandLogo && (<img src={brandLogo} alt="Logo" className="w-9 h-9 object-contain shrink-0" />)}
           <h1 className="font-serif text-[24px] text-[#2c2c2c] font-medium capitalize" style={{ fontFamily: 'Cinzel, serif' }}>
           {brandName}
@@ -50,8 +50,8 @@ export default function LuxeTemplate({ products, brandName, ctaText, brandLogo, 
               <img src={product.image || './placeholder.jpg'} alt={product.name || 'Flower'} className={`absolute inset-0 w-full h-full object-cover ${!product.image ? 'opacity-50' : ''}`} />
             </div>
             <div className="flex flex-col text-center px-1">
-              <h3 className="text-[17px] font-medium truncate text-[#3d3326] capitalize" style={{ fontFamily: 'Cinzel, serif' }}>{product.name || 'Flower Name'}</h3>
-              <p className="text-[14px] text-[#b0874c] font-bold mt-1" style={{ fontFamily: 'Tenor Sans, sans-serif' }}>{product.price || 'Price'}</p>
+              <h3 className={`${count > 4 ? 'text-[13px]' : 'text-[17px]'} font-medium truncate text-[#3d3326] capitalize`} style={{ fontFamily: 'Cinzel, serif' }}>{product.name || 'Flower Name'}</h3>
+              <p className={`${count > 4 ? 'text-[11px]' : 'text-[14px]'} text-[#b0874c] font-bold ${count > 4 ? 'mt-0' : 'mt-1'}`} style={{ fontFamily: 'Tenor Sans, sans-serif' }}>{product.price || 'Price'}</p>
             </div>
           </div>
         ))}

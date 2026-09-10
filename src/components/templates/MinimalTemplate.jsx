@@ -32,7 +32,7 @@ export default function MinimalTemplate({ products, brandName, ctaText, brandLog
       {/* Header */}
       <div className="mb-2 pt-1 flex flex-col items-center relative z-10">
         
-        <div className="flex items-center justify-center gap-3">
+        <div className={`flex items-center justify-center ga${count > 4 ? 'p-1' : 'p-3'}`}>
           {brandLogo && (<img src={brandLogo} alt="Logo" className="w-9 h-9 object-contain shrink-0" />)}
           <h1 className="text-[22px] text-[#1a1a1a] font-medium tracking-[0.05em] uppercase leading-tight" style={{ fontFamily: 'Tenor Sans, sans-serif' }}>
           {brandName}
@@ -50,8 +50,8 @@ export default function MinimalTemplate({ products, brandName, ctaText, brandLog
             </div>
             <div className="flex flex-col">
               <div className="flex justify-between items-baseline border-b border-[#e5e5e5] pb-1.5 mb-1.5">
-                <h3 className="text-[15px] font-bold text-[#1a1a1a] capitalize tracking-wide truncate pr-2" style={{ fontFamily: 'Tenor Sans, sans-serif' }}>{product.name || 'Flower Name'}</h3>
-                <p className="text-[14px] text-[#1a1a1a] font-black" style={{ fontFamily: 'Tenor Sans, sans-serif' }}>{product.price || 'Price'}</p>
+                <h3 className={`${count > 4 ? 'text-[12px]' : 'text-[15px]'} font-bold text-[#1a1a1a] capitalize tracking-wide truncate pr-2`} style={{ fontFamily: 'Tenor Sans, sans-serif' }}>{product.name || 'Flower Name'}</h3>
+                <p className={`${count > 4 ? 'text-[11px]' : 'text-[14px]'} text-[#1a1a1a] font-black`} style={{ fontFamily: 'Tenor Sans, sans-serif' }}>{product.price || 'Price'}</p>
               </div>
               {product.description && count <= 2 && (
                 <p className="text-[10px] text-[#7a7a7a] font-light leading-relaxed">{product.description}</p>

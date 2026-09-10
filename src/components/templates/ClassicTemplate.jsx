@@ -31,13 +31,13 @@ export default function ClassicTemplate({ products, brandName, ctaText, brandLog
       {/* Header */}
       <div className="text-center mb-3 pt-2 relative z-10">
         
-        <div className="flex items-center justify-center gap-3">
+        <div className={`flex items-center justify-center ga${count > 4 ? 'p-1' : 'p-3'}`}>
           {brandLogo && (<img src={brandLogo} alt="Logo" className="w-9 h-9 object-contain shrink-0" />)}
           <h1 className=" text-[24px] font-serif text-[#1b3312] font-medium capitalize leading-tight tracking-tight" style={{ fontFamily: 'Prata, serif' }}>
           {brandName}
         </h1>
         </div>
-        <div className="flex items-center justify-center gap-3 mt-2">
+        <div className={`flex items-center justify-center ga${count > 4 ? 'p-1' : 'p-3'} mt-2`}>
           <div className="w-8 h-px bg-[#d4af37]/40"></div>
           <svg className="w-3 h-3 text-[#d4af37]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
             <path d="M12 2L15 9L22 9L16 14L18 21L12 17L6 21L8 14L2 9L9 9L12 2Z" fill="currentColor" opacity="0.3"/>
@@ -49,13 +49,13 @@ export default function ClassicTemplate({ products, brandName, ctaText, brandLog
       {/* Grid */}
       <div className={`flex-1 grid ${gridClass} ${count > 4 ? 'gap-2 grid-rows-3' : count >= 2 ? 'gap-4 grid-rows-2' : 'gap-4'} relative z-10`}>
         {products.map((product, i) => (
-          <div key={product.id || i} className="flex flex-col h-full bg-white p-3.5 shadow-[0_8px_30px_rgba(45,74,34,0.08)] rounded-2xl border border-[#f0ede8]/50 hover:shadow-[0_12px_40px_rgba(45,74,34,0.12)] transition-shadow duration-500">
+          <div key={product.id || i} className={`flex flex-col h-full bg-white ${count > 4 ? 'p-1.5' : 'p-3.5'} shadow-[0_8px_30px_rgba(45,74,34,0.08)] rounded-2xl border border-[#f0ede8]/50 hover:shadow-[0_12px_40px_rgba(45,74,34,0.12)] transition-shadow duration-500`}>
             <div className={`w-full flex-1 min-h-0 relative bg-[#f9f8f6] rounded-xl overflow-hidden flex items-center justify-center relative mb-1.5 ring-1 ring-black/5`}>
               <img src={product.image || './placeholder.jpg'} alt={product.name || 'Flower'} className={`absolute inset-0 w-full h-full object-cover transition-transform duration-700 hover:scale-105 ${!product.image ? 'opacity-80' : ''}`} />
             </div>
-            <div className="flex flex-col text-center px-1 mt-1">
-              <h3 className=" text-[17px] font-bold truncate text-[#1b3312] capitalize">{product.name || 'Flower Name'}</h3>
-              <p className="text-[15px] text-[#967140] font-bold mt-1 tracking-wide">{product.price || 'Price'}</p>
+            <div className={`flex flex-col text-center px-1 ${count > 4 ? 'mt-0' : 'mt-1'}`}>
+              <h3 className={` ${count > 4 ? 'text-[13px]' : 'text-[17px]'} font-bold truncate text-[#1b3312] capitalize`}>{product.name || 'Flower Name'}</h3>
+              <p className={`${count > 4 ? 'text-[12px]' : 'text-[15px]'} text-[#967140] font-bold ${count > 4 ? 'mt-0' : 'mt-1'} tracking-wide`}>{product.price || 'Price'}</p>
               {product.description && count <= 2 && (
                 <p className="text-[11px] text-[#8c857b] mt-2.5 line-clamp-2 leading-relaxed">{product.description}</p>
               )}

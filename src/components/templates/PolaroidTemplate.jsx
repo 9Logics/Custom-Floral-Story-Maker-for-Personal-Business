@@ -30,13 +30,13 @@ export default function PolaroidTemplate({ products, brandName, ctaText, brandLo
       {/* Header */}
       <div className="text-center mb-4 pt-2 relative z-10">
         
-        <div className="flex items-center justify-center gap-3">
+        <div className={`flex items-center justify-center ga${count > 4 ? 'p-1' : 'p-3'}`}>
           {brandLogo && (<img src={brandLogo} alt="Logo" className="w-9 h-9 object-contain shrink-0" />)}
           <h1 className="text-[44px] text-[#2c2c2c] font-medium capitalize leading-tight" style={{ fontFamily: 'Nothing You Could Do, cursive' }}>
           {brandName}
         </h1>
         </div>
-        <p className="text-[10px] text-[#8b7e6b] tracking-[0.1em] uppercase font-bold mt-1" style={{ fontFamily: 'Montserrat, sans-serif' }}>
+        <p className={`text-[10px] text-[#8b7e6b] tracking-[0.1em] uppercase font-bold ${count > 4 ? 'mt-0' : 'mt-1'}`} style={{ fontFamily: 'Montserrat, sans-serif' }}>
           today's pricing
         </p>
       </div>
@@ -49,8 +49,8 @@ export default function PolaroidTemplate({ products, brandName, ctaText, brandLo
               <img src={product.image || './placeholder.jpg'} alt={product.name || 'Flower'} className={`absolute inset-0 w-full h-full object-cover grayscale-[0.2] sepia-[0.1] contrast-[1.1] ${!product.image ? 'opacity-50' : ''}`} />
             </div>
             <div className="flex flex-col text-center px-2">
-              <h3 className="text-[20px] font-bold truncate text-[#2c2a27] capitalize" style={{ fontFamily: 'Nothing You Could Do, cursive' }}>{product.name || 'Flower Name'}</h3>
-              <p className="text-[14px] text-[#524433] font-bold tracking-wide" style={{ fontFamily: 'Montserrat, sans-serif' }}>{product.price || 'Price'}</p>
+              <h3 className={`${count > 4 ? 'text-[14px]' : 'text-[20px]'} font-bold truncate text-[#2c2a27] capitalize`} style={{ fontFamily: 'Nothing You Could Do, cursive' }}>{product.name || 'Flower Name'}</h3>
+              <p className={`${count > 4 ? 'text-[11px]' : 'text-[14px]'} text-[#524433] font-bold tracking-wide`} style={{ fontFamily: 'Montserrat, sans-serif' }}>{product.price || 'Price'}</p>
             </div>
           </div>
         ))}

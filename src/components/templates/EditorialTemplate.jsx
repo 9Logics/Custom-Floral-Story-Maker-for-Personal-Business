@@ -30,13 +30,13 @@ export default function EditorialTemplate({ products, brandName, ctaText, brandL
       {/* Header */}
       <div className="mb-2 pt-1 flex flex-col items-center relative z-10">
         
-        <div className="flex items-center justify-center gap-3">
+        <div className={`flex items-center justify-center ga${count > 4 ? 'p-1' : 'p-3'}`}>
           {brandLogo && (<img src={brandLogo} alt="Logo" className="w-9 h-9 object-contain shrink-0" />)}
           <h1 className="font-serif text-[24px] text-[#fafafa] font-normal capitalize tracking-wide leading-tight" style={{ fontFamily: 'Cinzel, serif' }}>
           {brandName}
         </h1>
         </div>
-        <p className="text-[9px] font-medium uppercase tracking-[0.25em] text-[#d4af37] mt-1.5" style={{ fontFamily: 'Outfit, sans-serif' }}>
+        <p className={`text-[9px] font-medium uppercase tracking-[0.25em] text-[#d4af37] ${count > 4 ? 'mt-0' : 'mt-1'}.5`} style={{ fontFamily: 'Outfit, sans-serif' }}>
           Today's Pricing
         </p>
       </div>
@@ -49,10 +49,10 @@ export default function EditorialTemplate({ products, brandName, ctaText, brandL
               <img src={product.image || './placeholder.jpg'} alt={product.name || 'Flower'} className={`absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105 ${!product.image ? 'opacity-40' : ''}`} />
             </div>
             <div className="flex flex-col items-center text-center">
-              <h3 className="font-serif text-[15px] font-normal text-white capitalize tracking-wide" style={{ fontFamily: 'Cinzel, serif' }}>{product.name || 'Flower Name'}</h3>
-              <div className="flex items-center gap-2 mt-1.5">
+              <h3 className={`font-serif ${count > 4 ? 'text-[12px]' : 'text-[15px]'} font-normal text-white capitalize tracking-wide`} style={{ fontFamily: 'Cinzel, serif' }}>{product.name || 'Flower Name'}</h3>
+              <div className={`flex items-center gap-2 ${count > 4 ? 'mt-0' : 'mt-1'}.5`}>
                 <div className="w-4 h-[1px] bg-[#d4af37]/50"></div>
-                <p className="text-[14px] text-[#e8c85c] font-bold tracking-wider" style={{ fontFamily: 'Outfit, sans-serif' }}>{product.price || 'Price'}</p>
+                <p className={`${count > 4 ? 'text-[11px]' : 'text-[14px]'} text-[#e8c85c] font-bold tracking-wider`} style={{ fontFamily: 'Outfit, sans-serif' }}>{product.price || 'Price'}</p>
                 <div className="w-4 h-[1px] bg-[#d4af37]/50"></div>
               </div>
             </div>

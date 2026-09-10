@@ -30,7 +30,7 @@ export default function ModernTemplate({ products, brandName, ctaText, brandLogo
       {/* Header */}
       <div className="mb-4 pt-2 z-10 flex flex-col items-center">
         
-        <div className="flex items-center justify-center gap-3">
+        <div className={`flex items-center justify-center ga${count > 4 ? 'p-1' : 'p-3'}`}>
           {brandLogo && (<img src={brandLogo} alt="Logo" className="w-9 h-9 object-contain shrink-0" />)}
           <h1 className="text-[22px] text-white font-light tracking-[0.1em] uppercase leading-tight text-center" style={{ fontFamily: 'Outfit, sans-serif' }}>
           {brandName}
@@ -52,9 +52,9 @@ export default function ModernTemplate({ products, brandName, ctaText, brandLogo
             </div>
             <div className="absolute bottom-4 left-3 right-3 flex justify-between items-end">
               <div className="flex flex-col w-[55%]">
-                <h3 className="text-[17px] font-bold truncate text-white capitalize tracking-tight" style={{ fontFamily: 'Outfit, sans-serif' }}>{product.name || 'Flower Name'}</h3>
+                <h3 className={`${count > 4 ? 'text-[13px]' : 'text-[17px]'} font-bold truncate text-white capitalize tracking-tight`} style={{ fontFamily: 'Outfit, sans-serif' }}>{product.name || 'Flower Name'}</h3>
               </div>
-              <p className="text-[14px] font-bold font-mono bg-[#e8c85c] text-[#141414] px-2.5 py-0.5 rounded shadow-sm">{product.price || 'Price'}</p>
+              <p className={`${count > 4 ? 'text-[11px]' : 'text-[14px]'} font-bold font-mono bg-[#e8c85c] text-[#141414] px-2.5 py-0.5 rounded shadow-sm`}>{product.price || 'Price'}</p>
             </div>
           </div>
         ))}
