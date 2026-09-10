@@ -32,55 +32,59 @@ function CardForm({ products, setProducts, updateProduct, removeProduct, addProd
   };
 
   return (
-    <div className="w-full md:w-1/3 bg-white/70 backdrop-blur-xl border-r border-white/50 md:h-screen md:overflow-y-auto flex flex-col shadow-2xl z-10 relative">
-      <div className="p-5 border-b border-white/50 sticky top-0 bg-white/50 backdrop-blur-md z-20 flex items-center gap-3">
-        <div className="relative group/logo">
-          <img src={brandLogo} alt={brandName} className="w-10 h-10 rounded-full object-cover shadow-sm border border-brand-secondary bg-white" />
-          <div className="absolute inset-0 bg-black/40 rounded-full flex items-center justify-center opacity-0 group-hover/logo:opacity-100 transition-opacity cursor-pointer">
-            <Upload size={14} className="text-white" />
+    <div className="w-full md:w-[400px] bg-white border-r border-[#e8e6e1] md:h-screen md:overflow-y-auto flex flex-col shadow-[4px_0_24px_rgba(45,74,34,0.03)] z-10 relative">
+      <div className="p-6 border-b border-[#e8e6e1] sticky top-0 bg-white/80 backdrop-blur-xl z-20 flex items-center gap-4">
+        <div className="relative group/logo flex-shrink-0 cursor-pointer active:scale-95 transition-transform duration-200 ease-out">
+          <img src={brandLogo} alt={brandName} className="w-12 h-12 rounded-full object-cover shadow-[0_2px_10px_rgba(0,0,0,0.06)] border border-[#e8e6e1] bg-white" />
+          <div className="absolute inset-0 bg-black/40 rounded-full flex items-center justify-center opacity-0 group-hover/logo:opacity-100 transition-opacity duration-200">
+            <Upload size={16} className="text-white" />
           </div>
           <input type="file" accept="image/*" onChange={handleLogoUpload} className="absolute inset-0 opacity-0 cursor-pointer" title="Upload Brand Logo" />
         </div>
-        <h1 className="text-2xl font-serif text-brand-primary font-semibold tracking-tight">Fresh Bloom Setup</h1>
+        <div className="flex flex-col">
+          <h1 className="text-xl font-serif text-[#2d4a22] font-semibold tracking-tight leading-none mb-1">Fresh Bloom</h1>
+          <p className="text-[11px] text-[#8c887d] font-medium tracking-wide uppercase">Story Generator</p>
+        </div>
       </div>
       
       <div className="p-6 flex-1 flex flex-col gap-8">
         
         {/* Settings */}
-        <div className="space-y-4">
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <div className="space-y-6">
+          <div className="grid grid-cols-1 gap-5">
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">Brand Name</label>
+              <label className="block text-[13px] font-medium text-[#4a4842] mb-1.5">Brand Name</label>
               <input 
                 type="text" 
                 placeholder="e.g. Flora Wholesale"
                 value={brandName}
                 onChange={(e) => setBrandName(e.target.value)}
-                className="w-full p-2.5 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-primary/50 focus:border-brand-primary transition-shadow"
+                className="w-full p-3 bg-[#fcfbfa] border border-[#e8e6e1] rounded-xl focus:outline-none focus:ring-2 focus:ring-[#2d4a22]/20 focus:border-[#2d4a22] transition-all duration-200 ease-out text-sm text-[#2c2c2c] placeholder:text-[#a8a49c]"
               />
             </div>
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">Call to Action (CTA)</label>
+              <label className="block text-[13px] font-medium text-[#4a4842] mb-1.5">Call to Action</label>
               <input 
                 type="text" 
                 placeholder="e.g. Order Now / Check Rates"
                 value={ctaText}
                 onChange={(e) => setCtaText(e.target.value)}
-                className="w-full p-2.5 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-primary/50 focus:border-brand-primary transition-shadow"
+                className="w-full p-3 bg-[#fcfbfa] border border-[#e8e6e1] rounded-xl focus:outline-none focus:ring-2 focus:ring-[#2d4a22]/20 focus:border-[#2d4a22] transition-all duration-200 ease-out text-sm text-[#2c2c2c] placeholder:text-[#a8a49c]"
               />
             </div>
           </div>
+
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">Products per Story Card</label>
-            <div className="flex gap-2">
+            <label className="block text-[13px] font-medium text-[#4a4842] mb-1.5">Products per Story Card</label>
+            <div className="flex gap-2 p-1 bg-[#f5f3ef] rounded-xl border border-[#e8e6e1]/50">
               {[2, 4, 6].map((num) => (
                 <button
                   key={num}
                   onClick={() => setProductsPerCard(num)}
-                  className={`flex-1 py-2 px-3 text-sm font-medium rounded-lg interactive transition-all ${
+                  className={`flex-1 py-2 px-3 text-sm font-medium rounded-lg active:scale-[0.97] transition-all duration-200 ease-out ${
                     productsPerCard === num 
-                      ? 'bg-brand-primary text-white shadow-md' 
-                      : 'bg-gray-50 text-gray-600 hover:bg-gray-100 border border-gray-200'
+                      ? 'bg-white text-[#2d4a22] shadow-[0_2px_8px_rgba(45,74,34,0.08)] ring-1 ring-[#e8e6e1]' 
+                      : 'text-[#8c887d] hover:text-[#4a4842] hover:bg-white/50'
                   }`}
                 >
                   Up to {num}
@@ -89,15 +93,15 @@ function CardForm({ products, setProducts, updateProduct, removeProduct, addProd
             </div>
           </div>
           
-          <div className="bg-amber-50 p-4 rounded-xl border border-amber-100/50">
-            <h3 className="text-sm font-semibold text-amber-900 mb-2">Vintage & Custom Assets</h3>
-            <p className="text-[11px] text-amber-700 mb-3">Download assets from <a href="https://www.heritagetype.com/" target="_blank" className="underline font-medium">Heritage Type</a> or <a href="https://www.oldbookillustrations.com/" target="_blank" className="underline font-medium">Old Book Illustrations</a> and upload them here to use as custom backgrounds.</p>
+          <div className="bg-[#fcfaf7] p-5 rounded-2xl border border-[#f0ebe1]">
+            <h3 className="text-sm font-semibold text-[#5c5446] mb-1.5">Vintage & Custom Assets</h3>
+            <p className="text-[12px] text-[#8c887d] mb-4 leading-relaxed">Download assets from <a href="https://www.heritagetype.com/" target="_blank" className="text-[#a3794f] hover:text-[#8a6541] underline underline-offset-2 font-medium transition-colors">Heritage Type</a> or <a href="https://www.oldbookillustrations.com/" target="_blank" className="text-[#a3794f] hover:text-[#8a6541] underline underline-offset-2 font-medium transition-colors">Old Book Illustrations</a>.</p>
             <div className="grid grid-cols-2 gap-4">
               <div>
-                <label className="block text-[11px] font-medium text-amber-800 mb-1">Background Texture (Paper)</label>
-                <div className="relative h-10 border border-dashed border-amber-300 bg-amber-100/50 rounded-lg flex items-center justify-center hover:bg-amber-200/50 transition-colors cursor-pointer overflow-hidden">
-                  <span className="text-[10px] text-amber-700 font-medium">
-                    {vintageTexture ? 'Texture Uploaded (Click to Change)' : 'Upload Texture'}
+                <label className="block text-[11px] font-medium text-[#7a7465] mb-1.5 uppercase tracking-wide">Background Texture</label>
+                <div className="relative h-12 border border-dashed border-[#dcd7cd] bg-white rounded-xl flex items-center justify-center hover:border-[#a3794f] hover:bg-[#fcfaf7] transition-all duration-200 ease-out cursor-pointer overflow-hidden group">
+                  <span className="text-[11px] text-[#8c887d] group-hover:text-[#5c5446] font-medium transition-colors text-center leading-tight px-2">
+                    {vintageTexture ? 'Click to Change' : 'Upload Texture'}
                   </span>
                   <input 
                     type="file" 
@@ -114,14 +118,14 @@ function CardForm({ products, setProducts, updateProduct, removeProduct, addProd
                   />
                 </div>
                 {vintageTexture && (
-                  <button onClick={() => setVintageTexture('')} className="text-[9px] text-red-500 hover:underline mt-1">Remove Texture</button>
+                  <button onClick={() => setVintageTexture('')} className="text-[10px] text-red-400 hover:text-red-600 font-medium mt-1.5 transition-colors">Remove Texture</button>
                 )}
               </div>
               <div>
-                <label className="block text-[11px] font-medium text-amber-800 mb-1">Floral Overlay (Illustration)</label>
-                <div className="relative h-10 border border-dashed border-amber-300 bg-amber-100/50 rounded-lg flex items-center justify-center hover:bg-amber-200/50 transition-colors cursor-pointer overflow-hidden">
-                  <span className="text-[10px] text-amber-700 font-medium">
-                    {vintageOverlay ? 'Overlay Uploaded (Click to Change)' : 'Upload Floral Overlay'}
+                <label className="block text-[11px] font-medium text-[#7a7465] mb-1.5 uppercase tracking-wide">Floral Overlay</label>
+                <div className="relative h-12 border border-dashed border-[#dcd7cd] bg-white rounded-xl flex items-center justify-center hover:border-[#a3794f] hover:bg-[#fcfaf7] transition-all duration-200 ease-out cursor-pointer overflow-hidden group">
+                  <span className="text-[11px] text-[#8c887d] group-hover:text-[#5c5446] font-medium transition-colors text-center leading-tight px-2">
+                    {vintageOverlay ? 'Click to Change' : 'Upload Overlay'}
                   </span>
                   <input 
                     type="file" 
@@ -138,178 +142,154 @@ function CardForm({ products, setProducts, updateProduct, removeProduct, addProd
                   />
                 </div>
                 {vintageOverlay && (
-                  <button onClick={() => setVintageOverlay('')} className="text-[9px] text-red-500 hover:underline mt-1">Remove Overlay</button>
+                  <button onClick={() => setVintageOverlay('')} className="text-[10px] text-red-400 hover:text-red-600 font-medium mt-1.5 transition-colors">Remove Overlay</button>
                 )}
               </div>
             </div>
           </div>
+
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">Template Style</label>
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
+            <label className="block text-[13px] font-medium text-[#4a4842] mb-3">Template Style</label>
+            <div className="grid grid-cols-2 gap-3">
               {[
-                { id: 'classic', label: 'Classic', swatch: '#faf9f6' },
-                { id: 'botanical', label: 'Botanical', swatch: '#2a4a20' },
-                { id: 'modern', label: 'Modern', swatch: '#0f0f0f' },
-                { id: 'minimal', label: 'Minimal', swatch: '#ffffff' },
-                { id: 'watercolor', label: 'Watercolor', swatch: '#fdf2f0' },
-                { id: 'editorial', label: 'Editorial', swatch: '#1a1a1a' },
-                { id: 'luxe', label: 'Luxe', swatch: '#f5f0e8' },
-                { id: 'polaroid', label: 'Polaroid', swatch: '#e8e4de' },
+                { id: 'classic', label: 'Classic', swatch: '#faf9f6', border: '#e8e6e1' },
+                { id: 'botanical', label: 'Botanical', swatch: '#2a4a20', border: '#1e3816' },
+                { id: 'modern', label: 'Modern', swatch: '#0f0f0f', border: '#2a2a2a' },
+                { id: 'minimal', label: 'Minimal', swatch: '#ffffff', border: '#f0f0f0' },
+                { id: 'watercolor', label: 'Watercolor', swatch: '#fdf2f0', border: '#f7dfda' },
+                { id: 'editorial', label: 'Editorial', swatch: '#1a1a1a', border: '#333333' },
+                { id: 'luxe', label: 'Luxe', swatch: '#f5f0e8', border: '#e3d6c1' },
+                { id: 'polaroid', label: 'Polaroid', swatch: '#e8e4de', border: '#d4cfc7' },
               ].map((t) => (
                 <button
                   key={t.id}
                   onClick={() => setTemplate(t.id)}
-                  className={`flex items-center justify-center capitalize py-2.5 px-3 text-xs font-medium rounded-lg interactive transition-all ${
+                  className={`relative flex items-center gap-3 p-2.5 rounded-xl border active:scale-[0.98] transition-all duration-200 ease-out group ${
                     template === t.id 
-                      ? 'ring-2 ring-brand-primary ring-offset-2 bg-white shadow-md text-brand-primary' 
-                      : 'bg-gray-50 text-gray-600 hover:bg-gray-100 border border-gray-200'
+                      ? 'bg-[#fcfbfa] border-[#2d4a22] shadow-[0_2px_12px_rgba(45,74,34,0.08)] ring-1 ring-[#2d4a22]' 
+                      : 'bg-white border-[#e8e6e1] hover:border-[#dcd7cd] hover:bg-[#fcfbfa]'
                   }`}
-                  style={{ fontFamily: 'Montserrat, sans-serif' }}
                 >
-                  <span className="w-3 h-3 rounded-full mr-2 shadow-sm border border-black/10 shrink-0" style={{ backgroundColor: t.swatch }}></span>
-                  <span className="truncate">{t.label}</span>
+                  <div 
+                    className="w-5 h-5 rounded-md shadow-inner flex-shrink-0" 
+                    style={{ backgroundColor: t.swatch, border: `1px solid ${t.border}` }}
+                  ></div>
+                  <span className={`text-sm font-medium ${template === t.id ? 'text-[#2d4a22]' : 'text-[#5c5446] group-hover:text-[#2c2c2c]'}`}>
+                    {t.label}
+                  </span>
                 </button>
               ))}
             </div>
           </div>
         </div>
 
-        <hr className="border-gray-100" />
-
-        {/* Products */}
+        {/* Product List */}
         <div>
-          <div className="flex justify-between items-center mb-4">
-            <h2 className="text-lg font-semibold text-gray-800 flex items-center gap-2">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-brand-primary">
-                <path d="M12 22c-4-4-4-10 0-14 4 4 4 10 0 14z" />
-                <path d="M12 8C8 4 2 4 2 8c0 4 6 10 10 14" />
-                <path d="M12 8c4-4 10-4 10 0 0 4-6 10-10 14" />
-                <path d="M12 8V2" />
-              </svg>
-              Products ({products.length})
-            </h2>
-            <button 
-              onClick={addProduct}
-              className="flex items-center text-sm text-brand-primary font-medium hover:text-brand-primary/80 interactive py-1 px-2 rounded-md hover:bg-brand-primary/10"
-            >
-              <Plus size={16} className="mr-1" /> Add Product
-            </button>
+          <div className="flex items-center justify-between mb-4">
+            <label className="block text-[13px] font-medium text-[#4a4842]">Products List</label>
+            <span className="text-[11px] text-[#8c887d] font-medium bg-[#f5f3ef] px-2 py-0.5 rounded-full border border-[#e8e6e1]">
+              {products.length} added
+            </span>
           </div>
-
+          
           <div className="space-y-4">
             <AnimatePresence initial={false}>
               {products.map((product, index) => (
-                <motion.div 
+                <motion.div
                   key={product.id}
-                  initial={{ opacity: 0, y: 20, scale: 0.95 }}
+                  initial={{ opacity: 0, y: 10, scale: 0.98 }}
                   animate={{ opacity: 1, y: 0, scale: 1 }}
-                  exit={{ opacity: 0, scale: 0.95, transition: { duration: 0.2 } }}
-                  transition={{ duration: 0.3, ease: [0.23, 1, 0.32, 1] }}
-                  className="border border-gray-200 p-4 rounded-xl bg-white shadow-sm hover:shadow-md transition-shadow relative group"
+                  exit={{ opacity: 0, height: 0, overflow: 'hidden' }}
+                  transition={{ duration: 0.25, ease: [0.23, 1, 0.32, 1] }}
+                  className="bg-white border border-[#e8e6e1] rounded-2xl p-4 shadow-[0_4px_15px_rgba(0,0,0,0.02)] group hover:border-[#dcd7cd] transition-colors"
                 >
-                  <div className="flex justify-between items-start mb-3">
-                    <span className="text-[11px] font-semibold uppercase tracking-[0.05em] text-gray-400">Product {index + 1}</span>
-                    <div className="flex items-center gap-1 opacity-0 group-hover:opacity-100 transition-opacity">
-                      <button 
-                        onClick={() => moveProduct(index, 'up')}
-                        disabled={index === 0}
-                        className="text-gray-400 hover:text-brand-primary interactive p-1 rounded hover:bg-gray-50 disabled:opacity-30 disabled:cursor-not-allowed"
-                        title="Move Up"
-                      >
-                        <ArrowUp size={16} />
-                      </button>
-                      <button 
-                        onClick={() => moveProduct(index, 'down')}
-                        disabled={index === products.length - 1}
-                        className="text-gray-400 hover:text-brand-primary interactive p-1 rounded hover:bg-gray-50 disabled:opacity-30 disabled:cursor-not-allowed"
-                        title="Move Down"
-                      >
-                        <ArrowDown size={16} />
-                      </button>
-                      <div className="w-px h-4 bg-gray-200 mx-1"></div>
-                      <button 
-                        onClick={() => removeProduct(product.id)}
-                        className="text-gray-400 hover:text-red-500 interactive p-1 rounded hover:bg-red-50"
-                        title="Remove Product"
-                      >
-                        <Trash2 size={16} />
-                      </button>
-                    </div>
-                  </div>
-
-                  <div className="flex gap-4">
-                    <div className="w-24 h-24 bg-gray-50 border border-dashed border-gray-300 rounded-lg flex flex-col items-center justify-center relative overflow-hidden group/img cursor-pointer interactive hover:border-brand-primary/50">
+                  <div className="flex items-start gap-4">
+                    {/* Image Upload Area */}
+                    <div className="relative w-20 h-24 flex-shrink-0 bg-[#fcfbfa] border border-dashed border-[#dcd7cd] rounded-xl flex flex-col items-center justify-center overflow-hidden group/img hover:border-[#a3794f] transition-colors cursor-pointer active:scale-95 ease-out">
                       {product.image ? (
                         <>
-                          <img src={product.image} alt="Preview" className="w-full h-full object-cover" />
-                          <div className="absolute inset-0 bg-black/40 flex items-center justify-center opacity-0 group-hover/img:opacity-100 transition-opacity">
-                            <ImageIcon size={20} className="text-white" />
+                          <img src={product.image} alt={product.name} className="w-full h-full object-cover" />
+                          <div className="absolute inset-0 bg-black/40 opacity-0 group-hover/img:opacity-100 flex items-center justify-center transition-opacity duration-200">
+                            <ImageIcon size={16} className="text-white" />
                           </div>
                         </>
                       ) : (
-                        <div className="flex flex-col items-center">
-                          <img src="/placeholder.jpg" alt="placeholder" className="w-full h-full object-cover absolute inset-0 opacity-40 mix-blend-overlay" />
-                          <div className="relative z-10 text-gray-500 flex flex-col items-center group-hover/img:text-brand-primary transition-colors bg-white/70 backdrop-blur-sm p-1 rounded-md">
-                            <ImageIcon size={20} className="mb-0.5" />
-                            <span className="text-[10px] font-medium">Upload</span>
-                          </div>
-                        </div>
+                        <>
+                          <ImageIcon size={20} className="text-[#a8a49c] mb-1 group-hover/img:text-[#8a6541] transition-colors" />
+                          <span className="text-[9px] text-[#a8a49c] group-hover/img:text-[#8a6541] font-medium transition-colors">Upload</span>
+                        </>
                       )}
                       <input 
                         type="file" 
                         accept="image/*"
                         onChange={(e) => handleImageUpload(product.id, e)}
-                        className="absolute inset-0 w-full h-full opacity-0 cursor-pointer z-20"
+                        className="absolute inset-0 w-full h-full opacity-0 cursor-pointer"
                       />
                     </div>
                     
-                    <div className="flex-1 space-y-2">
-                      <input 
-                        type="text" 
-                        placeholder="Flower Name (e.g., Marigold)" 
-                        value={product.name}
-                        onChange={(e) => updateProduct(product.id, 'name', e.target.value)}
-                        className="w-full p-2 border border-gray-200 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-brand-primary/30 transition-shadow"
-                      />
-                      <div className="relative">
-                        <span className="absolute left-2.5 top-1/2 -translate-y-1/2 text-gray-400 text-sm">₹</span>
-                        <input 
-                          type="text" 
-                          placeholder="Price" 
-                          value={product.price ? product.price.replace(/^₹\s*/, '') : ''}
-                          onChange={(e) => updateProduct(product.id, 'price', e.target.value.replace(/^₹\s*/, ''))}
-                          className="w-full pl-6 p-2 border border-gray-200 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-brand-primary/30 transition-shadow"
-                        />
+                    {/* Inputs */}
+                    <div className="flex-1 space-y-3">
+                      <div className="flex gap-2">
+                        <div className="flex-1">
+                          <input 
+                            type="text" 
+                            placeholder="Flower Name"
+                            value={product.name}
+                            onChange={(e) => updateProduct(product.id, 'name', e.target.value)}
+                            className="w-full p-2.5 bg-[#fcfbfa] border border-[#e8e6e1] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#2d4a22]/20 focus:border-[#2d4a22] transition-all text-sm text-[#2c2c2c] placeholder:text-[#a8a49c]"
+                          />
+                        </div>
+                        <div className="w-24 relative flex items-center">
+                          <span className="absolute left-3 text-[#8c887d] text-sm pointer-events-none">₹</span>
+                          <input 
+                            type="text" 
+                            placeholder="Rate"
+                            value={product.price.replace('₹', '')}
+                            onChange={(e) => updateProduct(product.id, 'price', e.target.value)}
+                            className="w-full p-2.5 pl-7 bg-[#fcfbfa] border border-[#e8e6e1] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#2d4a22]/20 focus:border-[#2d4a22] transition-all text-sm text-[#2c2c2c] placeholder:text-[#a8a49c]"
+                          />
+                        </div>
+                      </div>
+                      <div className="flex items-center justify-between">
+                        <div className="flex gap-1.5 opacity-0 group-hover:opacity-100 transition-opacity duration-200">
+                          <button 
+                            onClick={() => moveProduct(index, -1)} 
+                            disabled={index === 0}
+                            className="p-1.5 text-[#a8a49c] hover:text-[#2d4a22] hover:bg-[#f5f3ef] rounded-md disabled:opacity-30 disabled:hover:bg-transparent transition-colors"
+                          >
+                            <ArrowUp size={16} />
+                          </button>
+                          <button 
+                            onClick={() => moveProduct(index, 1)} 
+                            disabled={index === products.length - 1}
+                            className="p-1.5 text-[#a8a49c] hover:text-[#2d4a22] hover:bg-[#f5f3ef] rounded-md disabled:opacity-30 disabled:hover:bg-transparent transition-colors"
+                          >
+                            <ArrowDown size={16} />
+                          </button>
+                        </div>
+                        <button 
+                          onClick={() => removeProduct(product.id)}
+                          className="p-1.5 text-[#a8a49c] hover:text-red-500 hover:bg-red-50 rounded-md transition-colors active:scale-90"
+                        >
+                          <Trash2 size={16} />
+                        </button>
                       </div>
                     </div>
-                  </div>
-                  <div className="mt-2">
-                    <textarea 
-                      placeholder="Quantity/Weight (e.g., per kg or string length)" 
-                      value={product.description}
-                      onChange={(e) => updateProduct(product.id, 'description', e.target.value)}
-                      className="w-full p-2 border border-gray-200 rounded-md text-sm resize-none h-16 focus:outline-none focus:ring-2 focus:ring-brand-primary/30 transition-shadow"
-                    />
                   </div>
                 </motion.div>
               ))}
             </AnimatePresence>
-            
-            {products.length === 0 && (
-              <motion.div 
-                initial={{ opacity: 0 }} 
-                animate={{ opacity: 1 }} 
-                className="text-center py-10 text-gray-500 border-2 border-dashed border-gray-200 rounded-xl"
-              >
-                <div className="mx-auto w-12 h-12 bg-gray-50 rounded-full flex items-center justify-center mb-3">
-                  <ImageIcon size={20} className="text-gray-400" />
-                </div>
-                <p className="text-sm font-medium">No products added</p>
-                <p className="text-xs text-gray-400 mt-1">Add a product to generate a story card</p>
-              </motion.div>
-            )}
           </div>
+          
+          <button 
+            onClick={addProduct}
+            className="w-full mt-4 py-3.5 border-2 border-dashed border-[#dcd7cd] rounded-xl text-[#7a7465] font-medium hover:border-[#2d4a22] hover:text-[#2d4a22] hover:bg-[#fcfbfa] active:scale-[0.98] flex items-center justify-center gap-2 transition-all duration-200 ease-out"
+          >
+            <Plus size={18} />
+            <span>Add Another Product</span>
+          </button>
         </div>
+        
       </div>
     </div>
   );

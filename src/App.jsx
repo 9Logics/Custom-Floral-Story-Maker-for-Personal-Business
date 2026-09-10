@@ -120,7 +120,7 @@ function App() {
   const productPages = chunkProducts(products, productsPerCard);
 
   return (
-    <div className="min-h-screen flex flex-col md:flex-row relative z-0">
+    <div className="h-screen flex flex-col md:flex-row relative z-0 bg-[#fdfdfc] text-[#2c2c2c] overflow-hidden">
       <Background />
       <CardForm 
         products={products} 
@@ -146,42 +146,50 @@ function App() {
       />
 
       {/* Right Side - Previews */}
-      <div id="preview-pane" className="w-full md:w-2/3 p-4 md:p-8 bg-transparent md:h-screen md:overflow-y-auto flex flex-col items-center">
-        <div className="w-full max-w-4xl flex flex-col sm:flex-row justify-between items-center mb-8 bg-white/70 backdrop-blur-xl p-4 rounded-2xl shadow-sm border border-white/50 gap-4">
-          <div className="text-center sm:text-left">
-            <h2 className="text-xl font-bold text-gray-800">Preview</h2>
-            <p className="text-sm text-gray-500">{productPages.length} {productPages.length === 1 ? 'story card' : 'story cards'} generated</p>
-          </div>
+      <div id="preview-pane" className="flex-1 overflow-y-auto p-8 md:p-12 relative flex flex-col items-center custom-scrollbar scroll-smooth">
+        
+        {/* Floating Export Button */}
+        <div className="sticky top-6 z-50 mb-10 self-end">
           <button 
             onClick={exportCards}
-            disabled={products.length === 0 || isExporting}
-            className="interactive flex items-center bg-brand-primary text-white px-6 py-2.5 rounded-xl font-medium hover:bg-brand-primary/90 disabled:opacity-50 disabled:cursor-not-allowed shadow-sm w-full sm:w-auto justify-center transition-all"
+            disabled={isExporting}
+            className="group relative inline-flex items-center gap-2 bg-[#2d4a22] text-white px-6 py-3 rounded-full font-medium shadow-[0_8px_30px_rgba(45,74,34,0.25)] hover:shadow-[0_12px_40px_rgba(45,74,34,0.35)] active:scale-95 transition-all duration-300 ease-out overflow-hidden disabled:opacity-70 disabled:active:scale-100"
           >
+            {/* Glossy sheen effect */}
+            <div className="absolute inset-0 bg-gradient-to-tr from-white/0 via-white/10 to-white/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700 ease-in-out pointer-events-none"></div>
+            
             {isExporting ? (
-              <span className="flex items-center">
-                <svg className="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+              <>
+                <svg className="animate-spin -ml-1 mr-2 h-4 w-4 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
                   <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
                   <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
                 </svg>
-                Exporting...
-              </span>
+                <span>Exporting...</span>
+              </>
             ) : (
-              <span className="flex items-center"><Download size={18} className="mr-2" /> Export All Cards</span>
+              <>
+                <Download size={18} className="transition-transform group-hover:-translate-y-0.5" />
+                <span>Export {productPages.length} Story Card{productPages.length !== 1 ? 's' : ''}</span>
+              </>
             )}
           </button>
         </div>
 
-        <div className="flex flex-wrap gap-8 justify-center">
+        <div className="flex flex-col gap-16 pb-32 max-w-4xl w-full items-center">
           {productPages.map((pageProducts, index) => (
             <motion.div 
-              initial={{ opacity: 0, scale: 0.95, y: 20 }}
-              animate={{ opacity: 1, scale: 1, y: 0 }}
-              transition={{ duration: 0.4, delay: index * 0.1, ease: [0.23, 1, 0.32, 1] }}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: index * 0.1, ease: [0.23, 1, 0.32, 1] }}
               key={index} 
               className="flex flex-col items-center"
             >
-              <div className="mb-2 text-[11px] text-gray-400 font-semibold tracking-[0.05em] uppercase">Story {index + 1}</div>
-              <div className="shadow-2xl rounded-2xl overflow-hidden ring-1 ring-black/5 hover:scale-[1.02] transition-transform duration-300 ease-out">
+              <div className="mb-4 text-[12px] text-[#8c887d] font-semibold tracking-widest uppercase flex items-center gap-4">
+                <div className="w-12 h-[1px] bg-[#dcd7cd]"></div>
+                Story {index + 1}
+                <div className="w-12 h-[1px] bg-[#dcd7cd]"></div>
+              </div>
+              <div className="shadow-[0_20px_50px_rgba(0,0,0,0.08)] rounded-[20px] overflow-hidden hover:shadow-[0_30px_60px_rgba(0,0,0,0.12)] transition-shadow duration-500 ease-out ring-1 ring-[#e8e6e1]/50">
                 <CardPreview 
                   products={pageProducts} 
                   brandName={brandName} 
@@ -193,7 +201,8 @@ function App() {
                 />
               </div>
             </motion.div>
-          ))}</div>
+          ))}
+        </div>
       </div>
     </div>
   );
