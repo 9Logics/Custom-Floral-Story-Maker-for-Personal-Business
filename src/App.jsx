@@ -24,7 +24,7 @@ function App() {
   const [brandName, setBrandName] = useState(() => getStorage('fb_brandName_v3', 'Fresh Bloom'));
   const [ctaText, setCtaText] = useState(() => getStorage('fb_ctaText_v2', 'Order Now'));
   const [template, setTemplate] = useState(() => getStorage('fb_template_v2', 'classic'));
-  const [brandLogo, setBrandLogo] = useState(() => getStorage('fb_brandLogo_v3', '/brand_logo.png'));
+  const [brandLogo, setBrandLogo] = useState(() => getStorage('fb_brandLogo_v4', './brand_logo.png'));
   const [productsPerCard, setProductsPerCard] = useState(() => getStorage('fb_productsPerCard_v2', 4));
   const [vintageTexture, setVintageTexture] = useState('');
   const [vintageOverlay, setVintageOverlay] = useState('');
@@ -35,7 +35,7 @@ function App() {
     localStorage.setItem('fb_brandName_v3', JSON.stringify(brandName));
     localStorage.setItem('fb_ctaText_v2', JSON.stringify(ctaText));
     localStorage.setItem('fb_template_v2', JSON.stringify(template));
-    localStorage.setItem('fb_brandLogo_v3', JSON.stringify(brandLogo));
+    localStorage.setItem('fb_brandLogo_v4', JSON.stringify(brandLogo));
     localStorage.setItem('fb_productsPerCard_v2', JSON.stringify(productsPerCard));
   }, [products, brandName, ctaText, template, brandLogo, productsPerCard]);
 
