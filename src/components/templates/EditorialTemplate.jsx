@@ -52,7 +52,7 @@ export default function EditorialTemplate({ products, brandName, ctaText, brandL
               <h3 className={`font-serif ${count > 4 ? 'text-[12px]' : 'text-[15px]'} font-normal text-white capitalize tracking-wide`} style={{ fontFamily: 'Cormorant, serif' }}>{product.name || 'Flower Name'}</h3>
               <div className={`flex items-center gap-2 ${count > 4 ? 'mt-0.5' : 'mt-1.5'}`}>
                 <div className="w-4 h-[1px] bg-[#d4af37]/50"></div>
-                <p className={`${count > 4 ? 'text-[11px]' : 'text-[14px]'} text-[#e8c85c] font-bold tracking-wider`} style={{ fontFamily: 'Montserrat, sans-serif' }}>{product.price ? `₹${product.price.replace('₹', '')}${product.unit || ''}` : 'Price'}</p>
+                <p className={`${count > 4 ? 'text-[11px]' : 'text-[14px]'} text-[#e8c85c] font-bold tracking-wider`} style={{ fontFamily: 'Montserrat, sans-serif' }}>{product.price ? `₹${product.price.replace('₹', '')}${product.unit ? ' ' + product.unit : ''}` : 'Price'}</p>
                 <div className="w-4 h-[1px] bg-[#d4af37]/50"></div>
               </div>
             </div>

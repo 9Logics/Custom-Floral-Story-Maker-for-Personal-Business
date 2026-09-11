@@ -54,7 +54,7 @@ export default function ModernTemplate({ products, brandName, ctaText, brandLogo
               <div className="flex flex-col w-[55%]">
                 <h3 className={`${count > 4 ? 'text-[13px]' : 'text-[17px]'} font-bold truncate text-white capitalize tracking-tight`} style={{ fontFamily: 'Outfit, sans-serif' }}>{product.name || 'Flower Name'}</h3>
               </div>
-              <p className={`${count > 4 ? 'text-[11px]' : 'text-[14px]'} font-bold font-mono bg-[#e8c85c] text-[#141414] px-2.5 py-0.5 rounded shadow-sm`}>{product.price ? `₹${product.price.replace('₹', '')}${product.unit || ''}` : 'Price'}</p>
+              <p className={`${count > 4 ? 'text-[11px]' : 'text-[14px]'} font-bold font-mono bg-[#e8c85c] text-[#141414] px-2.5 py-0.5 rounded shadow-sm`}>{product.price ? `₹${product.price.replace('₹', '')}${product.unit ? ' ' + product.unit : ''}` : 'Price'}</p>
             </div>
           </div>
         ))}

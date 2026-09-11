@@ -174,19 +174,22 @@ function CardForm({ products, setProducts, updateProduct, removeProduct, addProd
                           />
                         </div>
                         <div className="w-24 relative flex items-center">
-                          <select
-                            value={product.unit || 'stem'}
+                          <input
+                            list={`unit-options-${product.id}`}
+                            placeholder="Unit (e.g. / stem)"
+                            value={product.unit || ''}
                             onChange={(e) => updateProduct(product.id, 'unit', e.target.value)}
-                            className="w-full p-2.5 bg-[#fcfbfa] border border-[#e8e6e1] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#2d4a22]/20 focus:border-[#2d4a22] transition-all text-[13px] text-[#2c2c2c] cursor-pointer"
-                          >
-                            <option value="stem">/ stem</option>
-                            <option value="bunch">/ bunch</option>
-                            <option value="piece">/ piece</option>
-                            <option value="100g">/ 100g</option>
-                            <option value="kg">/ kg</option>
-                            <option value="box">/ box</option>
-                            <option value="">None</option>
-                          </select>
+                            className="w-full p-2.5 bg-[#fcfbfa] border border-[#e8e6e1] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#2d4a22]/20 focus:border-[#2d4a22] transition-all text-[13px] text-[#2c2c2c] cursor-text"
+                          />
+                          <datalist id={`unit-options-${product.id}`}>
+                            <option value="/ stem" />
+                            <option value="/ bunch" />
+                            <option value="/ piece" />
+                            <option value="/ 100g" />
+                            <option value="/ kg" />
+                            <option value="/ box" />
+                            <option value="" />
+                          </datalist>
                         </div>
                       </div>
                       <div className="flex items-center justify-between">

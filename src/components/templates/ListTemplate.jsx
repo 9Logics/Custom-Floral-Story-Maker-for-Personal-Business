@@ -57,7 +57,7 @@ export default function ListTemplate({ products, brandName, ctaText, brandLogo, 
               </h3>
               <p className="text-[12px] text-[#5c5446] font-medium" style={{ fontFamily: 'Outfit, sans-serif' }}>
                 {product.price ? `₹${product.price.replace('₹', '')}` : 'Price'}
-                {product.unit && product.unit !== 'none' ? ` / ${product.unit}` : ''}
+                {product.unit ? ` ${product.unit}` : ''}
               </p>
             </div>
           </div>

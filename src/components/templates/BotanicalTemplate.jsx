@@ -52,7 +52,7 @@ export default function BotanicalTemplate({ products, brandName, ctaText, brandL
             </div>
             <div className="flex flex-col text-center px-1 pb-1">
               <h3 className={`font-serif ${count > 4 ? 'text-[13px]' : 'text-[17px]'} font-medium truncate text-[#f2f5eb] capitalize`} style={{ textShadow: '0 2px 8px rgba(0,0,0,0.5)' }}>{product.name || 'Flower Name'}</h3>
-              <p className={`${count > 4 ? 'text-[12px]' : 'text-[15px]'} text-[#cbf5a9] font-bold ${count > 4 ? 'mt-0.5' : 'mt-1.5'} tracking-wider bg-white/10 inline-block self-center px-3 py-0.5 rounded-full shadow-sm`}>{product.price ? `₹${product.price.replace('₹', '')}${product.unit || ''}` : 'Price'}</p>
+              <p className={`${count > 4 ? 'text-[12px]' : 'text-[15px]'} text-[#cbf5a9] font-bold ${count > 4 ? 'mt-0.5' : 'mt-1.5'} tracking-wider bg-white/10 inline-block self-center px-3 py-0.5 rounded-full shadow-sm`}>{product.price ? `₹${product.price.replace('₹', '')}${product.unit ? ' ' + product.unit : ''}` : 'Price'}</p>
             </div>
           </div>
         ))}

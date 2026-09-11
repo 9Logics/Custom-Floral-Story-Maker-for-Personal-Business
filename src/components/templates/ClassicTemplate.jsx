@@ -55,7 +55,7 @@ export default function ClassicTemplate({ products, brandName, ctaText, brandLog
             </div>
             <div className={`flex flex-col text-center px-1 ${count > 4 ? 'mt-0' : 'mt-1'}`}>
               <h3 className={` ${count > 4 ? 'text-[13px]' : 'text-[17px]'} font-bold truncate text-[#1b3312] capitalize`}>{product.name || 'Flower Name'}</h3>
-              <p className={`${count > 4 ? 'text-[12px]' : 'text-[15px]'} text-[#967140] font-bold ${count > 4 ? 'mt-0' : 'mt-1'} tracking-wide`}>{product.price ? `₹${product.price.replace('₹', '')}${product.unit || ''}` : 'Price'}</p>
+              <p className={`${count > 4 ? 'text-[12px]' : 'text-[15px]'} text-[#967140] font-bold ${count > 4 ? 'mt-0' : 'mt-1'} tracking-wide`}>{product.price ? `₹${product.price.replace('₹', '')}${product.unit ? ' ' + product.unit : ''}` : 'Price'}</p>
               {product.description && count <= 2 && (
                 <p className="text-[11px] text-[#8c857b] mt-2.5 line-clamp-2 leading-relaxed">{product.description}</p>
               )}
