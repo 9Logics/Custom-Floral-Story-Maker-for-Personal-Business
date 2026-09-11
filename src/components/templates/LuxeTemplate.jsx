@@ -51,7 +51,7 @@ export default function LuxeTemplate({ products, brandName, ctaText, brandLogo, 
             </div>
             <div className="flex flex-col text-center px-1">
               <h3 className={`${count > 4 ? 'text-[13px]' : 'text-[17px]'} font-medium truncate text-[#3d3326] capitalize`} style={{ fontFamily: 'Cinzel, serif' }}>{product.name || 'Flower Name'}</h3>
-              <p className={`${count > 4 ? 'text-[11px]' : 'text-[14px]'} text-[#b0874c] font-bold ${count > 4 ? 'mt-0' : 'mt-1'}`} style={{ fontFamily: 'Tenor Sans, sans-serif' }}>{product.price || 'Price'}</p>
+              <p className={`${count > 4 ? 'text-[11px]' : 'text-[14px]'} text-[#b0874c] font-bold ${count > 4 ? 'mt-0' : 'mt-1'}`} style={{ fontFamily: 'Tenor Sans, sans-serif' }}>{product.price ? `₹${product.price.replace('₹', '')}${product.unit || ''}` : 'Price'}</p>
             </div>
           </div>
         ))}

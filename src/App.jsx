@@ -20,7 +20,7 @@ const getStorage = (key, defaultValue) => {
 
 function App() {
   const [products, setProducts] = useState(() => getStorage('fb_products_v2', [
-    { id: '1', name: '', price: '', description: '', image: '' }
+    { id: '1', name: '', price: '', description: '', image: '', unit: 'stem' }
   ]));
   const [brandName, setBrandName] = useState(() => getStorage('fb_brandName_v3', 'Fresh Bloom'));
   const [ctaText, setCtaText] = useState(() => getStorage('fb_ctaText_v2', 'Order Now'));
@@ -41,7 +41,7 @@ function App() {
   }, [products, brandName, ctaText, template, brandLogo, productsPerCard]);
 
   const addProduct = () => {
-    setProducts([...products, { id: uuidv4(), name: '', price: '', description: '', image: '' }]);
+    setProducts([...products, { id: uuidv4(), name: '', price: '', description: '', image: '', unit: 'stem' }]);
   };
 
   const updateProduct = (id, field, value) => {

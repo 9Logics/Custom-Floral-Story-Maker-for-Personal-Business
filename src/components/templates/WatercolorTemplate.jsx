@@ -44,7 +44,7 @@ export default function WatercolorTemplate({ products, brandName, ctaText, brand
             </div>
             <div className="flex flex-col text-center px-1">
               <h3 className={`${count > 4 ? 'text-[13px]' : 'text-[17px]'} font-semibold text-[#4a3b32] capitalize leading-snug`} style={{ fontFamily: 'Cormorant, serif' }}>{product.name || 'Flower Name'}</h3>
-              <p className={`${count > 4 ? 'text-[11px]' : 'text-[14px]'} text-[#8a6b57] font-bold ${count > 4 ? 'mt-0' : 'mt-1'} tracking-wide bg-white/50 inline-block self-center px-3 py-0.5 rounded-full ${count > 4 ? 'mt-0.5' : 'mt-1.5'} shadow-sm`} style={{ fontFamily: 'Tenor Sans, sans-serif' }}>{product.price || 'Price'}</p>
+              <p className={`${count > 4 ? 'text-[11px]' : 'text-[14px]'} text-[#8a6b57] font-bold ${count > 4 ? 'mt-0' : 'mt-1'} tracking-wide bg-white/50 inline-block self-center px-3 py-0.5 rounded-full ${count > 4 ? 'mt-0.5' : 'mt-1.5'} shadow-sm`} style={{ fontFamily: 'Tenor Sans, sans-serif' }}>{product.price ? `₹${product.price.replace('₹', '')}${product.unit || ''}` : 'Price'}</p>
             </div>
           </div>
         ))}

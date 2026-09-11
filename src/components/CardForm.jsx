@@ -195,6 +195,21 @@ function CardForm({ products, setProducts, updateProduct, removeProduct, addProd
                             className="w-full p-2.5 pl-7 bg-[#fcfbfa] border border-[#e8e6e1] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#2d4a22]/20 focus:border-[#2d4a22] transition-all text-sm text-[#2c2c2c] placeholder:text-[#a8a49c]"
                           />
                         </div>
+                        <div className="w-24 relative flex items-center">
+                          <select
+                            value={product.unit || 'stem'}
+                            onChange={(e) => updateProduct(product.id, 'unit', e.target.value)}
+                            className="w-full p-2.5 bg-[#fcfbfa] border border-[#e8e6e1] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#2d4a22]/20 focus:border-[#2d4a22] transition-all text-[13px] text-[#2c2c2c] cursor-pointer"
+                          >
+                            <option value="stem">/ stem</option>
+                            <option value="bunch">/ bunch</option>
+                            <option value="piece">/ piece</option>
+                            <option value="100g">/ 100g</option>
+                            <option value="kg">/ kg</option>
+                            <option value="box">/ box</option>
+                            <option value="">None</option>
+                          </select>
+                        </div>
                       </div>
                       <div className="flex items-center justify-between">
                         <div className="flex gap-1.5 opacity-0 group-hover:opacity-100 transition-opacity duration-200">

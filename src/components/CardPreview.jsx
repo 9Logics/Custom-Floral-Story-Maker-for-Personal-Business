@@ -4,6 +4,7 @@ import BotanicalTemplate from './templates/BotanicalTemplate';
 import ModernTemplate from './templates/ModernTemplate';
 import MinimalTemplate from './templates/MinimalTemplate';
 import WatercolorTemplate from './templates/WatercolorTemplate';
+import ListTemplate from './templates/ListTemplate';
 import EditorialTemplate from './templates/EditorialTemplate';
 import LuxeTemplate from './templates/LuxeTemplate';
 import PolaroidTemplate from './templates/PolaroidTemplate';
