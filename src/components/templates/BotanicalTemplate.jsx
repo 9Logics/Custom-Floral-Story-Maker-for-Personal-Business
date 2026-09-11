@@ -31,9 +31,9 @@ export default function BotanicalTemplate({ products, brandName, ctaText, brandL
       {/* Header */}
       <div className="text-center mb-6 pt-2 z-10 relative">
         
-        <div className={`flex items-center justify-center ga${count > 4 ? 'p-1' : 'p-3'}`}>
-          {brandLogo && (<img src={brandLogo} alt="Logo" className="w-9 h-9 object-contain shrink-0" />)}
-          <h1 className="font-serif text-[44px] text-[#f2f5eb] font-normal capitalize tracking-tight" style={{ fontFamily: 'Italiana, serif',  textShadow: '0 4px 20px rgba(0,0,0,0.3)'  }}>
+        <div className={`flex items-center justify-center gap-3`}>
+          {brandLogo && (<img src={brandLogo} alt="Logo" className="w-7 h-7 object-contain shrink-0" />)}
+          <h1 className="font-serif text-[32px] text-[#f2f5eb] font-normal capitalize tracking-tight" style={{ fontFamily: 'Italiana, serif',  textShadow: '0 4px 20px rgba(0,0,0,0.3)'  }}>
           {brandName}
         </h1>
         </div>
@@ -46,7 +46,7 @@ export default function BotanicalTemplate({ products, brandName, ctaText, brandL
       <div className={`flex-1 grid ${gridClass} ${count > 4 ? 'gap-2 grid-rows-3' : count >= 2 ? 'gap-4 grid-rows-2' : 'gap-4'} z-10 relative`}>
         {products.map((product, i) => (
           <div key={product.id || i} className={`flex flex-col h-full bg-white/[0.06] backdrop-blur-xl ${count > 4 ? 'p-1' : 'p-3'} rounded-[24px] border border-white/[0.15] shadow-[0_16px_40px_rgba(0,0,0,0.4)]`}>
-            <div className={`w-full flex-1 min-h-0 relative bg-black/20 rounded-[18px] overflow-hidden flex items-center justify-center relative mb-1.5 shadow-inner`}>
+            <div className={`w-full aspect-square relative w-full shrink-0 bg-black/20 rounded-[18px] overflow-hidden flex items-center justify-center relative mb-1.5 shadow-inner`}>
               <img src={product.image || './placeholder.jpg'} alt={product.name || 'Flower'} className={`absolute inset-0 w-full h-full object-cover brightness-[0.85] contrast-[1.1] transition-all duration-700 hover:scale-110 hover:brightness-100 ${!product.image ? 'opacity-70' : ''}`} />
               <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
             </div>

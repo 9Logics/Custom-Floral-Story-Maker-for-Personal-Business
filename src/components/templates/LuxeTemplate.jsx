@@ -28,11 +28,11 @@ export default function LuxeTemplate({ products, brandName, ctaText, brandLogo, 
       </svg>
 
       {/* Header */}
-      <div className="text-center mb-3 pt-2 relative z-10">
+      <div className="text-center mb-1 pt-1 relative z-10">
         
-        <div className={`flex items-center justify-center ga${count > 4 ? 'p-1' : 'p-3'}`}>
-          {brandLogo && (<img src={brandLogo} alt="Logo" className="w-9 h-9 object-contain shrink-0" />)}
-          <h1 className="font-serif text-[24px] text-[#2c2c2c] font-medium capitalize" style={{ fontFamily: 'Cinzel, serif' }}>
+        <div className={`flex items-center justify-center gap-3`}>
+          {brandLogo && (<img src={brandLogo} alt="Logo" className="w-7 h-7 object-contain shrink-0" />)}
+          <h1 className="font-serif text-[20px] text-[#2c2c2c] font-medium capitalize" style={{ fontFamily: 'Cinzel, serif' }}>
           {brandName}
         </h1>
         </div>
@@ -46,7 +46,7 @@ export default function LuxeTemplate({ products, brandName, ctaText, brandLogo, 
       <div className={`flex-1 grid ${gridClass} ${count > 4 ? 'gap-2 grid-rows-3' : count >= 2 ? 'gap-4 grid-rows-2' : 'gap-4'} relative z-10`}>
         {products.map((product, i) => (
           <div key={product.id || i} className="flex flex-col h-full bg-white p-2.5 shadow-[0_12px_30px_rgba(0,0,0,0.06)] border border-[#e8dcc4]">
-            <div className={`w-full flex-1 min-h-0 relative bg-[#f5f0e8] overflow-hidden flex items-center justify-center relative mb-1.5 ring-1 ring-[#cfa86e]/30`}>
+            <div className={`w-full aspect-square relative w-full shrink-0 bg-[#f5f0e8] overflow-hidden flex items-center justify-center relative mb-1.5 ring-1 ring-[#cfa86e]/30`}>
               <img src={product.image || './placeholder.jpg'} alt={product.name || 'Flower'} className={`absolute inset-0 w-full h-full object-cover ${!product.image ? 'opacity-50' : ''}`} />
             </div>
             <div className="flex flex-col text-center px-1">

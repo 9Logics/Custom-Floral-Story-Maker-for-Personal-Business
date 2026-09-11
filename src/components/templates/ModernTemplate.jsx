@@ -28,11 +28,11 @@ export default function ModernTemplate({ products, brandName, ctaText, brandLogo
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-white/[0.02] to-transparent pointer-events-none"></div>
 
       {/* Header */}
-      <div className="mb-4 pt-2 z-10 flex flex-col items-center">
+      <div className="mb-2 pt-1 z-10 flex flex-col items-center">
         
-        <div className={`flex items-center justify-center ga${count > 4 ? 'p-1' : 'p-3'}`}>
-          {brandLogo && (<img src={brandLogo} alt="Logo" className="w-9 h-9 object-contain shrink-0" />)}
-          <h1 className="text-[22px] text-white font-light tracking-[0.1em] uppercase leading-tight text-center" style={{ fontFamily: 'Outfit, sans-serif' }}>
+        <div className={`flex items-center justify-center gap-3`}>
+          {brandLogo && (<img src={brandLogo} alt="Logo" className="w-7 h-7 object-contain shrink-0" />)}
+          <h1 className="text-[18px] text-white font-light tracking-[0.1em] uppercase leading-tight text-center" style={{ fontFamily: 'Outfit, sans-serif' }}>
           {brandName}
         </h1>
         </div>
@@ -45,7 +45,7 @@ export default function ModernTemplate({ products, brandName, ctaText, brandLogo
           <div key={product.id || i} className="flex flex-col h-full bg-[#141414] p-2 rounded-xl relative overflow-hidden border border-white/[0.08] shadow-[0_0_20px_rgba(255,255,255,0.03)] group">
       {vintageTexture && (<img src={vintageTexture} alt="Texture" className="absolute inset-0 w-full h-full object-cover opacity-60 mix-blend-multiply z-0 pointer-events-none" />)}
       {vintageOverlay && (<img src={vintageOverlay} alt="Overlay" className="absolute inset-0 w-full h-full object-cover opacity-90 z-0 pointer-events-none" />)}
-            <div className={`w-full flex-1 min-h-0 relative bg-[#0a0a0a] rounded-lg overflow-hidden flex items-center justify-center relative`}>
+            <div className={`w-full aspect-square relative w-full shrink-0 bg-[#0a0a0a] rounded-lg overflow-hidden flex items-center justify-center relative`}>
               <img src={product.image || './placeholder.jpg'} alt={product.name || 'Flower'} className={`absolute inset-0 w-full h-full object-cover grayscale opacity-80 transition-all duration-1000 ${!product.image ? 'opacity-30' : ''}`} />
               {/* Gradient overlay */}
               <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-[#141414] to-transparent"></div>

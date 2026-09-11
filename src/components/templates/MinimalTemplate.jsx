@@ -32,9 +32,9 @@ export default function MinimalTemplate({ products, brandName, ctaText, brandLog
       {/* Header */}
       <div className="mb-2 pt-1 flex flex-col items-center relative z-10">
         
-        <div className={`flex items-center justify-center ga${count > 4 ? 'p-1' : 'p-3'}`}>
-          {brandLogo && (<img src={brandLogo} alt="Logo" className="w-9 h-9 object-contain shrink-0" />)}
-          <h1 className="text-[22px] text-[#1a1a1a] font-medium tracking-[0.05em] uppercase leading-tight" style={{ fontFamily: 'Tenor Sans, sans-serif' }}>
+        <div className={`flex items-center justify-center gap-3`}>
+          {brandLogo && (<img src={brandLogo} alt="Logo" className="w-7 h-7 object-contain shrink-0" />)}
+          <h1 className="text-[18px] text-[#1a1a1a] font-medium tracking-[0.05em] uppercase leading-tight" style={{ fontFamily: 'Tenor Sans, sans-serif' }}>
           {brandName}
         </h1>
         </div>
@@ -45,7 +45,7 @@ export default function MinimalTemplate({ products, brandName, ctaText, brandLog
       <div className={`flex-1 flex flex-col relative z-10 ${count > 4 ? 'grid grid-cols-2 grid-rows-3 gap-2' : count >= 2 ? 'grid grid-cols-2 grid-rows-2 gap-4' : 'gap-4'}`}>
         {products.map((product, i) => (
           <div key={product.id || i} className="flex flex-col h-full group">
-            <div className={`w-full flex-1 min-h-0 relative bg-[#f5f5f5] overflow-hidden mb-1.5 shadow-[0_4px_15px_rgba(0,0,0,0.03)]`}>
+            <div className={`w-full aspect-square relative w-full shrink-0 bg-[#f5f5f5] overflow-hidden mb-1.5 shadow-[0_4px_15px_rgba(0,0,0,0.03)]`}>
               <img src={product.image || './placeholder.jpg'} alt={product.name || 'Flower'} className={`absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105 ${!product.image ? 'opacity-50' : ''}`} />
             </div>
             <div className="flex flex-col">
