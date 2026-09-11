@@ -154,18 +154,16 @@ function CardForm({ products, setProducts, updateProduct, removeProduct, addProd
                     </div>
                     
                     {/* Inputs */}
-                    <div className="flex-1 space-y-3">
+                    <div className="flex-1 space-y-2.5">
+                      <input 
+                        type="text" 
+                        placeholder="Flower Name"
+                        value={product.name}
+                        onChange={(e) => updateProduct(product.id, 'name', e.target.value)}
+                        className="w-full p-2.5 bg-[#fcfbfa] border border-[#e8e6e1] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#2d4a22]/20 focus:border-[#2d4a22] transition-all text-sm text-[#2c2c2c] placeholder:text-[#a8a49c]"
+                      />
                       <div className="flex gap-2">
-                        <div className="flex-1">
-                          <input 
-                            type="text" 
-                            placeholder="Flower Name"
-                            value={product.name}
-                            onChange={(e) => updateProduct(product.id, 'name', e.target.value)}
-                            className="w-full p-2.5 bg-[#fcfbfa] border border-[#e8e6e1] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#2d4a22]/20 focus:border-[#2d4a22] transition-all text-sm text-[#2c2c2c] placeholder:text-[#a8a49c]"
-                          />
-                        </div>
-                        <div className="w-24 relative flex items-center">
+                        <div className="flex-1 relative flex items-center">
                           <span className="absolute left-3 text-[#8c887d] text-sm pointer-events-none">₹</span>
                           <input 
                             type="text" 
