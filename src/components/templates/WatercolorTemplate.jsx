@@ -39,7 +39,7 @@ export default function WatercolorTemplate({ products, brandName, ctaText, brand
       <div className={`flex-1 grid ${gridClass} ${count > 4 ? 'gap-2 grid-rows-3' : count >= 2 ? 'gap-4 grid-rows-2' : 'gap-4'} relative z-10`}>
         {products.map((product, i) => (
           <div key={product.id || i} className={`flex flex-col h-full bg-white/70 backdrop-blur-md ${count > 4 ? 'p-1' : 'p-3'} rounded-[20px] shadow-[0_10px_30px_rgba(92,64,51,0.08)] border border-white`}>
-            <div className={`w-full aspect-square relative w-full shrink-0 bg-[#f5ede9] rounded-[14px] overflow-hidden flex items-center justify-center relative mb-1.5 ring-4 ring-white/50`}>
+            <div className={`w-full flex-1 min-h-0 relative w-full bg-[#f5ede9] rounded-[14px] overflow-hidden flex items-center justify-center relative mb-1.5 ring-4 ring-white/50`}>
               <img src={product.image || './placeholder.jpg'} alt={product.name || 'Flower'} className={`absolute inset-0 w-full h-full object-cover transition-transform duration-700 hover:scale-105 ${!product.image ? 'opacity-40' : ''}`} />
             </div>
             <div className="flex flex-col text-center px-1">

@@ -45,7 +45,7 @@ export default function PolaroidTemplate({ products, brandName, ctaText, brandLo
       <div className={`flex-1 grid ${gridClass} ${count > 4 ? 'gap-2 grid-rows-3' : count >= 2 ? 'gap-3 grid-rows-2' : 'gap-3'} relative z-10 p-2`}>
         {products.map((product, i) => (
           <div key={product.id || i} className={`flex flex-col h-full bg-[#faf9f6] ${count > 4 ? 'p-1.5 pb-3' : 'p-2.5 pb-6'} shadow-[0_20px_40px_rgba(0,0,0,0.15)] ${rotations[i % rotations.length]}`}>
-            <div className={`w-full aspect-square relative w-full shrink-0 bg-[#e8e4de] flex items-center justify-center relative ${count > 4 ? 'mb-1' : 'mb-3'} shadow-inner`}>
+            <div className={`w-full flex-1 min-h-0 relative w-full bg-[#e8e4de] flex items-center justify-center relative ${count > 4 ? 'mb-1' : 'mb-3'} shadow-inner`}>
               <img src={product.image || './placeholder.jpg'} alt={product.name || 'Flower'} className={`absolute inset-0 w-full h-full object-cover grayscale-[0.2] sepia-[0.1] contrast-[1.1] ${!product.image ? 'opacity-50' : ''}`} />
             </div>
             <div className="flex flex-col text-center px-2">

@@ -36,7 +36,7 @@ export default function EditorialTemplate({ products, brandName, ctaText, brandL
           {brandName}
         </h1>
         </div>
-        <p className={`text-[9px] font-medium uppercase tracking-[0.25em] text-[#d4af37] ${count > 4 ? 'mt-0' : 'mt-1'}.5`} style={{ fontFamily: 'Montserrat, sans-serif' }}>
+        <p className={`text-[9px] font-medium uppercase tracking-[0.25em] text-[#d4af37] ${count > 4 ? 'mt-0.5' : 'mt-1.5'}`} style={{ fontFamily: 'Montserrat, sans-serif' }}>
           Today's Pricing
         </p>
       </div>
@@ -45,12 +45,12 @@ export default function EditorialTemplate({ products, brandName, ctaText, brandL
       <div className={`flex-1 grid ${gridClass} ${count > 4 ? 'gap-3 grid-rows-3' : count >= 2 ? 'gap-6 grid-rows-2' : 'gap-6'} relative z-10`}>
         {products.map((product, i) => (
           <div key={product.id || i} className="flex flex-col h-full group">
-            <div className={`w-full aspect-square relative w-full shrink-0 bg-[#1a1a1a] overflow-hidden flex items-center justify-center relative mb-1.5 shadow-[0_15px_40px_rgba(0,0,0,0.6)] ring-1 ring-white/10`}>
+            <div className={`w-full flex-1 min-h-0 relative w-full bg-[#1a1a1a] overflow-hidden flex items-center justify-center relative mb-1.5 shadow-[0_15px_40px_rgba(0,0,0,0.6)] ring-1 ring-white/10`}>
               <img src={product.image || './placeholder.jpg'} alt={product.name || 'Flower'} className={`absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105 ${!product.image ? 'opacity-40' : ''}`} />
             </div>
             <div className="flex flex-col items-center text-center">
               <h3 className={`font-serif ${count > 4 ? 'text-[12px]' : 'text-[15px]'} font-normal text-white capitalize tracking-wide`} style={{ fontFamily: 'Cormorant, serif' }}>{product.name || 'Flower Name'}</h3>
-              <div className={`flex items-center gap-2 ${count > 4 ? 'mt-0' : 'mt-1'}.5`}>
+              <div className={`flex items-center gap-2 ${count > 4 ? 'mt-0.5' : 'mt-1.5'}`}>
                 <div className="w-4 h-[1px] bg-[#d4af37]/50"></div>
                 <p className={`${count > 4 ? 'text-[11px]' : 'text-[14px]'} text-[#e8c85c] font-bold tracking-wider`} style={{ fontFamily: 'Montserrat, sans-serif' }}>{product.price ? `₹${product.price.replace('₹', '')}${product.unit || ''}` : 'Price'}</p>
                 <div className="w-4 h-[1px] bg-[#d4af37]/50"></div>

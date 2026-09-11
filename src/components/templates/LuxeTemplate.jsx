@@ -46,7 +46,7 @@ export default function LuxeTemplate({ products, brandName, ctaText, brandLogo, 
       <div className={`flex-1 grid ${gridClass} ${count > 4 ? 'gap-2 grid-rows-3' : count >= 2 ? 'gap-4 grid-rows-2' : 'gap-4'} relative z-10`}>
         {products.map((product, i) => (
           <div key={product.id || i} className="flex flex-col h-full bg-white p-2.5 shadow-[0_12px_30px_rgba(0,0,0,0.06)] border border-[#e8dcc4]">
-            <div className={`w-full aspect-square relative w-full shrink-0 bg-[#f5f0e8] overflow-hidden flex items-center justify-center relative mb-1.5 ring-1 ring-[#cfa86e]/30`}>
+            <div className={`w-full flex-1 min-h-0 relative w-full bg-[#f5f0e8] overflow-hidden flex items-center justify-center relative mb-1.5 ring-1 ring-[#cfa86e]/30`}>
               <img src={product.image || './placeholder.jpg'} alt={product.name || 'Flower'} className={`absolute inset-0 w-full h-full object-cover ${!product.image ? 'opacity-50' : ''}`} />
             </div>
             <div className="flex flex-col text-center px-1">

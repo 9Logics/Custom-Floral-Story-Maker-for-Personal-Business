@@ -45,7 +45,7 @@ export default function ModernTemplate({ products, brandName, ctaText, brandLogo
           <div key={product.id || i} className="flex flex-col h-full bg-[#141414] p-2 rounded-xl relative overflow-hidden border border-white/[0.08] shadow-[0_0_20px_rgba(255,255,255,0.03)] group">
       {vintageTexture && (<img src={vintageTexture} alt="Texture" className="absolute inset-0 w-full h-full object-cover opacity-60 mix-blend-multiply z-0 pointer-events-none" />)}
       {vintageOverlay && (<img src={vintageOverlay} alt="Overlay" className="absolute inset-0 w-full h-full object-cover opacity-90 z-0 pointer-events-none" />)}
-            <div className={`w-full aspect-square relative w-full shrink-0 bg-[#0a0a0a] rounded-lg overflow-hidden flex items-center justify-center relative`}>
+            <div className={`w-full flex-1 min-h-0 relative w-full bg-[#0a0a0a] rounded-lg overflow-hidden flex items-center justify-center relative`}>
               <img src={product.image || './placeholder.jpg'} alt={product.name || 'Flower'} className={`absolute inset-0 w-full h-full object-cover grayscale opacity-80 transition-all duration-1000 ${!product.image ? 'opacity-30' : ''}`} />
               {/* Gradient overlay */}
               <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-[#141414] to-transparent"></div>
