@@ -75,26 +75,6 @@ function CardForm({ products, setProducts, updateProduct, removeProduct, addProd
           </div>
 
           <div>
-            <label className="block text-[13px] font-medium text-[#4a4842] mb-1.5">Products per Story Card</label>
-            <div className="flex gap-2 p-1 bg-[#f5f3ef] rounded-xl border border-[#e8e6e1]/50">
-              {[2, 4, 6].map((num) => (
-                <button
-                  key={num}
-                  onClick={() => setProductsPerCard(num)}
-                  className={`flex-1 py-2 px-3 text-sm font-medium rounded-lg active:scale-[0.97] transition-all duration-200 ease-out ${
-                    productsPerCard === num 
-                      ? 'bg-white text-[#2d4a22] shadow-[0_2px_8px_rgba(45,74,34,0.08)] ring-1 ring-[#e8e6e1]' 
-                      : 'text-[#8c887d] hover:text-[#4a4842] hover:bg-white/50'
-                  }`}
-                >
-                  Up to {num}
-                </button>
-              ))}
-            </div>
-          </div>
-          
-
-          <div>
             <label className="block text-[13px] font-medium text-[#4a4842] mb-3">Template Style</label>
             <div className="grid grid-cols-2 gap-3">
               {[

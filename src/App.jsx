@@ -116,7 +116,7 @@ function App() {
     return res;
   };
 
-  const productPages = chunkProducts(products, productsPerCard);
+  const productPages = [products];
 
   return (
     <div className="flex flex-col md:flex-row min-h-screen md:h-screen relative z-0 bg-[#fdfdfc] text-[#2c2c2c] md:overflow-hidden">
