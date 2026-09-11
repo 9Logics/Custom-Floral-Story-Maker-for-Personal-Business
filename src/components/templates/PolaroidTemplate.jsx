@@ -49,7 +49,7 @@ export default function PolaroidTemplate({ products, brandName, ctaText, brandLo
               <img src={product.image || './placeholder.jpg'} alt={product.name || 'Flower'} className={`absolute inset-0 w-full h-full object-cover grayscale-[0.2] sepia-[0.1] contrast-[1.1] ${!product.image ? 'opacity-50' : ''}`} />
             </div>
             <div className="flex flex-col text-center px-2">
-              <h3 className={`${count > 4 ? 'text-[14px]' : 'text-[20px]'} font-bold truncate text-[#2c2a27] capitalize`} style={{ fontFamily: 'Nothing You Could Do, cursive' }}>{product.name || 'Flower Name'}</h3>
+              <h3 className={`${count > 4 ? 'text-[14px]' : 'text-[20px]'} font-bold truncate text-[#2c2a27] capitalize`} style={{ fontFamily: 'Outfit, sans-serif' }}>{product.name || 'Flower Name'}</h3>
               <p className={`${count > 4 ? 'text-[11px]' : 'text-[14px]'} text-[#524433] font-bold tracking-wide`} style={{ fontFamily: 'Montserrat, sans-serif' }}>{product.price ? `₹${product.price.replace('₹', '')}${product.unit ? ' ' + product.unit : ''}` : 'Price'}</p>
             </div>
           </div>
