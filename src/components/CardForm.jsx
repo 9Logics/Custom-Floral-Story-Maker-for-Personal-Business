@@ -9,25 +9,52 @@ function CardForm({ products, setProducts, updateProduct, removeProduct, addProd
   vintageOverlay,
   setVintageOverlay
 }) {
-  const handleImageUpload = (id, e) => {
+  const isHeic = (file) => {
+    const name = file.name.toLowerCase();
+    return name.endsWith('.heic') || name.endsWith('.heif') || file.type === 'image/heic' || file.type === 'image/heif';
+  };
+
+  const convertAndRead = async (file) => {
+    if (isHeic(file)) {
+      const { default: heic2any } = await import('heic2any');
+      const blob = await heic2any({ blob: file, toType: 'image/jpeg', quality: 0.85 });
+      const resultBlob = Array.isArray(blob) ? blob[0] : blob;
+      return new Promise((resolve) => {
+        const reader = new FileReader();
+        reader.onload = (e) => resolve(e.target.result);
+        reader.readAsDataURL(resultBlob);
+      });
+    }
+    return new Promise((resolve) => {
+      const reader = new FileReader();
+      reader.onload = (e) => resolve(e.target.result);
+      reader.readAsDataURL(file);
+    });
+  };
+
+  const handleImageUpload = async (id, e) => {
     const file = e.target.files[0];
     if (file) {
-      const reader = new FileReader();
-      reader.onload = (upload) => {
-        updateProduct(id, 'image', upload.target.result);
-      };
-      reader.readAsDataURL(file);
+      try {
+        const dataUrl = await convertAndRead(file);
+        updateProduct(id, 'image', dataUrl);
+      } catch (err) {
+        console.error('Image upload failed:', err);
+        alert('Could not process this image. Please try a different format (JPG, PNG, or WebP).');
+      }
     }
   };
 
-  const handleLogoUpload = (e) => {
+  const handleLogoUpload = async (e) => {
     const file = e.target.files[0];
     if (file) {
-      const reader = new FileReader();
-      reader.onload = (upload) => {
-        setBrandLogo(upload.target.result);
-      };
-      reader.readAsDataURL(file);
+      try {
+        const dataUrl = await convertAndRead(file);
+        setBrandLogo(dataUrl);
+      } catch (err) {
+        console.error('Logo upload failed:', err);
+        alert('Could not process this image. Please try a different format (JPG, PNG, or WebP).');
+      }
     }
   };
 
@@ -39,7 +66,7 @@ function CardForm({ products, setProducts, updateProduct, removeProduct, addProd
           <div className="absolute inset-0 bg-black/40 rounded-full flex items-center justify-center opacity-0 group-hover/logo:opacity-100 transition-opacity duration-200">
             <Upload size={16} className="text-white" />
           </div>
-          <input type="file" accept="image/*" onChange={handleLogoUpload} className="absolute inset-0 opacity-0 cursor-pointer" title="Upload Brand Logo" />
+          <input type="file" accept="image/*,.heic,.heif,image/heic,image/heif" onChange={handleLogoUpload} className="absolute inset-0 opacity-0 cursor-pointer" title="Upload Brand Logo" />
         </div>
         <div className="flex flex-col">
           <h1 className="text-xl font-serif text-[#2d4a22] font-semibold tracking-tight leading-none mb-1">Fresh Bloom</h1>
@@ -147,7 +174,7 @@ function CardForm({ products, setProducts, updateProduct, removeProduct, addProd
                       )}
                       <input 
                         type="file" 
-                        accept="image/*"
+                        accept="image/*,.heic,.heif,image/heic,image/heif"
                         onChange={(e) => handleImageUpload(product.id, e)}
                         className="absolute inset-0 w-full h-full opacity-0 cursor-pointer"
                       />
